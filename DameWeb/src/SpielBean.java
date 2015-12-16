@@ -11,7 +11,7 @@ import java.util.Properties;
  * @author Baris, Daniel, Simon
  *
  */
-public class Spiel implements iBediener, Serializable {
+public class SpielBean implements iBediener, Serializable {
 
 	/**
                  *
@@ -1233,7 +1233,7 @@ public class Spiel implements iBediener, Serializable {
 	 *          uebergabe
 	 */
 	public static void setdZugriff(iDatenzugriff daten) {
-		Spiel.daten = daten;
+		SpielBean.daten = daten;
 	}
 
 	/**
@@ -1520,13 +1520,13 @@ public class Spiel implements iBediener, Serializable {
 		// TODO
 	}
 
-	public Spiel ladenSER(File selectedFile) {
+	public SpielBean ladenSER(File selectedFile) {
 
 		// System.out.println("1: "+selectedFile.getName());
 		// System.out.println("2: "+selectedFile.getAbsolutePath());
 //		// System.out.println("3: "+ser.laden(selectedFile));
 		
-		Spiel spiel = (Spiel) ser.laden(selectedFile);
+		SpielBean spiel = (SpielBean) ser.laden(selectedFile);
 		return spiel;
  	}
 

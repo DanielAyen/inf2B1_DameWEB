@@ -15,7 +15,7 @@ public class DatenzugriffCSV implements iDatenzugriff, Serializable {
 	private static final long serialVersionUID = -1632008787864445195L;
 	private transient BufferedReader reader = null;
 	private transient PrintWriter writer = null;
-	Spiel s;
+	SpielBean s;
 	Spieler s2;
 	Spieler s1;
 	Spielbrett brett;

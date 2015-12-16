@@ -74,7 +74,7 @@ public class GUI extends JFrame {
 	private JTextField nameFeld;
 	private JTextField befehlFeld = new JTextField("     ");// 12345678912345678912345678912345678912345/
 	private int ziehenAuswahl;
-	private iBediener ib = new Spiel();
+	private iBediener ib = new SpielBean();
 	// private Spiel s = new Spiel();
 	private int aufbaucnt = 1;
 	private JFrame helpframe;
