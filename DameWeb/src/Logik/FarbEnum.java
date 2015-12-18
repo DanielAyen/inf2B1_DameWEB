@@ -1,3 +1,4 @@
+package Logik;
 /**
  * 
  * @author Baris, Daniel, Simon

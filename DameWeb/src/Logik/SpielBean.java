@@ -1,3 +1,4 @@
+package Logik;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -56,7 +57,7 @@ public class SpielBean implements iBediener, Serializable {
 
 	private static iDatenzugriff daten;
 	private DatenzugriffSerialisiert ser = new DatenzugriffSerialisiert();
-	private DatenzugriffPDF p = new DatenzugriffPDF();
+//	private DatenzugriffPDF p = new DatenzugriffPDF(); Ausgeklammert da es spacken macht wenn drin..FIXEN
 	private DatenzugriffCSV csv = new DatenzugriffCSV();
 	private boolean spielAufgebaut = false;
 	private int spielerAnzahl = 0;
@@ -2123,4 +2124,17 @@ public class SpielBean implements iBediener, Serializable {
 			return null;
 		return k2;
 	}
+	
+	public Spieler getS1(){
+		if (s1 == null)
+			return null;
+		return s1;
+	}
+	
+	public Spieler getS2(){
+		if (s2 == null)
+			return null;
+		return s2;
+	}
+	
 }
