@@ -32,7 +32,8 @@ public class NeuServlet extends HttpServlet {
 		out.println("<!DOCTYPE html><html><head></head><body>");
 
 		String name = request.getParameter("spielername");
-		String auswahl = request.getParameter("auswahl");
+		String auswahl1 = request.getParameter("auswahl1");
+		String auswahl2 = request.getParameter("auswahl2");
 		String farbe = request.getParameter("farbe");
 
 		FarbEnum farbeEnum = null;
@@ -49,35 +50,65 @@ public class NeuServlet extends HttpServlet {
 				pruef = true;
 			} else {
 				pruef = false;
-				response.sendRedirect("Neu.html");
+
 			}
 		} else {
-			response.sendRedirect("Neu.html");
+			pruef = false;
 		}
-		if (auswahl != null) {
-			if (auswahl.equals("Mensch")) {
+		if (auswahl1 != null) {
+			if (auswahl1.equals("Mensch")) {
 				pruef = true;
 				istKi = false;
 
-			} else if (auswahl.equals("KI")) {
+			} else if (auswahl1.equals("KI")) {
 				pruef = true;
 				istKi = true;
 			} else {
 				pruef = false;
-				response.sendRedirect("Neu.html");
+
 			}
 		} else {
-			response.sendRedirect("Neu.html");
+			pruef = false;
 		}
+
+		if (auswahl2 != null && pruef == true) {
+
+			if (auswahl2.equals("Mensch")) {
+
+				response.sendRedirect("Spielwarten.html");
+			}
+
+			else if (auswahl2.equals("KI")){
+
+				response.sendRedirect("Spiel.jsp");
+			}
+
+		} else {
+			pruef = false;
+
+		}
+
 		SpielBean s = null;
 		if (farbeEnum != null && pruef == true) {
 
 			s = new SpielBean();
 			s.spielBauen(12);
 			s.spielerErstellen(name, farbeEnum, istKi);
-			response.sendRedirect("Spielwarten.jsp");
+
+			if (auswahl2.equals("KI")) {
+
+				if (farbeEnum == FarbEnum.SCHWARZ) {
+					farbeEnum = FarbEnum.WEIß;
+				} else {
+					farbeEnum = FarbEnum.SCHWARZ;
+				}
+				s.spielerErstellen("KI", farbeEnum, true);
+			}
+		} else {
+			response.sendRedirect("Neu.html");
 		}
-		out.println(auswahl + " " + farbe);
+
+		out.println(auswahl1 + " " + farbe);
 		out.println(name);
 
 		if (s != null) {
