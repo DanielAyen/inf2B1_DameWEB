@@ -80,7 +80,7 @@ public class NeuServlet extends HttpServlet {
 
 			else if (auswahl2.equals("KI")){
 
-				response.sendRedirect("Spiel.jsp");
+				response.sendRedirect("SpielJSP.jsp");
 			}
 
 		} else {

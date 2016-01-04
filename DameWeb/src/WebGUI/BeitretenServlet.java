@@ -20,7 +20,7 @@ public class BeitretenServlet extends HttpServlet {
 	 */
 	public BeitretenServlet() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class BeitretenServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
 	}
 
 	/**
