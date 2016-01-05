@@ -4,14 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Spiel</title>
 </head>
 <body>
 
 
-	
+
 
 
 	<%
@@ -46,9 +46,9 @@
 
 		out.println("HTML TEST");
 		out.println("<br/>");
-		out.println("date : " + date+"");
+		out.println("date : " + date + "");
 		out.println("<textarea id=\"log\" readonly>Test</textarea>");
-
+		out.println("<input id=\"refresh\" name=\"refresh\" value=\"refresh\" type=\"button\">");
 		ausgabe += "</tr>";
 		out.println(ausgabe);
 	%>
