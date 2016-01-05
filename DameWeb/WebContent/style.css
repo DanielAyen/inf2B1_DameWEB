@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Style for board */
+#board {
+	border: 1px solid black;
+	margin-right:20px;
+}
+
+/* filed size */
+#board td{
+	float:left;
+	height:50px;
+	width: 50px;
+}
+
+/* each field gets a black background image */
+#board tr{
+	background-image: url(http://gdj.gdj.netdna-cdn.com/wp-content/uploads/2013/03/wood+pattern+texture+33.jpg);
+	color: white; 
+}
+
+/* select row one -> each secound and select field one and each secound in the row -> color the selected fields white */
+#board tr:nth-child(odd) td:nth-child(odd){
+	background-image: url(http://www.brewsterwallcovering.com/data/default/images/catalog/original/HZN43053.jpg);
+	color: black; 
+}
+
+/* select row two and each secound -> select field two and each secound in the row -> color the selected fields white */
+#board tr:nth-child(even) td:nth-child(even){
+	background-image: url(http://www.brewsterwallcovering.com/data/default/images/catalog/original/HZN43053.jpg);
+	color: black; 
+}
+
+/* Style logger */
+#log {
+	height:595px;
+	float:left;
+	margin-right:20px;
+	resize: none;
+	width:200px;
+}
+
+#buttons{
+	float:right;
+}

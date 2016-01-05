@@ -29,12 +29,8 @@ public class zugServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String datum=request.getParameter("datum");
-		System.out.println(request.getParameter("datum"));
-		if (Pattern.matches("[a-l A-L][0-11]",datum)){
-			System.out.println("mhm");
-		}System.out.println("ne");
-		response.sendRedirect("SpielJSP.jsp");
+		doPost( request,  response);
+	
 	}
 
 	/**
@@ -42,6 +38,14 @@ public class zugServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String x=request.getParameter("X");
+		System.out.println(request.getParameter("X"));
+//		if (Pattern.matches("[a-l A-L][0-11]",datum)){
+//			System.out.println("mhm");
+//		}System.out.println("ne");
+//		response.sendRedirect("SpielJSP.jsp");
+		String y=request.getParameter("Y");
+		System.out.println(request.getParameter("Y"));
 	
 	}
 }
