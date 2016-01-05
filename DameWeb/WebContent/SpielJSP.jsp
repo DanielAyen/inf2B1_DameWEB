@@ -46,15 +46,15 @@
 
 		out.println("HTML TEST");
 		out.println("<br/>");
-		out.println("date : " + date + " Blabla");
+		out.println("date : " + date+"");
 		out.println("<textarea id=\"log\" readonly>Test</textarea>");
 
 		ausgabe += "</tr>";
 		out.println(ausgabe);
 	%>
 
-	<h1>TEST</h1>
-	<p>HUHU</p>
+	<h1>Spiel</h1>
+
 
 </body>
 </html>
