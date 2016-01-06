@@ -2,6 +2,7 @@ package WebGUI;
 
 import Logik.FarbEnum;
 import Logik.SpielBean;
+import Logik.Spieler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,10 +12,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/NeuServlet")
 public class NeuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private SpielBean spiel;
 
 	public NeuServlet() {
 		super();
@@ -27,11 +30,11 @@ public class NeuServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		response.setContentType("text/html;charset=ISO-8859-1");
-		PrintWriter out = response.getWriter();
-		out.println("<!DOCTYPE html><html><head></head><body>");
+		HttpSession session = request.getSession();
 
-		String name = request.getParameter("spielername");
+		spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
+
+		// String name = request.getParameter("spielername");
 		String auswahl1 = request.getParameter("auswahl1");
 		String auswahl2 = request.getParameter("auswahl2");
 		String farbe = request.getParameter("farbe");
@@ -78,9 +81,9 @@ public class NeuServlet extends HttpServlet {
 				response.sendRedirect("Spielwarten.html");
 			}
 
-			else if (auswahl2.equals("KI")){
+			else if (auswahl2.equals("KI")) {
 
-				response.sendRedirect("SpielJSP.jsp");
+				response.sendRedirect("refreshServlet");
 			}
 
 		} else {
@@ -88,13 +91,11 @@ public class NeuServlet extends HttpServlet {
 
 		}
 
-		SpielBean s = null;
 		if (farbeEnum != null && pruef == true) {
 
-			s = new SpielBean();
-			s.spielBauen(12);
-			s.spielerErstellen(name, farbeEnum, istKi);
+			Spieler s1 = spiel.spielerErstellen("Spieler1", farbeEnum, istKi);
 
+			spiel.erstelleFiguren(s1, spiel.getBrett());
 			if (auswahl2.equals("KI")) {
 
 				if (farbeEnum == FarbEnum.SCHWARZ) {
@@ -102,24 +103,19 @@ public class NeuServlet extends HttpServlet {
 				} else {
 					farbeEnum = FarbEnum.SCHWARZ;
 				}
-				s.spielerErstellen("KI", farbeEnum, true);
+				Spieler s2 = spiel.spielerErstellen("KI", farbeEnum, true);
+
+				spiel.erstelleFiguren(s2, spiel.getBrett());
+
 			}
+
+			spiel.spielBauen(12);
+			spiel.starten();
+
 		} else {
 			response.sendRedirect("Neu.html");
 		}
 
-		out.println(auswahl1 + " " + farbe);
-		out.println(name);
-
-		if (s != null) {
-
-			out.println("<br/>");
-			out.println(s.getS1());
-			out.println("<br/>");
-			out.println(s.getS2());
-		}
-		out.println("</body></html>");
-		out.close();
 	}
 
 }

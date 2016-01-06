@@ -1161,7 +1161,7 @@ public class SpielBean implements iBediener, Serializable {
 	 * @param brett
 	 *          das Spielbrett woruf die figuren kommen
 	 */
-	private void erstelleFiguren(Spieler spieler, Spielbrett brett) {
+	public void erstelleFiguren(Spieler spieler, Spielbrett brett) {
 
 		if (spieler.getFarbe() == FarbEnum.SCHWARZ) {
 			for (int i = 0; i < brett.getBrettGroesse() / 2 - 1; i++) {
@@ -1313,7 +1313,13 @@ public class SpielBean implements iBediener, Serializable {
 			ser.speichern(this, pfad);
 			break;
 		case "pdf":
-			p.speichern(null, pfad);
+			//p.speichern(null, pfad);//TODO
+			//TODO
+			//TODO
+			//TODO
+			//TODO
+			//TODO
+			//TODO
 			break;
 		}
 	}
@@ -1628,25 +1634,25 @@ public class SpielBean implements iBediener, Serializable {
 	 *          boolean ob ki true oder false
 	 * @return gibt zurück ob erfolgreich oder nicht
 	 */
-	public boolean spielerErstellen(String name, FarbEnum farbe, boolean istKi) {
+	public Spieler spielerErstellen(String name, FarbEnum farbe, boolean istKi) {//WAR RETURN BOOLEAN ALLES WAS NULL==FALSE REST TRUE GEÄNDERT WEGEN NEU SERVLET
 
 		if (!spielAufgebaut) {
 			// System.out.println("Du musst zuerst ein Spielbrett aufbauen!");
-			return false;
+			return null;
 		}
 		if (spielerAnzahl == 2) {
 			// System.out.println("Es gibt bereits zwei Spieler.");
-			return false;
+			return null;
 		}
 
 		if (name == null || name.length() < 2) {
 			// System.out.println("Name war fehlerhaft.");
-			return false;
+			return null;
 		}
 
 		if (farbe == FarbEnum.SCHWARZ && schwarzvergeben == true || farbe == FarbEnum.WEIß && weissvergeben == true) {
 			// System.out.println("Farbe bereits vergeben.");
-			return false;
+			return null;
 		}
 
 		if (farbe == FarbEnum.SCHWARZ) {
@@ -1659,7 +1665,7 @@ public class SpielBean implements iBediener, Serializable {
 				// System.out.println(s1);
 				// System.out.println("Derzeitige Spieleranzahl:" + Spieler.getAnzahl());
 				erstelleFiguren(s1, brett);
-				return true;
+				return s1;
 			} else {
 				s1 = new Spieler(name, FarbEnum.SCHWARZ, true);
 				k1 = new KI_Dame(s1, brett);
@@ -1668,7 +1674,7 @@ public class SpielBean implements iBediener, Serializable {
 				// System.out.println(k1);
 				// System.out.println("Derzeitige Spieleranzahl:" + Spieler.getAnzahl());
 				erstelleFiguren(s1, brett);
-				return true;
+				return s1;
 			}
 
 		} else {
@@ -1680,7 +1686,7 @@ public class SpielBean implements iBediener, Serializable {
 				// System.out.println(s2);
 				// System.out.println("Derzeitige Spieleranzahl:" + Spieler.getAnzahl());
 				erstelleFiguren(s2, brett);
-				return true;
+				return s2;
 			} else {
 				s2 = new Spieler(name, FarbEnum.WEIß, true);
 				k2 = new KI_Dame(s2, brett);
@@ -1689,7 +1695,7 @@ public class SpielBean implements iBediener, Serializable {
 				// System.out.println(k2);
 				// System.out.println("Derzeitige Spieleranzahl:" + Spieler.getAnzahl());
 				erstelleFiguren(s2, brett);
-				return true;
+				return s2;
 			}
 
 		}
@@ -2135,6 +2141,14 @@ public class SpielBean implements iBediener, Serializable {
 		if (s2 == null)
 			return null;
 		return s2;
+	}
+	
+	public int getSpielerAnzahl(){
+		return spielerAnzahl;
+	}
+	
+	public SpielBean getSpielBean(){
+		return this;
 	}
 	
 }

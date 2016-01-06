@@ -28,7 +28,7 @@ public interface iBediener {
 
 	public boolean aufbauen(int x);
 
-	public boolean spielerErstellen(String name, FarbEnum farbe, boolean istKi);
+	public Spieler spielerErstellen(String name, FarbEnum farbe, boolean istKi);
 
 	public boolean ziehen(String startp, String endp);
 
