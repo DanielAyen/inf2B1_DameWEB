@@ -58,7 +58,7 @@ public class refreshServlet extends HttpServlet {
 					if (!spiel.getBrett().getBrettFeldIndex(i, j).getIstBelegt()) {
 
 						// buttonArray[zeile][spalte].setIcon(felds);
-						ausgabe += "<td><a href=zugServlet?X=" + i + "&Y=" + j + "><img src=\"felds.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+						ausgabe += "<td><a href=zugServlet?X=" + i + "&Y=" + j + "><img src=\"felds.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
 						cnt++;
 					} else {
 
@@ -69,22 +69,22 @@ public class refreshServlet extends HttpServlet {
 							if (FarbEnum.SCHWARZ == spiel.getAmZug()) {
 
 								// buttonArray[zeile][spalte].setIcon(figurSG);
-								ausgabe += "<td><a href=zugServlet?X=" + i + "&Y=" + j + "><img src=\"SteinSG.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+								ausgabe += "<td><a href=zugServlet?X=" + i + "&Y=" + j + "><img src=\"SteinSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
 								cnt++;
 								if (spiel.getBrett().getBrettFeldIndex(i, j).getSpielfigur().getDame(fig)) {
 									// buttonArray[zeile][spalte].setIcon(dameSG);
-									ausgabe += "<td><a href=zugServlet?X=" + i + "&Y=" + j + "><img src=\"dameSG.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+									ausgabe += "<td><a href=zugServlet?X=" + i + "&Y=" + j + "><img src=\"dameSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
 									cnt++;
 								}
 
 							} else {
 
 								// buttonArray[zeile][spalte].setIcon(figurs);
-								ausgabe += "<td><a href=zugServlet?X=" + i + "&Y=" + j + "><img src=\"FeldSSteinS.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+								ausgabe += "<td><a href=zugServlet?X=" + i + "&Y=" + j + "><img src=\"FeldSSteinS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
 								cnt++;
 								if (fig.getDame(fig)) {
 									// buttonArray[zeile][spalte].setIcon(dames);
-									ausgabe += "<td><a href=zugServlet?X=" + i + "&Y=" + j + "><img src=\"dameS.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+									ausgabe += "<td><a href=zugServlet?X=" + i + "&Y=" + j + "><img src=\"dameS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
 									cnt++;
 								}
 							}
@@ -127,8 +127,8 @@ public class refreshServlet extends HttpServlet {
 		}
 
 		ausgabe += "</tr>";
-		
-		ausgabe+="<textarea id=\"log\" readonly>"+spiel.getLog()+"</textarea>";
+
+		ausgabe += "<textarea id=\"log\" readonly>" + spiel.getLog() + "</textarea>";
 		session.getServletContext().setAttribute("brett", ausgabe);
 
 		response.sendRedirect("SpielJSP.jsp");
