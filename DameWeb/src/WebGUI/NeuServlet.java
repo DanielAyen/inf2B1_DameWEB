@@ -43,79 +43,84 @@ public class NeuServlet extends HttpServlet {
 		boolean istKi = false;
 		boolean pruef = false;
 
-		if (farbe != null) {
+		if (auswahl1 != null && auswahl2 != null && farbe != null) {
 
-			if (farbe.equals("Schwarz")) {
-				farbeEnum = FarbEnum.SCHWARZ;
-				pruef = true;
-			} else if (farbe.equals("Weiss")) {
-				farbeEnum = FarbEnum.WEIß;
-				pruef = true;
-			} else {
-				pruef = false;
+			if (farbe != null) {
 
-			}
-		} else {
-			pruef = false;
-		}
-		if (auswahl1 != null) {
-			if (auswahl1.equals("Mensch")) {
-				pruef = true;
-				istKi = false;
-
-			} else if (auswahl1.equals("KI")) {
-				pruef = true;
-				istKi = true;
-			} else {
-				pruef = false;
-
-			}
-		} else {
-			pruef = false;
-		}
-
-		if (auswahl2 != null && pruef == true) {
-
-			if (auswahl2.equals("Mensch")) {
-
-				response.sendRedirect("Spielwarten.html");
-			}
-
-			else if (auswahl2.equals("KI")) {
-
-				response.sendRedirect("refreshServlet");
-			}
-
-		} else {
-			pruef = false;
-
-		}
-
-		if (farbeEnum != null && pruef == true) {
-
-			Spieler s1 = spiel.spielerErstellen("Spieler1", farbeEnum, istKi);
-
-			spiel.erstelleFiguren(s1, spiel.getBrett());
-			if (auswahl2.equals("KI")) {
-
-				if (farbeEnum == FarbEnum.SCHWARZ) {
-					farbeEnum = FarbEnum.WEIß;
-				} else {
+				if (farbe.equals("Schwarz")) {
 					farbeEnum = FarbEnum.SCHWARZ;
+					pruef = true;
+				} else if (farbe.equals("Weiss")) {
+					farbeEnum = FarbEnum.WEIß;
+					pruef = true;
+				} else {
+					pruef = false;
+
 				}
-				Spieler s2 = spiel.spielerErstellen("KI", farbeEnum, true);
+			} else {
+				pruef = false;
+			}
+			if (auswahl1 != null) {
+				if (auswahl1.equals("Mensch")) {
+					pruef = true;
+					istKi = false;
 
-				spiel.erstelleFiguren(s2, spiel.getBrett());
+				} else if (auswahl1.equals("KI")) {
+					pruef = true;
+					istKi = true;
+				} else {
+					pruef = false;
 
+				}
+			} else {
+				pruef = false;
 			}
 
-			spiel.spielBauen(12);
-			spiel.starten();
+			if (auswahl2 != null && pruef == true) {
+
+				if (auswahl2.equals("Mensch")) {
+
+					response.sendRedirect("Spielwarten.html");
+				}
+
+				else if (auswahl2.equals("KI")) {
+
+					response.sendRedirect("refreshServlet");
+				}
+
+			} else {
+				pruef = false;
+			}
+
+			if (farbeEnum != null && pruef == true) {
+
+				Spieler s1 = spiel.spielerErstellen("Spieler1", farbeEnum, istKi);
+
+				spiel.erstelleFiguren(s1, spiel.getBrett());
+				if (auswahl2.equals("KI")) {
+
+					if (farbeEnum == FarbEnum.SCHWARZ) {
+						farbeEnum = FarbEnum.WEIß;
+					} else {
+						farbeEnum = FarbEnum.SCHWARZ;
+					}
+					Spieler s2 = spiel.spielerErstellen("KI", farbeEnum, true);
+
+					spiel.erstelleFiguren(s2, spiel.getBrett());
+
+				}
+
+				spiel.spielBauen(12);
+				spiel.starten();
+
+			} else {
+				response.sendRedirect("Neu.html");
+			}
 
 		} else {
 			response.sendRedirect("Neu.html");
-		}
 
+		}
 	}
 
 }
