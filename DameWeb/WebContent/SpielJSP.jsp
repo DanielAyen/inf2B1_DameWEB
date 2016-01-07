@@ -29,7 +29,7 @@
 		out.println("HTML TEST");
 		out.println("<br/>");
 		out.println("date : " + date + "");
-		out.println("<textarea id=\"log\" readonly>Test</textarea>");
+		
 		out.println("<form action=\"refreshServlet\"><input type=\"submit\" value=\"Refresh\"></form>");
 		out.println("<form action=\"kiServlet\"><input type=\"submit\" value=\"KI ziehen\"></form>");
 		ausgabe += "</tr>";

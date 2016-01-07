@@ -127,6 +127,8 @@ public class refreshServlet extends HttpServlet {
 		}
 
 		ausgabe += "</tr>";
+		
+		ausgabe+="<textarea id=\"log\" readonly>"+spiel.getLog()+"</textarea>";
 		session.getServletContext().setAttribute("brett", ausgabe);
 
 		response.sendRedirect("SpielJSP.jsp");

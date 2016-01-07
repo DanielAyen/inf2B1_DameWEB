@@ -71,7 +71,8 @@ public class SpielBean implements iBediener, Serializable {
 	private boolean kannWeiterSchlagen = false;
 	private int counter = 0;
 	private Spieler gewonnenerSpieler = null;
-
+private String logger;
+	private boolean first = false;
 	private Spielbrett brett;
 	private Spieler spieler;
 	private FarbEnum farbeAmZug;
@@ -2112,6 +2113,34 @@ public class SpielBean implements iBediener, Serializable {
 		// System.out.println(ausgabe);
 		zugFurLog.add(ausgabe);
 	}
+	
+	
+	public void log(String text) {
+
+		if (first == false) {
+			logger+=text;
+			first = true;
+		} else {
+			logger+="\n––––––––––––––––––––––––––––––––––\n" + text;
+			// Wenn etwas im Logger
+			// gezeigt
+			// werden soll einfach
+		} // log("inhalt"); aufrufen!
+	}
+
+	/**
+	 * Zum leeren des Loggers
+	 */
+	public void logClear() {
+		logger="";
+	}
+	
+	public String getLog(){
+		return logger;
+		
+	}
+	
+	
 
 	public ArrayList<String> getZugFurLog() {
 
