@@ -71,7 +71,7 @@ public class SpielBean implements iBediener, Serializable {
 	private boolean kannWeiterSchlagen = false;
 	private int counter = 0;
 	private Spieler gewonnenerSpieler = null;
-private String logger;
+private String logger="";
 	private boolean first = false;
 	private Spielbrett brett;
 	private Spieler spieler;
@@ -98,8 +98,11 @@ private String logger;
 
 	private ArrayList<String> zugFurLog = new ArrayList<String>();
 
+	private int testint=0;
+	
 	public void spielStarten() {
 
+		log("TEST");
 		// ///////////////////////////////////////////
 		// System.out.println("Bitte gebe die gewuenschte Spielbrett Groesse ein. ( 8 , 10 , 12 )");
 		aufbauen(12);
@@ -1731,6 +1734,7 @@ private String logger;
 			////system.err.println("Spiel hat noch nicht begonnen! Zurueck in Hauptmenue");
 			return false;
 		} else {
+			log("ziehen..."+testint++);
 			// brett.display();
 			kannWeiterSchlagen = false;
 
@@ -1821,6 +1825,7 @@ private String logger;
 						geschlagen = false;
 						counter = 0;
 						figurBewegen(startC, startI, endC, endI);
+						log("figur bewegen...");
 						dameWerden();
 					} else {
 						// System.out.println(geschlagen);
@@ -2118,10 +2123,10 @@ private String logger;
 	public void log(String text) {
 
 		if (first == false) {
-			logger+=text;
+			logger=text+logger;
 			first = true;
 		} else {
-			logger+="\n––––––––––––––––––––––––––––––––––\n" + text;
+			logger=text+"\n––––––––––––––––––––––––\n"+logger;//<br />
 			// Wenn etwas im Logger
 			// gezeigt
 			// werden soll einfach
