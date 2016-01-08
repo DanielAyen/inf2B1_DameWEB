@@ -49,52 +49,33 @@ public class zugServlet extends HttpServlet {
 		System.out.println(request.getParameter("X"));
 		System.out.println(request.getParameter("Y"));
 		boolean gezogen;
-		if (x != null && y != null) {
-
-			gezogen = spiel.ziehen(startp, endp);
-
-			if (gezogen == false) {
-
-				response.sendRedirect("SpielJSP.jsp");
-				// LOGGER FEHLER
-
-			} else {
-				response.sendRedirect("SpielJSP.jsp");
-				// LOGGER GUT
-
-			}
-			// LOGGER
-
-		} else if (x == null && y == null) {
-
-			response.sendRedirect("SpielJSP.jsp");
-			// LOGGER BEIDES NULL GEHT NICHT
-
-		} else if (x != null && y == null) {
-
-			session.getServletContext().setAttribute("Xcoord", x);
-			// X IN LOGGER
-			response.sendRedirect("SpielJSP.jsp");
-
-		} else if (x == null && y != null) {
-
-			int yi = Integer.parseInt("y");
-
-		}
+		
 		// ////////////////////////////////////////////////////////////
 		if (x != null && y != null) {
 			
 			if (session.getServletContext().getAttribute("Xs") != null && session.getServletContext().getAttribute("Ys") != null) {
 				session.getServletContext().setAttribute("Xz", x);
 				session.getServletContext().setAttribute("Yz", y);
+				gezogen = spiel.ziehen(session.getServletContext().getAttribute("Xs")+"+"+session.getServletContext().getAttribute("Ys"), session.getServletContext().getAttribute("Xz")+"+"+session.getServletContext().getAttribute("Yz"));
 				//ziehen/gültigkeit
-				//alles wieder raus
+				System.out.println(gezogen);
+				session.getServletContext().setAttribute("Xz", null);
+				session.getServletContext().setAttribute("Yz", null);
+				session.getServletContext().setAttribute("Xs", null);
+				session.getServletContext().setAttribute("Ys", null);
 			} else {
 				session.getServletContext().setAttribute("Xs", x);
 				session.getServletContext().setAttribute("Ys", y);
 			}
-			response.sendRedirect("SpielJSP.jsp");// U LOGGER MELDUNG
-
+			
+			if(session.getServletContext().getAttribute("Xs")!=null&&session.getServletContext().getAttribute("Xz")!=null&&session.getServletContext().getAttribute("Xs").equals(session.getServletContext().getAttribute("Xz"))&&session.getServletContext().getAttribute("Ys")!=null&&session.getServletContext().getAttribute("Yz")!=null&&session.getServletContext().getAttribute("Ys").equals(session.getServletContext().getAttribute("Yz"))){
+				session.getServletContext().setAttribute("Xz", null);
+				session.getServletContext().setAttribute("Yz", null);
+				session.getServletContext().setAttribute("Xs", null);
+				session.getServletContext().setAttribute("Ys", null);
+			}
+																							// U LOGGER MELDUNG
+			response.sendRedirect("refreshServlet");
 		} else {
 			// LOGGER FEHLER
 		}
@@ -104,8 +85,6 @@ public class zugServlet extends HttpServlet {
 		// System.out.println("mhm");
 		// }System.out.println("ne");
 		// response.sendRedirect("SpielJSP.jsp");
-
-		response.sendRedirect("refreshServlet");
 	}
 
 }
