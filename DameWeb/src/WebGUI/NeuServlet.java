@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 public class NeuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private SpielBean spiel;
+	
 
 	public NeuServlet() {
 		super();
@@ -97,6 +98,11 @@ public class NeuServlet extends HttpServlet {
 				Spieler s1 = spiel.spielerErstellen("Spieler1", farbeEnum, istKi);
 
 				spiel.erstelleFiguren(s1, spiel.getBrett());
+				
+				HttpSession s1sess= request.getSession();
+				s1sess.setAttribute("s1farbe", farbe);
+				session.getServletContext().setAttribute("s1sess", s1sess);
+				
 				if (auswahl2.equals("KI")) {
 
 					if (farbeEnum == FarbEnum.SCHWARZ) {
@@ -122,5 +128,6 @@ public class NeuServlet extends HttpServlet {
 
 		}
 	}
+	
 
 }
