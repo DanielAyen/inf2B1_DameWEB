@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="Logik.SpielBean"%>
+<%@page import="Logik.FarbEnum"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,8 +13,10 @@
 
 	<%
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
+	FarbEnum farbeS1=(FarbEnum)session.getAttribute("farbeS1");
+	
 		
-		if (spiel == null) {
+	if (spiel == null) {
 			out.print("<h1>HUANCHEATER</h1>");
 			out.print(
 					"<div id=\"anmeldung\"> <a id=\"in3\" href=\"Index.jsp\">Sich ins Spiel cheaten! Meld dich an AMK</a></div>");
