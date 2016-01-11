@@ -21,7 +21,7 @@
 		} else {
 
 			out.print("<h1>Beitreten</h1>");
-			out.println("<form action=\"BeitretenServlet\"><input type=\"submit\" value=\"Auf ins Spiel!\"></form>");
+			out.println("<form action=\"refreshServlet\"><input type=\"submit\" value=\"Auf ins Spiel!\"></form>");
 		}
 	%>
 
