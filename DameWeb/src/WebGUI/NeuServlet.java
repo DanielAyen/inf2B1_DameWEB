@@ -99,7 +99,7 @@ public class NeuServlet extends HttpServlet {
 			// Prüfung bestanden und zweite Spielerartwahl: weitere
 			// Vorgehensweise
 			if (pruef == true && auswahl2.equals("Mensch")) {
-				response.sendRedirect("Spielwarten.html");
+				response.sendRedirect("AufSpielerWarten.jsp");
 			} else if (pruef == true && auswahl2.equals("KI")) {
 				response.sendRedirect("refreshServlet");
 			}

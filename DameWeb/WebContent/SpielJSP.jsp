@@ -10,10 +10,6 @@
 </head>
 <body>
 
-
-
-
-
 	<%
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		
