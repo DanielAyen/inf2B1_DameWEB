@@ -34,7 +34,7 @@ public class AufSpielerWartenServlet extends HttpServlet{
 
 		if(spiel.getSpielerAnzahl()==2){
 
-			response.sendRedirect("SpielJSP.jsp");
+			response.sendRedirect("refreshServlet");
 			
 			
 			// Falls noch kein zweiter Spieler vorhanden ist

@@ -15,7 +15,7 @@
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		FarbEnum farbeS1 = (FarbEnum) session.getAttribute("farbeS1");
 		
-		//Nur eine Abfrage weil noch kein zweiter Spiler existiert
+		//Nur eine Abfrage weil noch kein zweiter Spieler existiert
 		if (spiel == null || farbeS1 == null) {
 			response.sendRedirect("Cheater.jsp");
 		} else {

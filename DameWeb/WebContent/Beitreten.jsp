@@ -13,15 +13,15 @@
 
 	<%
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
-		FarbEnum farbeS1 = (FarbEnum) session.getAttribute("farbeS1");
-		
+		FarbEnum farbeS1 = (FarbEnum) session.getServletContext().getAttribute("farbeS1");
+		//farbeS1 getServletContext() weil der zweite Spieler beitritt.
 		//Nur eine Abfrage weil noch kein zweiter Spieler existiert
 		if (spiel == null || farbeS1 == null) {
 			response.sendRedirect("Cheater.jsp");
 		} else {
 
 			out.print("<h1>Beitreten</h1>");
-			out.println("<form action=\"refreshServlet\"><input type=\"submit\" value=\"Auf ins Spiel!\"></form>");
+			out.println("<form action=\"BeitretenServlet\"><input type=\"submit\" value=\"Auf ins Spiel!\"></form>");
 		}
 	%>
 

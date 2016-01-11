@@ -17,9 +17,11 @@
 		FarbEnum farbeS2 = (FarbEnum) session.getAttribute("farbeS2");
 		//out.print(farbeS2);
 		//out.print(farbeS1);
-		if (spiel == null||farbeS1==null||farbeS2==null) {
+		if (spiel == null || farbeS1 == null || farbeS2 == null) {
 			response.sendRedirect("Cheater.jsp");
 		} else {
+			//out.print(farbeS1);
+			//out.print(farbeS2);
 			out.print("<h1>Spiel</h1>");
 			System.out.println("JAVA Console Blabla");
 			java.util.Date date = new java.util.Date();

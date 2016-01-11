@@ -31,11 +31,6 @@ public class NeuServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
-		
-		
-		
-		
 		HttpSession session = request.getSession();
 
 		spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
