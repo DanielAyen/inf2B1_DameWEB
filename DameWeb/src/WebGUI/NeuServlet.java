@@ -44,7 +44,7 @@ public class NeuServlet extends HttpServlet {
 		boolean istKi = false;
 		boolean pruef = false;
 
-		if (auswahl1 != null && auswahl2 != null && farbe != null) {
+		if (auswahl1 != null || auswahl2 != null || farbe != null) {
 			// Farbe
 			if (farbe.equals("Schwarz")) {
 				farbeS1 = FarbEnum.SCHWARZ;
