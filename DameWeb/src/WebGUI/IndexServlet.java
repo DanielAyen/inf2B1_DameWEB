@@ -16,36 +16,38 @@ import Logik.SpielBean;
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private SpielBean spiel;
+	private SpielBean spiel = null;
 
 	public IndexServlet() {
 		super();
-
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		this.doPost(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
+		// Hier wird das SessionObject geholt und wird mit der Variable session referenziert
+		HttpSession session = request.getSession();
 
 		if (spiel == null) {
-			
-			HttpSession session=request.getSession(true);
 			spiel = new SpielBean();
-			spiel.aufbauen(12);
-			
+			spiel.aufbauen(12);  //wird in NeuServlet aufgebaut //bei auskommentieren fehler
+			// Hier wird das spiel an die Session gehängt
 			session.getServletContext().setAttribute("spiel", spiel);
-
-			response.sendRedirect("Neu.html");
+			response.sendRedirect("Neu.jsp");// Weiterleitung an die Neu.jsp
 
 		} else if (spiel.getSpielerAnzahl() == 1) {
-
+			// Falls ein Spieler schon vorhanden ist, kann man dem Spiel
+			// beitreten
 			response.sendRedirect("Beitreten.jsp");
 
 		} else {
-
+			// Falls es schon zwei Spieler gibt, wird man auf die Voll.jsp
+			// weitergeleitet
 			response.sendRedirect("Voll.jsp");
 
 		}
