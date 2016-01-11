@@ -13,13 +13,12 @@
 
 	<%
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
-	FarbEnum farbeS1=(FarbEnum)session.getAttribute("farbeS1");
-	
-		
-	if (spiel == null) {
-			out.print("<h1>HUANCHEATER</h1>");
-			out.print(
-					"<div id=\"anmeldung\"> <a id=\"in3\" href=\"Index.jsp\">Sich ins Spiel cheaten! Meld dich an AMK</a></div>");
+		FarbEnum farbeS1 = (FarbEnum) session.getAttribute("farbeS1");
+		FarbEnum farbeS2 = (FarbEnum) session.getAttribute("farbeS2");
+		//out.print(farbeS2);
+		//out.print(farbeS1);
+		if (spiel == null||farbeS1==null||farbeS2==null) {
+			response.sendRedirect("Cheater.jsp");
 		} else {
 			out.print("<h1>Spiel</h1>");
 			System.out.println("JAVA Console Blabla");

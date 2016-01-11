@@ -36,7 +36,7 @@ public class IndexServlet extends HttpServlet {
 		if (spiel == null) {
 			spiel = new SpielBean();
 			spiel.aufbauen(12);  //wird in NeuServlet aufgebaut //bei auskommentieren fehler
-			// Hier wird das spiel an die Session gehängt
+			// Hier wird das spiel an die Session gehängt (Application Scope)
 			session.getServletContext().setAttribute("spiel", spiel);
 			response.sendRedirect("Neu.jsp");// Weiterleitung an die Neu.jsp
 

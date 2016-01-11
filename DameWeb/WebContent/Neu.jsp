@@ -12,9 +12,7 @@
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 
 		if (spiel == null) {
-			out.print("<h1>HUANCHEATER</h1>");
-			out.print(
-					"<div id=\"anmeldung\"> <a id=\"in3\" href=\"Index.jsp\">Sich ins Spiel cheaten! Meld dich an AMK</a></div>");
+			response.sendRedirect("Index.jsp");
 		} else {
 		}
 		%>

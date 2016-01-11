@@ -7,6 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import Logik.FarbEnum;
+import Logik.SpielBean;
 
 /**
  * Servlet implementation class BeitretenServlet
@@ -36,6 +40,17 @@ public class BeitretenServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session=request.getSession();
+		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
+		FarbEnum farbeS1 = (FarbEnum) session.getAttribute("farbeS1");
+		
+		//Nur eine Abfrage weil noch kein zweiter Spieler existiert
+		if (spiel == null || farbeS1 == null) {
+			response.sendRedirect("Cheater.jsp");
+		} else {
+		
+		
+		
 		String act = request.getParameter("beitreten");
 
 		if (act == null) {
@@ -45,5 +60,5 @@ public class BeitretenServlet extends HttpServlet {
 			response.sendRedirect("Beitreten.html");//NACH SPIELEN SUCHEN
 		}
 
-	}
+	}}
 }

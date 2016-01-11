@@ -129,10 +129,15 @@ public class refreshServlet extends HttpServlet {
 					}
 				}
 				ausgabe += "</tr>";
-				
-			}ausgabe+="Fehler!";
-		}ausgabe+="Fehler!";
-		
+
+			} else {
+				ausgabe += "Fehler!";
+
+			}
+		} else {
+			ausgabe += "Fehler!";
+
+		}
 
 		ausgabe += "<textarea id=\"log\" readonly>" + spiel.getLog() + "</textarea>";
 		session.getServletContext().setAttribute("brett", ausgabe);

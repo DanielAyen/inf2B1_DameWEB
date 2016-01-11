@@ -18,20 +18,24 @@ public class NeuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private SpielBean spiel;
 	private FarbEnum farbeS1 = null;
+	private FarbEnum farbeS2 = null;
 
 	public NeuServlet() {
 		super();
 
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.doPost(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
+		
+		
+		
+		
 		HttpSession session = request.getSession();
 
 		spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
@@ -42,33 +46,36 @@ public class NeuServlet extends HttpServlet {
 		String farbe = request.getParameter("farbe");
 
 		boolean istKi = false;
-		boolean pruef = false;
+		boolean pruefFarbe = false;
+		boolean pruefArt = false;
 
 		if (auswahl1 != null || auswahl2 != null || farbe != null) {
 			// Farbe
 			if (farbe.equals("Schwarz")) {
 				farbeS1 = FarbEnum.SCHWARZ;
-				pruef = true;
+				pruefFarbe = true;
+				farbeS2 = FarbEnum.WEIß;
 			} else if (farbe.equals("Weiss")) {
 				farbeS1 = FarbEnum.WEIß;
-				pruef = true;
+				pruefFarbe = true;
+				farbeS2 = FarbEnum.SCHWARZ;
 			} else {
-				pruef = false;
+				pruefFarbe = false;
 			}
 
 			// Spielerart
 			if (auswahl1.equals("Mensch")) {
-				pruef = true;
+				pruefArt = true;
 				istKi = false;
 
 			} else if (auswahl1.equals("KI")) {
-				pruef = true;
+				pruefArt = true;
 				istKi = true;
 			} else {
-				pruef = false;
+				pruefArt = false;
 			}
 
-			if (farbeS1 != null && pruef == true) {
+			if (pruefFarbe==true && pruefArt == true) {
 
 				Spieler s1 = spiel.spielerErstellen("Spieler1", farbeS1, istKi);
 				spiel.erstelleFiguren(s1, spiel.getBrett());
@@ -79,28 +86,27 @@ public class NeuServlet extends HttpServlet {
 
 				if (auswahl2.equals("KI")) {
 
-					if (farbeS1 == FarbEnum.SCHWARZ) {
-						farbeS1 = FarbEnum.WEIß;
-					} else {
-						farbeS1 = FarbEnum.SCHWARZ;
-					}
-					Spieler s2 = spiel.spielerErstellen("KI", farbeS1, true);
+					// if (farbeS1 == FarbEnum.SCHWARZ) {
+					// farbeS1 = FarbEnum.WEIß;
+					// } else {
+					// farbeS1 = FarbEnum.SCHWARZ;
+					// }
+					Spieler s2 = spiel.spielerErstellen("KI", farbeS2, true);
 					spiel.erstelleFiguren(s2, spiel.getBrett());
-
+					//Wegen KI
+					s1sess.setAttribute("farbeS2", farbeS2);
 				}
-
 				spiel.spielBauen(12);
 				spiel.starten();
-
 			} else {
 				response.sendRedirect("Neu.jsp");
 			}
 
 			// Prüfung bestanden und zweite Spielerartwahl: weitere
 			// Vorgehensweise
-			if (pruef == true && auswahl2.equals("Mensch")) {
+			if (auswahl2.equals("Mensch")) {
 				response.sendRedirect("AufSpielerWarten.jsp");
-			} else if (pruef == true && auswahl2.equals("KI")) {
+			} else if (auswahl2.equals("KI")) {
 				response.sendRedirect("refreshServlet");
 			}
 
@@ -110,5 +116,4 @@ public class NeuServlet extends HttpServlet {
 
 		}
 	}
-
 }
