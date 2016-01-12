@@ -41,7 +41,7 @@ public class zugServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 
 		String x = request.getParameter("X");
@@ -57,7 +57,7 @@ public class zugServlet extends HttpServlet {
 				session.getServletContext().setAttribute("Xz", x);
 				session.getServletContext().setAttribute("Yz", y);
 				gezogen = spiel.ziehen(session.getServletContext().getAttribute("Xs")+"+"+session.getServletContext().getAttribute("Ys"), session.getServletContext().getAttribute("Xz")+"+"+session.getServletContext().getAttribute("Yz"));
-				//ziehen/gültigkeit
+
 				System.out.println(gezogen);
 				session.getServletContext().setAttribute("Xz", null);
 				session.getServletContext().setAttribute("Yz", null);

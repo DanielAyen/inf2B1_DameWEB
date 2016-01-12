@@ -31,7 +31,7 @@ public class NeuServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 
 		spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 
@@ -75,7 +75,7 @@ public class NeuServlet extends HttpServlet {
 				Spieler s1 = spiel.spielerErstellen("Spieler1", farbeS1, istKi);
 				spiel.erstelleFiguren(s1, spiel.getBrett());
 
-				HttpSession s1sess = request.getSession();
+				HttpSession s1sess = request.getSession(true);
 				s1sess.setAttribute("farbeS1", farbeS1);
 				session.getServletContext().setAttribute("farbeS1", farbeS1);
 

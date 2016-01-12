@@ -31,7 +31,7 @@ public class IndexServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		// Hier wird das SessionObject geholt und wird mit der Variable session referenziert
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 
 		if (spiel == null) {
 			spiel = new SpielBean();

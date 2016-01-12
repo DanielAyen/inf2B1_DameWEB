@@ -42,9 +42,9 @@ public class refreshServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//BRETT ÜBER CONTAINER Z:B:ARRAYLIST ÜBERGEBEN DANN ÜBER CLIENT SESSION GEBEN
 
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 
 		spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 
