@@ -1764,7 +1764,7 @@ public class SpielBean implements iBediener, Serializable {
 			// //system.err.println("Spiel hat noch nicht begonnen! Zurueck in Hauptmenue");
 			return false;
 		} else {
-			log("ziehen..." + testint++);
+			log("ziehen..." + startp+""+ endp);
 			// brett.display();
 			kannWeiterSchlagen = false;
 
@@ -2081,6 +2081,10 @@ public class SpielBean implements iBediener, Serializable {
 			// brett.display();
 			zugBeenden();
 			k1.setHatGeschlagen(false);
+			for (int i = 0; i < getZugFurLog().size(); i++) {
+
+				log(getZugFurLog().get(i));
+			}
 			return true;
 
 		}
@@ -2146,14 +2150,15 @@ public class SpielBean implements iBediener, Serializable {
 			// brett.display();
 			zugBeenden();
 			k2.setHatGeschlagen(false);
+			for (int i = 0; i < getZugFurLog().size(); i++) {
+
+				log(getZugFurLog().get(i));
+			}
 			return true;
 		}
 		
 
-		for (int i = 0; i < getZugFurLog().size(); i++) {
-
-			log(getZugFurLog().get(i));
-		}
+	
 		return false;}
 
 	private void setZugFurLog(int zugee, int zugee2, int zugee3, int zugee4) {

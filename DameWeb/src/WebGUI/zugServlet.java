@@ -46,45 +46,63 @@ public class zugServlet extends HttpServlet {
 
 		String x = request.getParameter("X");
 		String y = request.getParameter("Y");
-		System.out.println(request.getParameter("X"));
-		System.out.println(request.getParameter("Y"));
+	//	System.out.println(request.getParameter("X"));
+	//	System.out.println(request.getParameter("Y"));
 		boolean gezogen;
-		
-		// ////////////////////////////////////////////////////////////
-		if (x != null && y != null) {
-			
-			if (session.getServletContext().getAttribute("Xs") != null && session.getServletContext().getAttribute("Ys") != null) {
-				session.getServletContext().setAttribute("Xz", x);
-				session.getServletContext().setAttribute("Yz", y);
-				gezogen = spiel.ziehen(session.getServletContext().getAttribute("Xs")+"+"+session.getServletContext().getAttribute("Ys"), session.getServletContext().getAttribute("Xz")+"+"+session.getServletContext().getAttribute("Yz"));
 
-				System.out.println(gezogen);
-				session.getServletContext().setAttribute("Xz", null);
-				session.getServletContext().setAttribute("Yz", null);
-				session.getServletContext().setAttribute("Xs", null);
-				session.getServletContext().setAttribute("Ys", null);
-			} else {
-				session.getServletContext().setAttribute("Xs", x);
-				session.getServletContext().setAttribute("Ys", y);
-			}
-			
-			if(session.getServletContext().getAttribute("Xs")!=null&&session.getServletContext().getAttribute("Xz")!=null&&session.getServletContext().getAttribute("Xs").equals(session.getServletContext().getAttribute("Xz"))&&session.getServletContext().getAttribute("Ys")!=null&&session.getServletContext().getAttribute("Yz")!=null&&session.getServletContext().getAttribute("Ys").equals(session.getServletContext().getAttribute("Yz"))){
-				session.getServletContext().setAttribute("Xz", null);
-				session.getServletContext().setAttribute("Yz", null);
-				session.getServletContext().setAttribute("Xs", null);
-				session.getServletContext().setAttribute("Ys", null);
-			}
-																							// U LOGGER MELDUNG
+		// ////////////////////////////////////////////////////////////
+
+
+		String reset = request.getParameter("reset");
+		System.out.println(reset);
+		if (reset != null && reset.equals("true")) {
+			reset = null;
+			session.getServletContext().setAttribute("Xz", reset);
+			session.getServletContext().setAttribute("Yz", reset);
+			session.getServletContext().setAttribute("Xs", reset);
+			session.getServletContext().setAttribute("Ys", reset);
+		
 			response.sendRedirect("refreshServlet");
 		} else {
-			// LOGGER FEHLER
+
+			if (x != null && y != null) {
+
+				if (session.getServletContext().getAttribute("Xs") != null && session.getServletContext().getAttribute("Ys") != null) {
+					session.getServletContext().setAttribute("Xz", x);
+					session.getServletContext().setAttribute("Yz", y);
+					gezogen = spiel.ziehen(session.getServletContext().getAttribute("Xs") + "+" + session.getServletContext().getAttribute("Ys"), session.getServletContext().getAttribute("Xz") + "+" + session.getServletContext().getAttribute("Yz"));
+
+					//System.out.println(gezogen);
+					session.getServletContext().setAttribute("Xz", null);
+					session.getServletContext().setAttribute("Yz", null);
+					session.getServletContext().setAttribute("Xs", null);
+					session.getServletContext().setAttribute("Ys", null);
+				} else {
+					session.getServletContext().setAttribute("Xs", x);
+					session.getServletContext().setAttribute("Ys", y);
+					spiel.log(x + y);
+
+				}
+
+				if (session.getServletContext().getAttribute("Xs") != null && session.getServletContext().getAttribute("Xz") != null && session.getServletContext().getAttribute("Xs").equals(session.getServletContext().getAttribute("Xz")) && session.getServletContext().getAttribute("Ys") != null
+						&& session.getServletContext().getAttribute("Yz") != null && session.getServletContext().getAttribute("Ys").equals(session.getServletContext().getAttribute("Yz"))) {
+					session.getServletContext().setAttribute("Xz", null);
+					session.getServletContext().setAttribute("Yz", null);
+					session.getServletContext().setAttribute("Xs", null);
+					session.getServletContext().setAttribute("Ys", null);
+				}
+				// U LOGGER MELDUNG
+				//response.sendRedirect("refreshServlet");
+			} else {
+				// LOGGER FEHLER
+			}
+
+			// ////////////////////////////////////////////////////////////////
+			// if (Pattern.matches("[a-l A-L][0-11]",datum)){
+			// System.out.println("mhm");
+			// }System.out.println("ne");
+			// response.sendRedirect("SpielJSP.jsp");
+			response.sendRedirect("refreshServlet");
 		}
-
-		// ////////////////////////////////////////////////////////////////
-		// if (Pattern.matches("[a-l A-L][0-11]",datum)){
-		// System.out.println("mhm");
-		// }System.out.println("ne");
-		// response.sendRedirect("SpielJSP.jsp");
 	}
-
 }
