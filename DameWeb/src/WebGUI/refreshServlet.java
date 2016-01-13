@@ -53,6 +53,9 @@ public class refreshServlet extends HttpServlet {
 																																																												// SESSION
 																																																												// GEBEN
 
+		String [][] brettS=new String[12][12];
+		String feld="x,y, Feld f s/w, Figur n/s/d,Figur f s/w/n,aktiv y/n";
+		
 		HttpSession session = request.getSession(true);
 
 		spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
@@ -60,7 +63,7 @@ public class refreshServlet extends HttpServlet {
 		if (spiel != null) {
 			if (spiel.getBrett() != null) {
 
-				ausgabe = "<table border=\"1\"> <tr>";
+				//ausgabe = "<table border=\"1\"> <tr>";
 				// gewonnen(spiel.getGewonnenerSpieler());
 				int cnt = 0;
 				for (int i = 11; i >= 0; i--) {// zeile
@@ -70,8 +73,11 @@ public class refreshServlet extends HttpServlet {
 							if (!spiel.getBrett().getBrettFeldIndex(i, j).getIstBelegt()) {
 
 								// buttonArray[zeile][spalte].setIcon(felds);
-								ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"felds.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
+								//ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"felds.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
+								brettS[i][j]=((char) (65 + j))+";"+ (i + 1)+";s;n;n;n";
+								
 								cnt++;
+								
 							} else {
 
 								Spielfigur fig = spiel.getBrett().getBrettFeldIndex(i, j).getSpielfigur();
@@ -82,11 +88,13 @@ public class refreshServlet extends HttpServlet {
 
 										if (spiel.getBrett().getBrettFeldIndex(i, j).getSpielfigur().getDame(fig)) {
 											// buttonArray[zeile][spalte].setIcon(dameSG);
-											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
+											//ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
+											brettS[i][j]=((char) (65 + j))+";"+ (i + 1)+";s;d;s;y";
 										} else {
 
 											// buttonArray[zeile][spalte].setIcon(figurSG);
-											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"SteinSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
+											//ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"SteinSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
+											brettS[i][j]=((char) (65 + j))+";"+ (i + 1)+";s;s;s;y";
 										}
 
 										cnt++;
@@ -94,11 +102,13 @@ public class refreshServlet extends HttpServlet {
 
 										if (fig.getDame(fig)) {
 											// buttonArray[zeile][spalte].setIcon(dames);
-											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
+											//ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
+											brettS[i][j]=((char) (65 + j))+";"+ (i + 1)+";s;d;s;n";
 										} else {
 
 											// buttonArray[zeile][spalte].setIcon(figurs);
-											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"FeldSSteinS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
+											//ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"FeldSSteinS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
+											brettS[i][j]=((char) (65 + j))+";"+ (i + 1)+";s;s;s;n";
 										}
 
 										cnt++;
@@ -109,54 +119,57 @@ public class refreshServlet extends HttpServlet {
 
 										if (spiel.getBrett().getBrettFeldIndex(i, j).getSpielfigur().getDame(fig)) {
 											// buttonArray[zeile][spalte].setIcon(dameWG);
-											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameWG.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+											//ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameWG.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+											brettS[i][j]=((char) (65 + j))+";"+ (i + 1)+";s;d;w;y";
 										} else {
 
 											// buttonArray[zeile][spalte].setIcon(figurWG);
-											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"SteinWG2.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
-
+										//ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"SteinWG2.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+											brettS[i][j]=((char) (65 + j))+";"+ (i + 1)+";s;s;w;y";
 										}
 										cnt++;
 									} else {
 
 										if (fig.getDame(fig)) {
 											// buttonArray[zeile][spalte].setIcon(damew);
-											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameW.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+											//ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameW.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+											brettS[i][j]=((char) (65 + j))+";"+ (i + 1)+";s;d;w;n";
 										} else {
 
 											// buttonArray[zeile][spalte].setIcon(figurw);
-											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"FeldSSteinW.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
-
+											//ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"FeldSSteinW.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+											brettS[i][j]=((char) (65 + j))+";"+ (i + 1)+";s;s;w;n";
 										}
 										cnt++;
 									}
 								}
 							}
 						} else {
-							ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"feldw.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+							//ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"feldw.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+							brettS[i][j]=((char) (65 + j))+";"+ (i + 1)+";w;n;n;n";
 							cnt++;
 						}
 
 						if (cnt == 12) {
-							ausgabe += "</tr><tr>";
+							//ausgabe += "</tr><tr>";
 							cnt = 0;
 						}
 
 					}
 				}
-				ausgabe += "</tr>";
+				//ausgabe += "</tr>";
 
 			} else {
-				ausgabe += "Fehler!";
+			//	ausgabe += "Fehler!";
 
 			}
 		} else {
-			ausgabe += "Fehler!";
+		//	ausgabe += "Fehler!";
 
 		}
 
-		ausgabe += "<textarea id=\"log\" readonly>" + spiel.getLog() + "</textarea>";
-		session.getServletContext().setAttribute("brett", ausgabe);
+	//	ausgabe += "<textarea id=\"log\" readonly>" + spiel.getLog() + "</textarea>";
+		session.setAttribute("brett", brettS);
 
 		response.sendRedirect("SpielJSP.jsp");
 
