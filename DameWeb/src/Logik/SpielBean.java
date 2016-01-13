@@ -1,4 +1,5 @@
 package Logik;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -57,7 +58,8 @@ public class SpielBean implements iBediener, Serializable {
 
 	private static iDatenzugriff daten;
 	private DatenzugriffSerialisiert ser = new DatenzugriffSerialisiert();
-//	private DatenzugriffPDF p = new DatenzugriffPDF(); Ausgeklammert da es spacken macht wenn drin..FIXEN
+	// private DatenzugriffPDF p = new DatenzugriffPDF(); Ausgeklammert da es
+	// spacken macht wenn drin..FIXEN
 	private DatenzugriffCSV csv = new DatenzugriffCSV();
 	private boolean spielAufgebaut = false;
 	private int spielerAnzahl = 0;
@@ -71,7 +73,7 @@ public class SpielBean implements iBediener, Serializable {
 	private boolean kannWeiterSchlagen = false;
 	private int counter = 0;
 	private Spieler gewonnenerSpieler = null;
-private String logger="";
+	private String logger = "";
 	private boolean first = false;
 	private Spielbrett brett;
 	private Spieler spieler;
@@ -98,15 +100,15 @@ private String logger="";
 
 	private ArrayList<String> zugFurLog = new ArrayList<String>();
 
-	private int testint=0;
-	
+	private int testint = 0;
+
 	public void spielStarten() {
 
 		log("TEST");
 		// ///////////////////////////////////////////
 		// System.out.println("Bitte gebe die gewuenschte Spielbrett Groesse ein. ( 8 , 10 , 12 )");
 		aufbauen(12);
-//		anzeigen();
+		// anzeigen();
 	}
 
 	// ///////////////////////////////////////////
@@ -145,16 +147,22 @@ private String logger="";
 	// // TEST CASES ENDE //
 	//
 	// case "help":
-	// // System.out.println("aufbauen : Erstellt ein Spielbrett, wird zum spielen benoetigt.");
-	// // System.out.println("erstellen : Erlaubt dir einen Spieler zu erstellen, es werden 2 Spieler zum spielen benoetigt.");
-	// // System.out.println("start: Startet das Spiel, es wird ein erstelltes Spielbrett und zwei Spieler benoetigt.");
+	// //
+	// System.out.println("aufbauen : Erstellt ein Spielbrett, wird zum spielen benoetigt.");
+	// //
+	// System.out.println("erstellen : Erlaubt dir einen Spieler zu erstellen, es werden 2 Spieler zum spielen benoetigt.");
+	// //
+	// System.out.println("start: Startet das Spiel, es wird ein erstelltes Spielbrett und zwei Spieler benoetigt.");
 	// // System.out.println("beenden : Das Spiel wird geschlossen.");
-	// // System.out.println("ziehen : Erlaubt dir eine Spielfigur zu bewegen. Nicht moeglich solange das Spiel nicht laeuft.");
+	// //
+	// System.out.println("ziehen : Erlaubt dir eine Spielfigur zu bewegen. Nicht moeglich solange das Spiel nicht laeuft.");
 	// // System.out.println("anzeigen : Zeigt dir das Spielbrett.");
 	// // System.out.println("ser : erlaubt es dir das Spiel zu serialisieren.");
-	// // System.out.println("csv : erlaubt es dir das Spiel als CSV Datei zu speichern.");
+	// //
+	// System.out.println("csv : erlaubt es dir das Spiel als CSV Datei zu speichern.");
 	// // System.out.println("ki ziehen : Lässt die KI ziehen.");
-	// // System.out.println("anzcsv: Ausgabe der aktuellen Spielbrett-Belegung in CSV-Notation.");
+	// //
+	// System.out.println("anzcsv: Ausgabe der aktuellen Spielbrett-Belegung in CSV-Notation.");
 	// break;
 	//
 	// // zum erstellen von spielern
@@ -172,18 +180,18 @@ private String logger="";
 		startC = wandleUmvString(startp)[0];
 		startI = wandleUmvString(startp)[1];
 		if (wandleUmvString(startp)[2] == -1) {
-			//system.err.println("Falsche Eingabe, zurueck ins Menü");
+			// system.err.println("Falsche Eingabe, zurueck ins Menü");
 			return false;
 		}
 
 		// überprüft ob Startposition belegt ist
 		if (!brett.getBrettFeldIndex(startC, startI).getIstBelegt()) {
-			//system.err.println("Du brauchst eine Figur um zu ziehen! zurueck ins Menü");
+			// system.err.println("Du brauchst eine Figur um zu ziehen! zurueck ins Menü");
 			return false;
 		}
 		// überprüft ob Figur an der Startpsotion die eigene ist
 		if (brett.getBrettFeldIndex(startC, startI).getSpielfigur().getFarbe() != getAmZug()) {
-			//system.err.println("Du kannst nur mit deinen Figuren ziehen! zurueck ins Menü");
+			// system.err.println("Du kannst nur mit deinen Figuren ziehen! zurueck ins Menü");
 			return false;
 		}
 		return true;
@@ -193,7 +201,7 @@ private String logger="";
 		endC = wandleUmvString(endp)[0];
 		endI = wandleUmvString(endp)[1];
 		if (wandleUmvString(endp)[2] == -1) {
-			//system.err.println("Falsche Eingabe, Gib nochmal ziehen ein");
+			// system.err.println("Falsche Eingabe, Gib nochmal ziehen ein");
 			return false;
 		}
 		return true;
@@ -445,7 +453,8 @@ private String logger="";
 			if (x + 1 <= brett.getBrettGroesse() - 1 && y - 1 >= 0) {
 				// 2.Pruefung: schauen ob ne Figur drauf ist. Ist keine Figur
 				// drauf
-				// System.out.println("oben links belegt: " + brett.getBrettFeldIndex(x + 1, y - 1).getIstBelegt());
+				// System.out.println("oben links belegt: " + brett.getBrettFeldIndex(x
+				// + 1, y - 1).getIstBelegt());
 				if (!brett.getBrettFeldIndex(x + 1, y - 1).getIstBelegt()) {
 					FigurenLaufen.add(brett.getBrettFeldIndex(x + 1, y - 1).getId());
 					// Rekursionsaufruf mit laufen++
@@ -453,7 +462,8 @@ private String logger="";
 					return amk;
 					// 3.Pruefung: wenn Feld belegt vom Gegner
 				} else if (brett.getBrettFeldIndex(x + 1, y - 1).getIstBelegt() && brett.getBrettFeldIndex(x + 1, y - 1).getSpielfigur().getFarbe() != getAmZug()) {
-					// System.out.println("oben links belegt: " + brett.getBrettFeldIndex(x + 1, y - 1).getIstBelegt());
+					// System.out.println("oben links belegt: " +
+					// brett.getBrettFeldIndex(x + 1, y - 1).getIstBelegt());
 					// 4.Pruefung: wenn Feld dahinter innerhalb Brett & wenn
 					// Feld dahinter frei
 					if (x + 2 <= brett.getBrettGroesse() - 1 && y - 2 >= 0 && !brett.getBrettFeldIndex(x + 2, y - 2).getIstBelegt()) {
@@ -570,7 +580,7 @@ private String logger="";
 			if (farbe == FarbEnum.SCHWARZ && xa > xn && tempX == 1 && tempY == 1) {
 
 				if (!brett.getBrettFeldIndex(xn, yn).getIstBelegt()) {
-					//system.err.println("Nach hinten ziehen ist mit einem Stein nicht erlaubt!ssiilikkSchwarz");
+					// system.err.println("Nach hinten ziehen ist mit einem Stein nicht erlaubt!ssiilikkSchwarz");
 					return -1;
 				}
 
@@ -581,7 +591,7 @@ private String logger="";
 			if (farbe == FarbEnum.WEIß && xa < xn && tempX == 1 && tempY == 1) {
 
 				if (!brett.getBrettFeldIndex(xn, yn).getIstBelegt()) {
-					//system.err.println("Nach hinten ziehen ist mit einem Stein nicht erlaubt!ssssssilllliiikkWeiss");
+					// system.err.println("Nach hinten ziehen ist mit einem Stein nicht erlaubt!ssssssilllliiikkWeiss");
 					return -1;
 				}
 			}
@@ -604,7 +614,7 @@ private String logger="";
 
 		// Wenn Stein mehr als ein Feld laufen will
 		if (!fig.getDame(fig) && tempX >= 2 && tempY >= 2) {
-			//system.err.println("Du kannst mit einer Figur nicht mehr als ein Feld ziehen!");
+			// system.err.println("Du kannst mit einer Figur nicht mehr als ein Feld ziehen!");
 			return -1;
 		}
 
@@ -627,15 +637,15 @@ private String logger="";
 					if (brett.getBrettFeldIndex(i, j).getIstBelegt()) {
 						// wenn etwas auf dem feld ist.
 						if (brett.getBrettFeldIndex(i, j).getSpielfigur().getFarbe() == getAmZug()) {
-							//system.err.println("Eigene Figuren schlagen geht nicht.");
+							// system.err.println("Eigene Figuren schlagen geht nicht.");
 							return -1;
 						}
 						if (brett.getBrettFeldIndex(i + 1, j + 1).getIstBelegt()) {
-							//system.err.println("Zwei Figuren aufeinmal ueberspringen geht nicht.");
+							// system.err.println("Zwei Figuren aufeinmal ueberspringen geht nicht.");
 							return -1;
 						}
 						if (!brett.getBrettFeldIndex(neueX - 1, neueY - 1).getIstBelegt()) {
-							//system.err.println("Du kannst nachdem du geschlagen hast nicht einfach weiter gehen.");
+							// system.err.println("Du kannst nachdem du geschlagen hast nicht einfach weiter gehen.");
 							return -1;
 						}
 
@@ -653,15 +663,15 @@ private String logger="";
 					if (brett.getBrettFeldIndex(i, j).getIstBelegt()) {
 						// wenn etwas auf dem feld ist.
 						if (brett.getBrettFeldIndex(i, j).getSpielfigur().getFarbe() == getAmZug()) {
-							//system.err.println("Eigene Figuren schlagen geht nicht.");
+							// system.err.println("Eigene Figuren schlagen geht nicht.");
 							return -1;
 						}
 						if (brett.getBrettFeldIndex(i + 1, j - 1).getIstBelegt()) {
-							//system.err.println("Zwei Figuren aufeinmal ueberspringen geht nicht.");
+							// system.err.println("Zwei Figuren aufeinmal ueberspringen geht nicht.");
 							return -1;
 						}
 						if (!brett.getBrettFeldIndex(neueX - 1, neueY + 1).getIstBelegt()) {
-							//system.err.println("Du kannst nachdem du geschlagen hast nicht einfach weiter gehen.");
+							// system.err.println("Du kannst nachdem du geschlagen hast nicht einfach weiter gehen.");
 							return -1;
 						}
 
@@ -680,15 +690,15 @@ private String logger="";
 					if (brett.getBrettFeldIndex(i, j).getIstBelegt()) {
 						// wenn etwas auf dem feld ist.
 						if (brett.getBrettFeldIndex(i, j).getSpielfigur().getFarbe() == getAmZug()) {
-							//system.err.println("Eigene Figuren schlagen geht nicht.");
+							// system.err.println("Eigene Figuren schlagen geht nicht.");
 							return -1;
 						}
 						if (brett.getBrettFeldIndex(i - 1, j + 1).getIstBelegt()) {
-							//system.err.println("Zwei Figuren aufeinmal ueberspringen geht nicht.");
+							// system.err.println("Zwei Figuren aufeinmal ueberspringen geht nicht.");
 							return -1;
 						}
 						if (!brett.getBrettFeldIndex(neueX + 1, neueY - 1).getIstBelegt()) {
-							//system.err.println("Du kannst nachdem du geschlagen hast nicht einfach weiter gehen.");
+							// system.err.println("Du kannst nachdem du geschlagen hast nicht einfach weiter gehen.");
 							return -1;
 						}
 
@@ -707,15 +717,15 @@ private String logger="";
 					if (brett.getBrettFeldIndex(i, j).getIstBelegt()) {
 						// wenn etwas auf dem feld ist.
 						if (brett.getBrettFeldIndex(i, j).getSpielfigur().getFarbe() == getAmZug()) {
-							//system.err.println("Eigene Figuren schlagen geht nicht.");
+							// system.err.println("Eigene Figuren schlagen geht nicht.");
 							return -1;
 						}
 						if (brett.getBrettFeldIndex(i - 1, j - 1).getIstBelegt()) {
-							//system.err.println("Zwei Figuren aufeinmal ueberspringen geht nicht.");
+							// system.err.println("Zwei Figuren aufeinmal ueberspringen geht nicht.");
 							return -1;
 						}
 						if (!brett.getBrettFeldIndex(neueX + 1, neueY + 1).getIstBelegt()) {
-							//system.err.println("Du kannst nachdem du geschlagen hast nicht einfach weiter gehen.");
+							// system.err.println("Du kannst nachdem du geschlagen hast nicht einfach weiter gehen.");
 							return -1;
 						}
 					}
@@ -761,7 +771,7 @@ private String logger="";
 				if ((xa > xn || xa < xn) && diffX > 0) {
 
 					if (!brett.getBrettFeldIndex(xn, yn).getIstBelegt()) {
-						//system.err.println("Nach hinten ziehen ist mit einem Stein nicht erlaubt!");
+						// system.err.println("Nach hinten ziehen ist mit einem Stein nicht erlaubt!");
 						break;
 					}
 
@@ -778,7 +788,7 @@ private String logger="";
 				if ((xa < xn || xa > xn) && diffX > 0) {
 
 					if (!brett.getBrettFeldIndex(xn, yn).getIstBelegt()) {
-						//system.err.println("Nach hinten ziehen ist mit einem Stein nicht erlaubt!");
+						// system.err.println("Nach hinten ziehen ist mit einem Stein nicht erlaubt!");
 						break;
 					}
 				}
@@ -816,7 +826,8 @@ private String logger="";
 					if (!brett.getBrettFeldIndex(i, j).getIstBelegt()) {
 						brett.getBrettFeldIndex(i, j).setSpielfigur(brett.getBrettFeldIndex(i - 1, j - 1).getSpielfigur());
 						brett.getBrettFeldIndex(i - 1, j - 1).removeSpielfigur(brett.getBrettFeldIndex(i - 1, j - 1).getSpielfigur());
-						// // System.out.println("naechstes feld. wenn nicht ende weiterlaufe");
+						// //
+						// System.out.println("naechstes feld. wenn nicht ende weiterlaufe");
 					} else {
 						figurSchlagen(i - 1, j - 1, i + 1, j + 1);
 						// nach der figurSchlagen Methode wird die Spielfigur
@@ -1143,11 +1154,13 @@ private String logger="";
 
 		if (s1.getFarbe() == farbe) {
 			gewonnenerSpieler = s1;
-			// System.out.println("Spieler " + s1.getName() + " hat das Spiel gewonnen!");
+			// System.out.println("Spieler " + s1.getName() +
+			// " hat das Spiel gewonnen!");
 
 		} else {
 			gewonnenerSpieler = s2;
-			// System.out.println("Spieler " + s2.getName() + " hat das Spiel gewonnen!");
+			// System.out.println("Spieler " + s2.getName() +
+			// " hat das Spiel gewonnen!");
 
 		}
 
@@ -1317,13 +1330,13 @@ private String logger="";
 			ser.speichern(this, pfad);
 			break;
 		case "pdf":
-			//p.speichern(null, pfad);//TODO
-			//TODO
-			//TODO
-			//TODO
-			//TODO
-			//TODO
-			//TODO
+			// p.speichern(null, pfad);//TODO
+			// TODO
+			// TODO
+			// TODO
+			// TODO
+			// TODO
+			// TODO
 			break;
 		}
 	}
@@ -1535,11 +1548,11 @@ private String logger="";
 
 		// System.out.println("1: "+selectedFile.getName());
 		// System.out.println("2: "+selectedFile.getAbsolutePath());
-//		// System.out.println("3: "+ser.laden(selectedFile));
-		
+		// // System.out.println("3: "+ser.laden(selectedFile));
+
 		SpielBean spiel = (SpielBean) ser.laden(selectedFile);
 		return spiel;
- 	}
+	}
 
 	/*
 	 * // System.out.println("Spielernamen eingeben\n"); name = reader.readLine();
@@ -1554,8 +1567,8 @@ private String logger="";
 	 * ki = reader.readLine(); // innerrer ki switch switch (ki) { // case 1 ki
 	 * case "m": Spieler s1 = new Spieler(name, FarbEnum.SCHWARZ, false); break;
 	 * // case 2 ki case "k": Spieler s2 = new Spieler(name, FarbEnum.SCHWARZ,
-	 * true); break; // default für ki default:
-	 * // System.out.println("weder k noch m eingeben."); } } while (!ki.equals("m")
+	 * true); break; // default für ki default: //
+	 * System.out.println("weder k noch m eingeben."); } } while (!ki.equals("m")
 	 * || (!ki.equals("k")));
 	 * 
 	 * break; // case 2 farbe case "w": // System.out.println(
@@ -1563,12 +1576,12 @@ private String logger="";
 	 * reader.readLine(); // innerer ki switch do { switch (ki) { // case 1 ki
 	 * case "m": Spieler s1 = new Spieler(name, FarbEnum.SCHWARZ, false); break;
 	 * // case 2 ki case "k": Spieler s2 = new Spieler(name, FarbEnum.SCHWARZ,
-	 * true); break; // default für ki default:
-	 * // System.out.println("weder k noch m eingeben."); } } while (!ki.equals("m")
+	 * true); break; // default für ki default: //
+	 * System.out.println("weder k noch m eingeben."); } } while (!ki.equals("m")
 	 * || (!ki.equals("k"))); break;
 	 * 
-	 * // default für farbe default:
-	 * // System.out.println("weder s noch w eingeben.");
+	 * // default für farbe default: //
+	 * System.out.println("weder s noch w eingeben.");
 	 * 
 	 * } } while (!farbe.equals("w") || (!farbe.equals("s")));
 	 */
@@ -1614,18 +1627,19 @@ private String logger="";
 	/**
 	 * Spielbrett anzeigen
 	 */
-//	public void anzeigen() {
-//
-//		if (spielAufgebaut) {
-//			// brett.display();
-//			// System.out.println("\n");
-//
-//		} else {
-//			// System.out.println("Du kannst kein Brett anzeigen das nicht existiert! Nutze aufbauen um ein Brett zu erstellen.");
-//			return;
-//		}
-//
-//	}
+	// public void anzeigen() {
+	//
+	// if (spielAufgebaut) {
+	// // brett.display();
+	// // System.out.println("\n");
+	//
+	// } else {
+	// //
+	// System.out.println("Du kannst kein Brett anzeigen das nicht existiert! Nutze aufbauen um ein Brett zu erstellen.");
+	// return;
+	// }
+	//
+	// }
 
 	/**
 	 * Zum erstellen der Spieler
@@ -1638,7 +1652,18 @@ private String logger="";
 	 *          boolean ob ki true oder false
 	 * @return gibt zurück ob erfolgreich oder nicht
 	 */
-	public Spieler spielerErstellen(String name, FarbEnum farbe, boolean istKi) {//WAR RETURN BOOLEAN ALLES WAS NULL==FALSE REST TRUE GEÄNDERT WEGEN NEU SERVLET
+	public Spieler spielerErstellen(String name, FarbEnum farbe, boolean istKi) {// WAR
+																																								// RETURN
+																																								// BOOLEAN
+																																								// ALLES
+																																								// WAS
+																																								// NULL==FALSE
+																																								// REST
+																																								// TRUE
+																																								// GEÄNDERT
+																																								// WEGEN
+																																								// NEU
+																																								// SERVLET
 
 		if (!spielAufgebaut) {
 			// System.out.println("Du musst zuerst ein Spielbrett aufbauen!");
@@ -1667,7 +1692,8 @@ private String logger="";
 				schwarzvergeben = true;
 				spielerAnzahl++;
 				// System.out.println(s1);
-				// System.out.println("Derzeitige Spieleranzahl:" + Spieler.getAnzahl());
+				// System.out.println("Derzeitige Spieleranzahl:" +
+				// Spieler.getAnzahl());
 				erstelleFiguren(s1, brett);
 				return s1;
 			} else {
@@ -1676,7 +1702,8 @@ private String logger="";
 				spielerAnzahl++;
 				schwarzvergeben = true;
 				// System.out.println(k1);
-				// System.out.println("Derzeitige Spieleranzahl:" + Spieler.getAnzahl());
+				// System.out.println("Derzeitige Spieleranzahl:" +
+				// Spieler.getAnzahl());
 				erstelleFiguren(s1, brett);
 				return s1;
 			}
@@ -1688,7 +1715,8 @@ private String logger="";
 				weissvergeben = true;
 				spielerAnzahl++;
 				// System.out.println(s2);
-				// System.out.println("Derzeitige Spieleranzahl:" + Spieler.getAnzahl());
+				// System.out.println("Derzeitige Spieleranzahl:" +
+				// Spieler.getAnzahl());
 				erstelleFiguren(s2, brett);
 				return s2;
 			} else {
@@ -1697,7 +1725,8 @@ private String logger="";
 				weissvergeben = true;
 				spielerAnzahl++;
 				// System.out.println(k2);
-				// System.out.println("Derzeitige Spieleranzahl:" + Spieler.getAnzahl());
+				// System.out.println("Derzeitige Spieleranzahl:" +
+				// Spieler.getAnzahl());
 				erstelleFiguren(s2, brett);
 				return s2;
 			}
@@ -1719,11 +1748,12 @@ private String logger="";
 			// System.out.println("Das Spiel beginnt!");
 
 			setAmZug(FarbEnum.WEIß);
-			// System.out.println("Der Spieler mit der Farbe " + getAmZug() + " beginnt");
+			// System.out.println("Der Spieler mit der Farbe " + getAmZug() +
+			// " beginnt");
 			// TODO
 			return true;
 		} else {
-			////system.err.println("Das Spiel kann noch nicht gestartet werden!!");
+			// //system.err.println("Das Spiel kann noch nicht gestartet werden!!");
 			return false;
 		}
 
@@ -1731,10 +1761,10 @@ private String logger="";
 
 	public boolean ziehen(String startp, String endp) {
 		if (!spiellaeuft) {
-			////system.err.println("Spiel hat noch nicht begonnen! Zurueck in Hauptmenue");
+			// //system.err.println("Spiel hat noch nicht begonnen! Zurueck in Hauptmenue");
 			return false;
 		} else {
-			log("ziehen..."+testint++);
+			log("ziehen..." + testint++);
 			// brett.display();
 			kannWeiterSchlagen = false;
 
@@ -1756,7 +1786,8 @@ private String logger="";
 				// // System.out.println("startC: " + startC
 				// + " |startCNS: " + startCNS + " / startI: "
 				// + startI + "|startINS: " + startINS);
-				// System.out.println("Du  musst mit der Figur " + brett.gibBrettFeldSchachnotation(startINS, startCNS) + " ziehen");
+				// System.out.println("Du  musst mit der Figur " +
+				// brett.gibBrettFeldSchachnotation(startINS, startCNS) + " ziehen");
 				startC = 0;
 				startI = 0;
 				return false;
@@ -1767,13 +1798,15 @@ private String logger="";
 			int[] tmpS = moeglicheZuegeStartposition(startC, startI);
 			int tempZuegeLaufen = tmpS[0];
 			int tempZuegeSchlagen = tmpS[1];
-			// System.out.println("Anzahl Zuege Laufen: " + tempZuegeLaufen + " " + FigurenLaufen.toString() + "\nAnzahl Zuege Schlagen: " + tempZuegeSchlagen + " " + FigurenSchlagen.toString());
+			// System.out.println("Anzahl Zuege Laufen: " + tempZuegeLaufen + " " +
+			// FigurenLaufen.toString() + "\nAnzahl Zuege Schlagen: " +
+			// tempZuegeSchlagen + " " + FigurenSchlagen.toString());
 
 			// Wenn eine Spielfigur uebrig und keine gueltigen Zuege
 			// mehr vorhanden, dann hat Spieler 2 gewonnen
 			if (s1.getAlleFiguren().size() == 1 && s1.getFarbe() == getAmZug() && (tempZuegeLaufen == 0 && tempZuegeSchlagen == 0)) {
 				// spieler 2 gewinnt
-				//system.err.println("Du hast keine Zugmoeglichkeiten mehr.");
+				// system.err.println("Du hast keine Zugmoeglichkeiten mehr.");
 				spielerHatGewonnen(s2.getFarbe());
 				return false;
 			}
@@ -1782,7 +1815,7 @@ private String logger="";
 			// mehr vorhanden, dann hat Spieler 1 gewonnen
 			if (s2.getAlleFiguren().size() == 1 && s2.getFarbe() == getAmZug() && (tempZuegeLaufen == 0 && tempZuegeSchlagen == 0)) {
 				// spieler 1 gewinnt
-				//system.err.println("Du hast keine Zugmoeglichkeiten mehr.");
+				// system.err.println("Du hast keine Zugmoeglichkeiten mehr.");
 				spielerHatGewonnen(s1.getFarbe());
 				return false;
 			}
@@ -1790,12 +1823,13 @@ private String logger="";
 			// Wenn von der eingegebenen Startposition keine Zuege
 			// moeglich
 			if ((tempZuegeLaufen == 0 && tempZuegeSchlagen == 0)) {
-				//system.err.println("Mit dieser Figur sind keine Zuege moeglich! zurueck ins Menue");
+				// system.err.println("Mit dieser Figur sind keine Zuege moeglich! zurueck ins Menue");
 				// System.out.println("Gib ziehen ein.");
 				return false;
 			}
 
-			// System.out.println("Eingegebene Startposition: " + brett.getBrettFeldIndex(startC, startI).getId() + "\n");
+			// System.out.println("Eingegebene Startposition: " +
+			// brett.getBrettFeldIndex(startC, startI).getId() + "\n");
 
 			// splittet den String zb.A1 in char und int und
 			// ueberprueft auf Gueltigkeit
@@ -1803,7 +1837,8 @@ private String logger="";
 				return false;
 			}
 
-			// System.out.println("Eingegebene Endposition: " + brett.getBrettFeldIndex(endC, endI).getId() + "\n");
+			// System.out.println("Eingegebene Endposition: " +
+			// brett.getBrettFeldIndex(endC, endI).getId() + "\n");
 
 			// Ueberprueft den Zug auf Gueltigkeit
 			int zugPruefen = zugPruefen(startC, startI, endC, endI);
@@ -1829,7 +1864,9 @@ private String logger="";
 						dameWerden();
 					} else {
 						// System.out.println(geschlagen);
-						// System.out.println("Du darfst mit der Figur " + brett.gibBrettFeldSchachnotation(startINS, startCNS) + " nurnoch schlagen!");
+						// System.out.println("Du darfst mit der Figur " +
+						// brett.gibBrettFeldSchachnotation(startINS, startCNS) +
+						// " nurnoch schlagen!");
 						// // System.out.println("startC: " + startC
 						// + " |startCNS: " + startCNS +
 						// " / startI: "
@@ -1855,13 +1892,16 @@ private String logger="";
 
 				}
 				if (geschlagen == false && FigurDieSchlagenKoennen.size() != 0) {
-					// System.out.println("Die Figur an der Stelle " + brett.gibBrettFeldSchachnotation(FigurDieSchlagenKoennen.get(0).getPosY(), FigurDieSchlagenKoennen.get(0).getPosX()) + " wird gepustet");
+					// System.out.println("Die Figur an der Stelle " +
+					// brett.gibBrettFeldSchachnotation(FigurDieSchlagenKoennen.get(0).getPosY(),
+					// FigurDieSchlagenKoennen.get(0).getPosX()) + " wird gepustet");
 					pusten(FigurDieSchlagenKoennen.get(0));
 				}
 				zugBeenden();
 				dameWerden();
 				// brett.display();
-				// System.out.println("Der Spieler mit der Farbe: " + getAmZug() + " ist nun am Zug.");
+				// System.out.println("Der Spieler mit der Farbe: " + getAmZug() +
+				// " ist nun am Zug.");
 				// System.out.println("Gib ziehen ein");
 				return true;
 			}
@@ -1876,7 +1916,8 @@ private String logger="";
 					dameWerden();
 					zugBeenden();
 					// brett.display();
-					// System.out.println("Der Spieler mit der Farbe: " + getAmZug() + " ist nun am Zug.");
+					// System.out.println("Der Spieler mit der Farbe: " + getAmZug() +
+					// " ist nun am Zug.");
 					// System.out.println("Gib ziehen ein");
 				}
 				return true;
@@ -1907,7 +1948,8 @@ private String logger="";
 	}
 
 	public void willNichtWeiterZiehen() {
-		// System.out.println("Die Figur " + brett.gibBrettFeldSchachnotation(endI, endC) + " wird entfernt(Pusten)!");
+		// System.out.println("Die Figur " + brett.gibBrettFeldSchachnotation(endI,
+		// endC) + " wird entfernt(Pusten)!");
 		pusten(brett.getBrettFeldIndex(endC, endI).getSpielfigur());
 		startC = 0;
 		startI = 0;
@@ -1917,7 +1959,8 @@ private String logger="";
 		zugBeenden();
 		dameWerden();
 		// brett.display();
-		// System.out.println("Der Spieler mit der Farbe: " + getAmZug() + " ist nun am Zug.");
+		// System.out.println("Der Spieler mit der Farbe: " + getAmZug() +
+		// " ist nun am Zug.");
 		// System.out.println("Gib ziehen ein.");
 	}
 
@@ -1985,7 +2028,7 @@ private String logger="";
 			int[] tmpZug = null;
 			int[] zuge = k1.zieh();
 			if (zuge == null) {
-				//system.err.println("Ki hat keine Zugmoeglichkeiten mehr.");
+				// system.err.println("Ki hat keine Zugmoeglichkeiten mehr.");
 				spielerHatGewonnen(s2.getFarbe());
 				return false;
 			}
@@ -2050,7 +2093,7 @@ private String logger="";
 			int[] tmpZug = null;
 			int[] zuge = k2.zieh();
 			if (zuge == null) {
-				//system.err.println("Ki hat keine Zugmoeglichkeiten mehr.");
+				// system.err.println("Ki hat keine Zugmoeglichkeiten mehr.");
 				spielerHatGewonnen(s1.getFarbe());
 				return false;
 			}
@@ -2105,8 +2148,13 @@ private String logger="";
 			k2.setHatGeschlagen(false);
 			return true;
 		}
-		return false;
-	}
+		
+
+		for (int i = 0; i < getZugFurLog().size(); i++) {
+
+			log(getZugFurLog().get(i));
+		}
+		return false;}
 
 	private void setZugFurLog(int zugee, int zugee2, int zugee3, int zugee4) {
 		char a = (char) (zugee2 + 97);
@@ -2118,15 +2166,14 @@ private String logger="";
 		// System.out.println(ausgabe);
 		zugFurLog.add(ausgabe);
 	}
-	
-	
+
 	public void log(String text) {
 
 		if (first == false) {
-			logger=text+logger;
+			logger = text + logger;
 			first = true;
 		} else {
-			logger=text+"\n––––––––––––––––––––––––\n"+logger;//<br />
+			logger = text + "\n––––––––––––––––––––––––\n" + logger;// <br />
 			// Wenn etwas im Logger
 			// gezeigt
 			// werden soll einfach
@@ -2137,15 +2184,13 @@ private String logger="";
 	 * Zum leeren des Loggers
 	 */
 	public void logClear() {
-		logger="";
+		logger = "";
 	}
-	
-	public String getLog(){
+
+	public String getLog() {
 		return logger;
-		
+
 	}
-	
-	
 
 	public ArrayList<String> getZugFurLog() {
 
@@ -2164,25 +2209,25 @@ private String logger="";
 			return null;
 		return k2;
 	}
-	
-	public Spieler getS1(){
+
+	public Spieler getS1() {
 		if (s1 == null)
 			return null;
 		return s1;
 	}
-	
-	public Spieler getS2(){
+
+	public Spieler getS2() {
 		if (s2 == null)
 			return null;
 		return s2;
 	}
-	
-	public int getSpielerAnzahl(){
+
+	public int getSpielerAnzahl() {
 		return spielerAnzahl;
 	}
-	
-	public SpielBean getSpielBean(){
+
+	public SpielBean getSpielBean() {
 		return this;
 	}
-	
+
 }

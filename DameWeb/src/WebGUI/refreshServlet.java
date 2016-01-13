@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import Logik.FarbEnum;
 import Logik.SpielBean;
+import Logik.Spieler;
 import Logik.Spielfigur;
 
 /**
@@ -64,7 +65,14 @@ public class refreshServlet extends HttpServlet {
 			if (spiel.getBrett() != null) {
 
 				//ausgabe = "<table border=\"1\"> <tr>";
-				// gewonnen(spiel.getGewonnenerSpieler());
+			Spieler gewspieler=	spiel.getGewonnenerSpieler();
+			if(gewspieler!=null){
+				String gewonnen=""+gewspieler.getFarbe();
+				
+				session.setAttribute("spielergewonnen", gewonnen);
+				
+			}
+				
 				int cnt = 0;
 				for (int i = 11; i >= 0; i--) {// zeile
 					for (int j = 0; j <= 12 - 1; j++) {// spalte
@@ -170,8 +178,8 @@ public class refreshServlet extends HttpServlet {
 
 	//	ausgabe += "<textarea id=\"log\" readonly>" + spiel.getLog() + "</textarea>";
 		session.setAttribute("brett", brettS);
-
-		response.sendRedirect("SpielJSP.jsp");
+session.setAttribute("log",spiel.getLog());
+response.sendRedirect("SpielJSP.jsp");
 
 	}
 
