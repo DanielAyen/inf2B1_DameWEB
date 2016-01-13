@@ -27,7 +27,6 @@
 			java.util.Date date = new java.util.Date();
 			int cnt = 0;
 			String ausgabe = "";
-			boolean ss = false;
 			String X;
 			String Y;
 			String fFarbe;
@@ -42,16 +41,15 @@
 			//System.out.println(brettAusgabe[0][0]);
 			//System.out.println(brettAusgabe[11][11]);
 			//String feld="x,y, Feld f s/w, Figur n/s/d,Figur f s/w/n,aktiv y/n";
-
-			ausgabe = "<table border=\"1\"> <tr>";
-			// gewonnen(spiel.getGewonnenerSpieler());
-			cnt = 0;
 			if (brettAusgabe != null) {
+				ausgabe = "<table border=\"1\"> <tr>";
+				// gewonnen(spiel.getGewonnenerSpieler());
+				cnt = 0;
 
 				for (int i = 11; i >= 0; i--) {// zeilefor (int i = 11; i >= 0; i--)(int i = 0; i <12; i++)
 					for (int j = 0; j < 12; j++) {// spalte
 
-						String test=brettAusgabe[i][j];
+						String test = brettAusgabe[i][j];
 						//System.out.println(test);
 						String[] feld = test.split(";");
 						//System.out.println(""+feld[0]);
