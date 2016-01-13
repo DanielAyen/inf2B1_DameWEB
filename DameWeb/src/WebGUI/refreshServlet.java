@@ -42,7 +42,16 @@ public class refreshServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//BRETT ÜBER CONTAINER Z:B:ARRAYLIST ÜBERGEBEN DANN ÜBER CLIENT SESSION GEBEN
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {// BRETT
+																																																												// ÜBER
+																																																												// CONTAINER
+																																																												// Z:B:ARRAYLIST
+																																																												// ÜBERGEBEN
+																																																												// DANN
+																																																												// ÜBER
+																																																												// CLIENT
+																																																												// SESSION
+																																																												// GEBEN
 
 		HttpSession session = request.getSession(true);
 
@@ -71,48 +80,55 @@ public class refreshServlet extends HttpServlet {
 
 									if (FarbEnum.SCHWARZ == spiel.getAmZug()) {
 
-										// buttonArray[zeile][spalte].setIcon(figurSG);
-										ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"SteinSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
-										cnt++;
 										if (spiel.getBrett().getBrettFeldIndex(i, j).getSpielfigur().getDame(fig)) {
 											// buttonArray[zeile][spalte].setIcon(dameSG);
 											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
-											cnt++;
+										} else {
+
+											// buttonArray[zeile][spalte].setIcon(figurSG);
+											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"SteinSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
 										}
 
+										cnt++;
 									} else {
 
-										// buttonArray[zeile][spalte].setIcon(figurs);
-										ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"FeldSSteinS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
-										cnt++;
 										if (fig.getDame(fig)) {
 											// buttonArray[zeile][spalte].setIcon(dames);
 											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
-											cnt++;
+										} else {
+
+											// buttonArray[zeile][spalte].setIcon(figurs);
+											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"FeldSSteinS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
 										}
+
+										cnt++;
 									}
 								} else {
 
 									if (FarbEnum.WEIß == spiel.getAmZug()) {
 
-										// buttonArray[zeile][spalte].setIcon(figurWG);
-										ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"SteinWG2.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
-										cnt++;
 										if (spiel.getBrett().getBrettFeldIndex(i, j).getSpielfigur().getDame(fig)) {
 											// buttonArray[zeile][spalte].setIcon(dameWG);
 											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameWG.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
-											cnt++;
+										} else {
+
+											// buttonArray[zeile][spalte].setIcon(figurWG);
+											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"SteinWG2.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+
 										}
+										cnt++;
 									} else {
 
-										// buttonArray[zeile][spalte].setIcon(figurw);
-										ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"FeldSSteinW.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
-										cnt++;
 										if (fig.getDame(fig)) {
 											// buttonArray[zeile][spalte].setIcon(damew);
 											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameW.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
-											cnt++;
+										} else {
+
+											// buttonArray[zeile][spalte].setIcon(figurw);
+											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"FeldSSteinW.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+
 										}
+										cnt++;
 									}
 								}
 							}
