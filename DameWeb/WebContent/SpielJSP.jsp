@@ -46,7 +46,7 @@
 				//System.out.println(brettAusgabe[11][11]);
 				//String feld="x,y, Feld f s/w, Figur n/s/d,Figur f s/w/n,aktiv y/n";
 				if (brettAusgabe != null) {
-					ausgabe = "<table border=\"1\" align=\"center\"> <tr>";
+					ausgabe = "<table border=\"1\" > <tr>";//align=\"center\"
 					// gewonnen(spiel.getGewonnenerSpieler());
 					cnt = 0;
 
@@ -149,7 +149,6 @@
 				ausgabe += "<textarea id=\"log\" readonly>" + session.getAttribute("log") + "</textarea>";
 
 				
-				out.println("HTML TEST");
 				out.println("<br/>");
 				out.println("date : " + date + "");
 
