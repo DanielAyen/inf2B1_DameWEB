@@ -62,13 +62,13 @@ public class NeuServlet extends HttpServlet {
 				if (auswahl1.equals("Mensch")) {
 					Spieler s1 = spiel.spielerErstellen("Spieler1", farbeS1, istKi);
 					spiel.erstelleFiguren(s1, spiel.getBrett());
-					s1sess.setAttribute("farbeS1", farbeS1);
-					session.getServletContext().setAttribute("farbeS1", farbeS1);
+					s1sess.setAttribute("farbe", farbeS1);
+					session.getServletContext().setAttribute("farbe", farbeS1);
 				} else {
 					Spieler s1 = spiel.spielerErstellen("KI", farbeS1, true);
 					spiel.erstelleFiguren(s1, spiel.getBrett());
-					s1sess.setAttribute("farbeS1", farbeS1);
-					session.getServletContext().setAttribute("farbeS1", farbeS1);
+					s1sess.setAttribute("farbe", farbeS1);
+					session.getServletContext().setAttribute("farbe", farbeS1);
 				}
 				// ________________________________________________________________________________
 				// Auswahl Spieler 2 (Mensch | KI)
@@ -76,17 +76,17 @@ public class NeuServlet extends HttpServlet {
 				if (auswahl1.equals("Mensch") && auswahl2.equals("KI")) {
 					Spieler s2 = spiel.spielerErstellen("KI", farbeS2, true);
 					spiel.erstelleFiguren(s2, spiel.getBrett());
-					session.getServletContext().setAttribute("farbeS2", farbeS2);
+					session.getServletContext().setAttribute("farbe", farbeS2);
 					// Wegen ein Spieler
-					s1sess.setAttribute("farbeS2", farbeS2);
+					s1sess.setAttribute("farbe", farbeS2);
 				}
 				// KI gegen Mensch
 				if (auswahl1.equals("KI") && auswahl2.equals("Mensch")) {
 					Spieler s2 = spiel.spielerErstellen("KI", farbeS2, false);
 					spiel.erstelleFiguren(s2, spiel.getBrett());
-					session.getServletContext().setAttribute("farbeS2", farbeS2);
+					session.getServletContext().setAttribute("farbe", farbeS2);
 					// Wegen ein Spieler
-					s1sess.setAttribute("farbeS2", farbeS2);
+					s1sess.setAttribute("farbe", farbeS2);
 				}
 				// KI gegen KI
 				if (auswahl1.equals("KI") && auswahl2.equals("KI")) {
@@ -94,7 +94,7 @@ public class NeuServlet extends HttpServlet {
 					spiel.erstelleFiguren(s2, spiel.getBrett());
 					session.getServletContext().setAttribute("farbeS2", farbeS2);
 					// Wegen ein Spieler
-					s1sess.setAttribute("farbeS2", farbeS2);
+					s1sess.setAttribute("farbe", farbeS2);
 				}
 				// Wenn Mensch gegen Mensch ausgewählt, muss Spieler 1 auf Spieler 2
 				// warten

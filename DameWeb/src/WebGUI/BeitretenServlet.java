@@ -44,7 +44,7 @@ public class BeitretenServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
-		FarbEnum farbeS1 = (FarbEnum) session.getServletContext().getAttribute("farbeS1");
+		FarbEnum farbeS1 = (FarbEnum) session.getServletContext().getAttribute("farbe");
 
 		// Nur eine Abfrage zur Farbe weil noch kein zweiter Spieler existiert
 		if (spiel == null || farbeS1 == null) {
@@ -59,10 +59,10 @@ public class BeitretenServlet extends HttpServlet {
 			Spieler s2 = spiel.spielerErstellen("Spieler2", farbeS2, false);
 			spiel.erstelleFiguren(s2, spiel.getBrett());
 			
-			HttpSession s2sess = request.getSession(true);
-			s2sess.setAttribute("farbeS2", farbeS2);
+			//HttpSession s2sess = request.getSession(true);
+			session.setAttribute("farbe", farbeS2);
 			session.getServletContext().setAttribute("farbeS2", farbeS2);
-			
+			spiel.starten();
 			response.sendRedirect("refreshServlet");
 		
 			
