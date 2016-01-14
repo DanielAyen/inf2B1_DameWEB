@@ -56,7 +56,7 @@ public class zugServlet extends HttpServlet {
 		FarbEnum farbe = (FarbEnum) session.getAttribute("farbe");
 		System.out.println(farbe);
 		System.out.println(spiel.getAmZug());
-		if (true) {// spiel.getAmZug() == farbe
+		if (spiel.getAmZug() == farbe) {//
 
 			if (x != null && y != null) {
 

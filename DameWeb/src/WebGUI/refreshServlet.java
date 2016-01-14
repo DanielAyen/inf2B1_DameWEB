@@ -66,7 +66,7 @@ public class refreshServlet extends HttpServlet {
 
 				//ausgabe = "<table border=\"1\"> <tr>";
 			Spieler gewspieler=	spiel.getGewonnenerSpieler();
-			if(gewspieler!=null){
+			if(gewspieler!=null){System.out.println("GEWONNEN");
 				String gewonnen=""+gewspieler.getFarbe();
 				
 				session.setAttribute("spielergewonnen", gewonnen);
