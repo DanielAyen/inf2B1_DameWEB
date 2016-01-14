@@ -147,21 +147,20 @@
 				ausgabe += "</tr>";
 
 				ausgabe += "<textarea id=\"log\" readonly>" + session.getAttribute("log") + "</textarea>";
-				System.out.println( session.getAttribute("log"));
+				System.out.println(session.getAttribute("log"));
 				ausgabe += "</tr>";
-				
-				out.println("<br/>");
+
 				out.println("date : " + date + "");
-				
-			
-				out.println("<table><tr><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern PDF\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern CSV\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern SER\"></form> </td><td> </td></tr>"+
-						"<tr><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Laden\"></form> </td><td> <form action=\"zugServlet?reset=true\"><input type=\"submit\" value=\"Reset\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Mail\"></form> </td></tr></table>");
-						
+
+				out.println("<table><tr><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern PDF\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern CSV\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern SER\"></form> </td><td> </td></tr>"
+						+ "<tr><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Laden\"></form> </td><td> <form action=\"zugServlet?reset=true\"><input type=\"submit\" value=\"Reset\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Mail\"></form> </td></tr></table>");
+
 				out.println("<form action=\"refreshServlet\"><input type=\"submit\" value=\"Refresh\"></form>");
 				out.println("<form action=\"kiServlet\"><input type=\"submit\" value=\"KI ziehen\"></form>");
-				
+
 			}
-			out.println(ausgabe);}
+			out.println(ausgabe);
+		}
 	%>
 </body>
 </html>
