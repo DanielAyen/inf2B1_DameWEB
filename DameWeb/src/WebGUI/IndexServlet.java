@@ -22,20 +22,20 @@ public class IndexServlet extends HttpServlet {
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.doPost(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		// Hier wird das SessionObject geholt und wird mit der Variable session referenziert
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		// Hier wird das SessionObject geholt und wird mit der Variable session
+		// referenziert
 		HttpSession session = request.getSession(true);
 
 		if (spiel == null) {
 			spiel = new SpielBean();
-			spiel.aufbauen(12);  //wird in NeuServlet aufgebaut //bei auskommentieren fehler
+			spiel.aufbauen(12); // wird in NeuServlet aufgebaut //bei auskommentieren
+													// fehler
 			// Hier wird das spiel an die Session gehängt (Application Scope)
 			session.getServletContext().setAttribute("spiel", spiel);
 			response.sendRedirect("Neu.jsp");// Weiterleitung an die Neu.jsp
@@ -44,6 +44,10 @@ public class IndexServlet extends HttpServlet {
 			// Falls ein Spieler schon vorhanden ist, kann man dem Spiel
 			// beitreten
 			response.sendRedirect("Beitreten.jsp");
+
+		} else if (spiel.getSpielerAnzahl() == 0) {
+
+			response.sendRedirect("Neu.jsp");
 
 		} else {
 			// Falls es schon zwei Spieler gibt, wird man auf die Voll.jsp

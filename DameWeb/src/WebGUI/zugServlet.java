@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Logik.FarbEnum;
 import Logik.SpielBean;
 
 /**
@@ -46,24 +47,16 @@ public class zugServlet extends HttpServlet {
 
 		String x = request.getParameter("X");
 		String y = request.getParameter("Y");
-	//	System.out.println(request.getParameter("X"));
-	//	System.out.println(request.getParameter("Y"));
+		// System.out.println(request.getParameter("X"));
+		// System.out.println(request.getParameter("Y"));
 		boolean gezogen;
 
 		// ////////////////////////////////////////////////////////////
 
-
-		String reset = request.getParameter("reset");
-		System.out.println(reset);
-		if (reset != null && reset.equals("true")) {
-			reset = null;
-			session.getServletContext().setAttribute("Xz", reset);
-			session.getServletContext().setAttribute("Yz", reset);
-			session.getServletContext().setAttribute("Xs", reset);
-			session.getServletContext().setAttribute("Ys", reset);
-		
-			response.sendRedirect("refreshServlet");
-		} else {
+		FarbEnum farbe = (FarbEnum) session.getAttribute("farbe");
+		System.out.println(farbe);
+		System.out.println(spiel.getAmZug());
+		if (true) {// spiel.getAmZug() == farbe
 
 			if (x != null && y != null) {
 
@@ -72,7 +65,7 @@ public class zugServlet extends HttpServlet {
 					session.getServletContext().setAttribute("Yz", y);
 					gezogen = spiel.ziehen(session.getServletContext().getAttribute("Xs") + "+" + session.getServletContext().getAttribute("Ys"), session.getServletContext().getAttribute("Xz") + "+" + session.getServletContext().getAttribute("Yz"));
 
-					//System.out.println(gezogen);
+					// System.out.println(gezogen);
 					session.getServletContext().setAttribute("Xz", null);
 					session.getServletContext().setAttribute("Yz", null);
 					session.getServletContext().setAttribute("Xs", null);
@@ -92,7 +85,7 @@ public class zugServlet extends HttpServlet {
 					session.getServletContext().setAttribute("Ys", null);
 				}
 				// U LOGGER MELDUNG
-				//response.sendRedirect("refreshServlet");
+				// response.sendRedirect("refreshServlet");
 			} else {
 				// LOGGER FEHLER
 			}
@@ -103,6 +96,9 @@ public class zugServlet extends HttpServlet {
 			// }System.out.println("ne");
 			// response.sendRedirect("SpielJSP.jsp");
 			response.sendRedirect("refreshServlet");
+		} else {
+			response.sendRedirect("refreshServlet");
 		}
 	}
+
 }

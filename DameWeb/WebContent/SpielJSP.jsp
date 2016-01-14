@@ -13,154 +13,155 @@
 
 	<%
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
-		FarbEnum farbeS1 = (FarbEnum) session.getAttribute("farbeS1");
-		FarbEnum farbeS2 = (FarbEnum) session.getAttribute("farbeS2");
-		//out.print(farbeS2);
-		//out.print(farbeS1);
-		if (spiel == null || farbeS1 == null || farbeS2 == null) {
-			response.sendRedirect("Cheater.jsp");
-		} else {
-			//out.print(farbeS1);
+			FarbEnum farbeS1 = (FarbEnum) session.getAttribute("farbeS1");
+			FarbEnum farbeS2 = (FarbEnum) session.getAttribute("farbeS2");
 			//out.print(farbeS2);
-			out.print("<h1>Spiel</h1>");
-			//System.out.println("JAVA Console Blabla");
-			java.util.Date date = new java.util.Date();
-			int cnt = 0;
-			String ausgabe = "";
-			String X;
-			String Y;
-			String fFarbe;
-			String figurA;
-			String figurF;
-			String aktiv;
-
-			//HttpSession session=request.getSession();
-
-			String[][] brettAusgabe = new String[12][12];
-			brettAusgabe = (String[][]) session.getAttribute("brett");
-			String gewonnen = (String) session.getAttribute("gewonnen");
-			if (gewonnen != null) {
-				ausgabe = "<h2>DER SPIELER MIT DER FARBE" + gewonnen + " HAT GEWONNEN";
+			//out.print(farbeS1);
+			if (spiel == null || farbeS1 == null || farbeS2 == null) {
+		response.sendRedirect("Cheater.jsp");
 			} else {
-				//System.out.println(brettAusgabe[0][0]);
-				//System.out.println(brettAusgabe[11][11]);
-				//String feld="x,y, Feld f s/w, Figur n/s/d,Figur f s/w/n,aktiv y/n";
-				if (brettAusgabe != null) {
-					ausgabe = "<table border=\"1\" > <tr>";//align=\"center\"
-					// gewonnen(spiel.getGewonnenerSpieler());
-					cnt = 0;
+		//out.print(farbeS1);
+		//out.print(farbeS2);
+		out.print("<h1>Spiel</h1>");
+		//System.out.println("JAVA Console Blabla");
+		java.util.Date date = new java.util.Date();
+		int cnt = 0;
+		String ausgabe = "";
+		String X;
+		String Y;
+		String fFarbe;
+		String figurA;
+		String figurF;
+		String aktiv;
 
-					for (int i = 11; i >= 0; i--) {// zeilefor (int i = 11; i >= 0; i--)(int i = 0; i <12; i++)
-						for (int j = 0; j < 12; j++) {// spalte
+		//HttpSession session=request.getSession();
 
-							String test = brettAusgabe[i][j];
-							//System.out.println(test);
-							String[] feld = test.split(";");
-							//System.out.println(""+feld[0]);
-							X = feld[0];
-							Y = feld[1];
-							fFarbe = feld[2];
-							figurA = feld[3];
-							figurF = feld[4];
-							aktiv = feld[5];
+		String[][] brettAusgabe = new String[12][12];
+		brettAusgabe = (String[][]) session.getAttribute("brett");
+		String gewonnen = (String) session.getAttribute("gewonnen");
+		if (gewonnen != null) {
+			ausgabe = "<h2>DER SPIELER MIT DER FARBE" + gewonnen + " HAT GEWONNEN";
+		} else {
+			//System.out.println(brettAusgabe[0][0]);
+			//System.out.println(brettAusgabe[11][11]);
+			//String feld="x,y, Feld f s/w, Figur n/s/d,Figur f s/w/n,aktiv y/n";
+			if (brettAusgabe != null) {
+				ausgabe = "<table border=\"1\" > <tr>";//align=\"center\"
+				// gewonnen(spiel.getGewonnenerSpieler());
+				cnt = 0;
 
-							if (fFarbe.equals("s")) {
-								if (figurA.equals("n")) {
+				for (int i = 11; i >= 0; i--) {// zeilefor (int i = 11; i >= 0; i--)(int i = 0; i <12; i++)
+					for (int j = 0; j < 12; j++) {// spalte
 
-									// buttonArray[zeile][spalte].setIcon(felds);
-									ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"felds.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
-									cnt++;
-								} else {
+						String test = brettAusgabe[i][j];
+						//System.out.println(test);
+						String[] feld = test.split(";");
+						//System.out.println(""+feld[0]);
+						X = feld[0];
+						Y = feld[1];
+						fFarbe = feld[2];
+						figurA = feld[3];
+						figurF = feld[4];
+						aktiv = feld[5];
 
-									//Spielfigur fig = spiel.getBrett().getBrettFeldIndex(i, j).getSpielfigur();
+						if (fFarbe.equals("s")) {
+							if (figurA.equals("n")) {
 
-									if (figurF.equals("s")) {
+								// buttonArray[zeile][spalte].setIcon(felds);
+								ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"felds.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
+								cnt++;
+							} else {
 
-										if (aktiv.equals("y")) {
+								//Spielfigur fig = spiel.getBrett().getBrettFeldIndex(i, j).getSpielfigur();
 
-											if (figurA.equals("d")) {
-												// buttonArray[zeile][spalte].setIcon(dameSG);
-												ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
-											} else {
+								if (figurF.equals("s")) {
 
-												// buttonArray[zeile][spalte].setIcon(figurSG);
-												ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"SteinSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
-											}
+									if (aktiv.equals("y")) {
 
-											cnt++;
+										if (figurA.equals("d")) {
+											// buttonArray[zeile][spalte].setIcon(dameSG);
+											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
 										} else {
 
-											if (figurA.equals("d")) {
-												// buttonArray[zeile][spalte].setIcon(dames);
-												ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
-											} else {
-
-												// buttonArray[zeile][spalte].setIcon(figurs);
-												ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"FeldSSteinS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
-											}
-
-											cnt++;
+											// buttonArray[zeile][spalte].setIcon(figurSG);
+											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"SteinSG.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
 										}
+
+										cnt++;
 									} else {
 
-										if (aktiv.equals("y")) {
-
-											if (figurA.equals("d")) {
-												// buttonArray[zeile][spalte].setIcon(dameWG);
-												ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameWG.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
-											} else {
-
-												// buttonArray[zeile][spalte].setIcon(figurWG);
-												ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"SteinWG2.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
-
-											}
-											cnt++;
+										if (figurA.equals("d")) {
+											// buttonArray[zeile][spalte].setIcon(dames);
+											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
 										} else {
 
-											if (figurA.equals("d")) {
-												// buttonArray[zeile][spalte].setIcon(damew);
-												ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameW.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
-											} else {
-
-												// buttonArray[zeile][spalte].setIcon(figurw);
-												ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"FeldSSteinW.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
-
-											}
-											cnt++;
+											// buttonArray[zeile][spalte].setIcon(figurs);
+											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"FeldSSteinS.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
 										}
+
+										cnt++;
+									}
+								} else {
+
+									if (aktiv.equals("y")) {
+
+										if (figurA.equals("d")) {
+											// buttonArray[zeile][spalte].setIcon(dameWG);
+											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameWG.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+										} else {
+
+											// buttonArray[zeile][spalte].setIcon(figurWG);
+											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"SteinWG2.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+
+										}
+										cnt++;
+									} else {
+
+										if (figurA.equals("d")) {
+											// buttonArray[zeile][spalte].setIcon(damew);
+											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"dameW.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+										} else {
+
+											// buttonArray[zeile][spalte].setIcon(figurw);
+											ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"FeldSSteinW.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+
+										}
+										cnt++;
 									}
 								}
-							} else {
-								ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"feldw.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
-								cnt++;
 							}
-
-							if (cnt == 12) {
-								ausgabe += "</tr><tr>";
-								cnt = 0;
-							}
-
+						} else {
+							ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"feldw.png\" alt=\"W X:" + i + "Y:" + j + "\"></a></td>";
+							cnt++;
 						}
+
+						if (cnt == 12) {
+							ausgabe += "</tr><tr>";
+							cnt = 0;
+						}
+
 					}
 				}
-
-				ausgabe += "</tr>";
-
-				ausgabe += "<textarea id=\"log\" readonly>" + session.getAttribute("log") + "</textarea>";
-				System.out.println(session.getAttribute("log"));
-				ausgabe += "</tr>";
-
-				out.println("date : " + date + "");
-
-				out.println("<table><tr><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern PDF\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern CSV\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern SER\"></form> </td><td> </td></tr>"
-						+ "<tr><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Laden\"></form> </td><td> <form action=\"zugServlet?reset=true\"><input type=\"submit\" value=\"Reset\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Mail\"></form> </td></tr></table>");
-
-				out.println("<form action=\"refreshServlet\"><input type=\"submit\" value=\"Refresh\"></form>");
-				out.println("<form action=\"kiServlet\"><input type=\"submit\" value=\"KI ziehen\"></form>");
-
 			}
-			out.println(ausgabe);
+
+			ausgabe += "</tr>";
+
+			ausgabe += "<textarea id=\"log\" readonly>" + session.getAttribute("log") + "</textarea>";
+			System.out.println(session.getAttribute("log"));
+			ausgabe += "</tr>";
+
+			out.println("date : " + date + "");
+
+			out.println("<table><tr><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern PDF\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern CSV\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern SER\"></form> </td><td> </td></tr>"
+					+ "<tr><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Laden\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"XXX\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Mail\"></form> </td></tr></table>");
+
+			out.println("<form action=\"refreshServlet\"><input type=\"submit\" value=\"Refresh\"></form>");
+			out.println("<form action=\"kiServlet\"><input type=\"submit\" value=\"KI ziehen\"></form>");
+			String reset = "reset";
+			out.println("<form action=\"resetServlet\"><input type=\"submit\" value=\"Reset\"></form>");
 		}
+		out.println(ausgabe);
+			}
 	%>
 </body>
 </html>
