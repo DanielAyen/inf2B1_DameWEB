@@ -13,7 +13,7 @@
 
 	<%
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
-		FarbEnum farbeS1 = (FarbEnum) session.getAttribute("farbeS1");
+		FarbEnum farbeS1 = (FarbEnum) session.getAttribute("farbe");
 		
 		//Nur eine Abfrage weil noch kein zweiter Spieler existiert
 		if (spiel == null || farbeS1 == null) {

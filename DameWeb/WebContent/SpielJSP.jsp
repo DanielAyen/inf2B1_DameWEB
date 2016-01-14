@@ -48,7 +48,7 @@
 				//System.out.println(brettAusgabe[11][11]);
 				//String feld="x,y, Feld f s/w, Figur n/s/d,Figur f s/w/n,aktiv y/n";
 				if (brettAusgabe != null) {
-					ausgabe = "<table border=\"1\" > <tr>";//align=\"center\"
+					ausgabe = "<table border=\"1\" align=\"center\"> <tr>";//align=\"center\"
 					// gewonnen(spiel.getGewonnenerSpieler());
 					cnt = 0;
 
@@ -154,13 +154,12 @@
 
 				out.println("date : " + date + "");
 
-				out.println("<table><tr><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern PDF\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern CSV\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Speichern SER\"></form> </td><td> </td></tr>"
-						+ "<tr><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Laden\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"XXX\"></form> </td><td> <form action=\"refreshServlet\"><input type=\"submit\" value=\"Mail\"></form> </td></tr></table>");
+				out.println("<table border=\"1\" align=\"center\" > <tr><td> <form action=\"Speichern.jsp\"><input type=\"submit\" value=\"Speichern\"></form></td><td> <form action=\"ladenServlet\"><input type=\"submit\" value=\"Laden\"></form></td></table>");
 
-				out.println("<form action=\"refreshServlet\"><input type=\"submit\" value=\"Refresh\"></form>");
-				out.println("<form action=\"kiServlet\"><input type=\"submit\" value=\"KI ziehen\"></form>");
+				out.println("<form action=\"refreshServlet\"><input type=\"submit\" value=\"Refresh\" style=\"position:relative; top:10%; left: 95%;\"></form>");
+				out.println("<form action=\"kiServlet\"><input type=\"submit\" value=\"KI ziehen\" style=\"position:relative; top:10%; left: 95%;\"></form>");
 				String reset = "reset";
-				out.println("<form action=\"resetServlet\"><input type=\"submit\" value=\"Reset\"></form>");
+				out.println("<form action=\"resetServlet\"><input type=\"submit\" value=\"Reset\" style=\"position:relative; top:10%; left: 95%;\"></form>");
 			}
 			out.println(ausgabe);
 		}
