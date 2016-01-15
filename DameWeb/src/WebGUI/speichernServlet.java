@@ -56,18 +56,20 @@ public class speichernServlet extends HttpServlet {
 					File selectedFile = new File("/home/informatik/repository_lokal/DameWeb/Saves/" + name + ".csv");
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
-
+					response.sendRedirect("OK.jsp");
+					
 				} else if (auswahl1.equals("SER")) {
-
 					File selectedFile = new File("/home/informatik/repository_lokal/DameWeb/Saves/" + name + ".ser");
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
+					response.sendRedirect("OK.jsp");
+					
 				} else if (auswahl1.equals("PDF")) {
-
 					File selectedFile = new File("/home/informatik/repository_lokal/DameWeb/Saves/" + name + ".pdf");
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
-
+					response.sendRedirect("OK.jsp");
+					
 				} else {
 					response.sendRedirect("Speichern.jsp");
 				}
