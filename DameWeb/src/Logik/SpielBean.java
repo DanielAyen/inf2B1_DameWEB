@@ -2084,6 +2084,7 @@ public class SpielBean implements iBediener, Serializable {
 			for (int i = 0; i < getZugFurLog().size(); i++) {
 
 				log(getZugFurLog().get(i));
+				getZugFurLog().clear();
 			}
 			return true;
 
@@ -2153,6 +2154,7 @@ public class SpielBean implements iBediener, Serializable {
 			for (int i = 0; i < getZugFurLog().size(); i++) {
 
 				log(getZugFurLog().get(i));
+				getZugFurLog().clear();
 			}
 			return true;
 		}
@@ -2175,10 +2177,13 @@ public class SpielBean implements iBediener, Serializable {
 	public void log(String text) {
 
 		if (first == false) {
-			logger = text + logger;
+			logger = text;
 			first = true;
 		} else {
-			logger = text + "\n––––––––––––––––––––––––\n" + logger;// <br />
+			System.out.println(logger);
+			String temp = text + "\n––––––––––––––––––––––––\n" + logger;// <br />
+			logger=temp;
+			System.out.println(logger);
 			// Wenn etwas im Logger
 			// gezeigt
 			// werden soll einfach

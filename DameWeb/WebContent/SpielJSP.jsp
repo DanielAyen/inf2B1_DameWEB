@@ -15,7 +15,12 @@
 		HttpSession cheatSession = request.getSession(true);
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		FarbEnum farbe = (FarbEnum) cheatSession.getAttribute("farbe");
+		String deineFarbe= (String) session.getAttribute("deineFarbe");
 
+		if(deineFarbe!=null){
+			out.println("Du hast die Farbe: "+deineFarbe);
+		}
+		
 		//out.print(farbeS2);
 		//out.print(farbeS1);
 		if (spiel == null || farbe == null) {
@@ -39,10 +44,10 @@
 
 			String[][] brettAusgabe = new String[12][12];
 			brettAusgabe = (String[][]) session.getAttribute("brett");
-			String gewonnen = (String) session.getAttribute("gewonnen");
+			String gewonnen = null; //(String) session.getAttribute("spielergewonnen");
 			if (gewonnen != null) {
-				System.out.println("GEWONNEN");
-				ausgabe = "<h2>DER SPIELER MIT DER FARBE" + gewonnen + " HAT GEWONNEN";
+				System.out.println("GEWONNENJSP");
+				ausgabe = "<h1>DER SPIELER MIT DER FARBE " + gewonnen + " HAT GEWONNEN</h1>";
 			} else {
 				//System.out.println(brettAusgabe[0][0]);
 				//System.out.println(brettAusgabe[11][11]);
@@ -149,7 +154,7 @@
 				ausgabe += "</tr>";
 
 				ausgabe += "<textarea id=\"log\" readonly>" + session.getAttribute("log") + "</textarea>";
-				System.out.println(session.getAttribute("log"));
+				//System.out.println(session.getAttribute("log"));
 				ausgabe += "</tr>";
 
 				out.println("date : " + date + "");

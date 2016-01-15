@@ -47,7 +47,19 @@ public class refreshServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		FarbEnum farbeS1 = (FarbEnum) session.getAttribute("farbe");
-
+		String deineFarbe;
+		if(farbeS1!=null){
+			
+			if(farbeS1==FarbEnum.SCHWARZ){
+					 deineFarbe = "Schwarz";
+			}else{
+				 deineFarbe = "Weiß";
+			}
+		
+			session.setAttribute("deineFarbe", deineFarbe);
+		
+		}
+		
 		// Nur eine Abfrage zur Farbe weil noch kein zweiter Spieler existiert
 		if (spiel == null || farbeS1 == null) {
 			response.sendRedirect("Cheater.jsp");
@@ -63,7 +75,7 @@ public class refreshServlet extends HttpServlet {
 					// ausgabe = "<table border=\"1\"> <tr>";
 					Spieler gewspieler = spiel.getGewonnenerSpieler();
 					if (gewspieler != null) {
-						System.out.println("GEWONNEN");
+						System.out.println("gewspieler");
 						String gewonnen = "" + gewspieler.getFarbe();
 
 						session.setAttribute("spielergewonnen", gewonnen);
