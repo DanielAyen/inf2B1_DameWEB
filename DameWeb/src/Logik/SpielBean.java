@@ -1330,7 +1330,7 @@ public class SpielBean implements iBediener, Serializable {
 			ser.speichern(this, pfad);
 			break;
 		case "pdf":
-			 p.speichern(null, pfad);//TODO
+			// p.speichern(null, pfad);//TODO
 			// TODO
 			// TODO
 			// TODO
