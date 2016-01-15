@@ -73,7 +73,7 @@ public class speichernServlet extends HttpServlet {
 				} else {
 					response.sendRedirect("Speichern.jsp");
 				}
-				response.sendRedirect("Speichern.jsp");
+
 			} else {
 				System.out.println("NOP");
 

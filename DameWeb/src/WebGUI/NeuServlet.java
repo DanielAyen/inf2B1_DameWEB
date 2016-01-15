@@ -78,7 +78,7 @@ public class NeuServlet extends HttpServlet {
 					spiel.erstelleFiguren(s2, spiel.getBrett());
 					session.getServletContext().setAttribute("farbe", farbeS2);
 					// Wegen ein Spieler
-					s1sess.setAttribute("farbe", farbeS2);
+					s1sess.setAttribute("farbe", farbeS1);
 				}
 				// KI gegen Mensch
 				if (auswahl1.equals("KI") && auswahl2.equals("Mensch")) {
@@ -94,7 +94,7 @@ public class NeuServlet extends HttpServlet {
 					spiel.erstelleFiguren(s2, spiel.getBrett());
 					session.getServletContext().setAttribute("farbeS2", farbeS2);
 					// Wegen ein Spieler
-					s1sess.setAttribute("farbe", farbeS2);
+					s1sess.setAttribute("farbe", farbeS1);
 				}
 				// Wenn Mensch gegen Mensch ausgewählt, muss Spieler 1 auf Spieler 2
 				// warten

@@ -26,8 +26,5 @@
 	</form>
 
 
-	zu speichern servlet
-
-
 </body>
 </html>

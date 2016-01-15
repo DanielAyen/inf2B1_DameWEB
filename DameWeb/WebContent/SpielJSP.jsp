@@ -159,7 +159,7 @@
 
 				out.println("date : " + date + "");
 
-				out.println("<table border=\"1\" align=\"center\" > <tr><td> <form action=\"Speichern.jsp\"><input type=\"submit\" value=\"Speichern\"></form></td><td> <form action=\"ladenServlet\"><input type=\"submit\" value=\"Laden\"></form></td></table>");
+				out.println("<table border=\"1\" align=\"center\" > <tr><td> <form action=\"Speichern.jsp\"><input type=\"submit\" value=\"Speichern\"></form></td><td> <form action=\"Laden.jsp\"><input type=\"submit\" value=\"Laden\"></form></td></table>");
 
 				out.println("<form action=\"refreshServlet\"><input type=\"submit\" value=\"Refresh\" style=\"position:relative; top:10%; left: 95%;\"></form>");
 				out.println("<form action=\"kiServlet\"><input type=\"submit\" value=\"KI ziehen\" style=\"position:relative; top:10%; left: 95%;\"></form>");
