@@ -63,17 +63,29 @@ public class ladenServlet extends HttpServlet {
 				System.out.println(selectedFile.getAbsolutePath());
 				spiel.laden(selectedFile);
 				System.out.println(spiel.getBrett());
-				
-				Spieler s1=spiel.getS1();
-				Spieler s2=spiel.getS2();
-				
-				if(s1.getIstKi()&&s2.getIstKi()){
-					
+
+				Spieler s1 = spiel.getS1();
+				Spieler s2 = spiel.getS2();
+
+				if (s1.getIstKi() && s2.getIstKi()) {// ki ki
+
 					session.setAttribute("farbe", s1.getFarbe());
-					
+
 					response.sendRedirect("refreshServlet");
 				}
-				
+				if (s1.getIstKi() && !s2.getIstKi()) {// mensch ki
+					session.setAttribute("farbe", s1.getFarbe());
+					response.sendRedirect("refreshServlet");
+
+				} else if (!s1.getIstKi() && s2.getIstKi()) {// ki mensch
+					session.setAttribute("farbe", s2.getFarbe());
+					response.sendRedirect("refreshServlet");
+
+				} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
+					session.setAttribute("farbe", s1.getFarbe());
+					response.sendRedirect("AufSpielerWartenServlet");
+
+				}
 
 			} else if (selectedFile.getName().endsWith(".ser")) {
 

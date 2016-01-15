@@ -58,7 +58,7 @@ public class SpielBean implements iBediener, Serializable {
 
 	private static iDatenzugriff daten;
 	private DatenzugriffSerialisiert ser = new DatenzugriffSerialisiert();
-	// private DatenzugriffPDF p = new DatenzugriffPDF(); Ausgeklammert da es
+	// private DatenzugriffPDF p = new DatenzugriffPDF(); //Ausgeklammert da es
 	// spacken macht wenn drin..FIXEN
 	private DatenzugriffCSV csv = new DatenzugriffCSV();
 	private boolean spielAufgebaut = false;
@@ -1330,7 +1330,7 @@ public class SpielBean implements iBediener, Serializable {
 			ser.speichern(this, pfad);
 			break;
 		case "pdf":
-			// p.speichern(null, pfad);//TODO
+			 p.speichern(null, pfad);//TODO
 			// TODO
 			// TODO
 			// TODO

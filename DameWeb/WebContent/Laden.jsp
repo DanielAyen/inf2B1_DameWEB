@@ -10,7 +10,8 @@
 	<h1>Spiel laden</h1>
 	<p>Bitte die zu ladende Datei mit Namen der Datei und der Endung
 		angeben. Bsp: Save01.csv (Groß- und Kleinschreibung beachten!)</p>
-		<p>P.S. bei einem Fehler landest du wieder hier!</p>
+		<p>P.S. Bei einem Fehler landest du wieder hier!</p>
+		<p>P.P.S Der landende Spieler bekommt immer Spieler 1</p>
 		<br/>
 	<form method="post" action="ladenServlet">
 

@@ -76,6 +76,7 @@
 
 									// buttonArray[zeile][spalte].setIcon(felds);
 									ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"felds.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
+									
 									cnt++;
 								} else {
 
