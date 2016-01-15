@@ -85,6 +85,10 @@ public class ladenServlet extends HttpServlet {
 					session.setAttribute("farbe", s1.getFarbe());
 					response.sendRedirect("AufSpielerWartenServlet");
 
+					// geht wenn davor 2menschen gespielt haben
+					// wenn aber 100% sein soll muss man einen löschen dann auf dem warten
+					// servlet sitzen und der andre muss beitreten
+
 				}
 
 			} else if (selectedFile.getName().endsWith(".ser")) {
