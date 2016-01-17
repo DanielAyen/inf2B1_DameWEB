@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 /**
@@ -21,7 +22,7 @@ public abstract class KI implements Serializable {
 	public Spieler spieler;
 	@XmlElement
 	private Spielbrett brett;
-	@XmlElement
+	@XmlAttribute
 	private boolean schlag = false;
 
 	/**

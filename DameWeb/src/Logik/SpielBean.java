@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
@@ -69,15 +71,15 @@ public class SpielBean implements iBediener, Serializable {
 	// spacken macht wenn drin..FIXEN
 	private DatenzugriffCSV csv = new DatenzugriffCSV();
 	private DatenzugriffXML xml = new DatenzugriffXML();
-	@XmlElement
+	@XmlAttribute
 	private boolean spielAufgebaut = false;
-	@XmlElement
+	@XmlAttribute
 	private int spielerAnzahl = 0;
-	@XmlElement
+	@XmlAttribute
 	private boolean spiellaeuft = false;
-	@XmlElement
+	@XmlAttribute
 	private boolean schwarzvergeben = false;
-	@XmlElement
+	@XmlAttribute
 	private boolean weissvergeben = false;
 	private boolean geschlagen = false;
 	private boolean kannWeiterSchlagen = false;
@@ -88,7 +90,7 @@ public class SpielBean implements iBediener, Serializable {
 	private boolean first = false;
 	 @XmlElement
 	private Spielbrett brett;
-	@XmlElement
+	 @XmlAttribute
 	private FarbEnum farbeAmZug;
 	 @XmlElement
 	private Spieler s1;

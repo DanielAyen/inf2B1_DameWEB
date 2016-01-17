@@ -1,5 +1,8 @@
 package WebGUI;
 
+import Logik.FarbEnum;
+import Logik.Spielfigur;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -73,12 +76,12 @@ public class ladenServlet extends HttpServlet {
 
 					response.sendRedirect("refreshServlet");
 				}
-				if (s1.getIstKi() && !s2.getIstKi()) {// mensch ki
-					session.setAttribute("farbe", s1.getFarbe());
+				if (s1.getIstKi() && !s2.getIstKi()) {// ki mensch
+					session.setAttribute("farbe", s2.getFarbe());
 					response.sendRedirect("refreshServlet");
 
-				} else if (!s1.getIstKi() && s2.getIstKi()) {// ki mensch
-					session.setAttribute("farbe", s2.getFarbe());
+				} else if (!s1.getIstKi() && s2.getIstKi()) {// mensch ki
+					session.setAttribute("farbe", s1.getFarbe());
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
@@ -101,14 +104,12 @@ public class ladenServlet extends HttpServlet {
 				System.out.println(selectedFile.getName());
 				System.out.println(selectedFile.getAbsolutePath());
 
-				spiel.laden(selectedFile);
-
 				session.getServletContext().setAttribute("spiel", save);
 
 				System.out.println(spiel.getBrett());
 
-				Spieler s1 = spiel.getS1();
-				Spieler s2 = spiel.getS2();
+				Spieler s1 = save.getS1();
+				Spieler s2 = save.getS2();
 
 				if (s1.getIstKi() && s2.getIstKi()) {// ki ki
 
@@ -116,12 +117,12 @@ public class ladenServlet extends HttpServlet {
 
 					response.sendRedirect("refreshServlet");
 				}
-				if (s1.getIstKi() && !s2.getIstKi()) {// mensch ki
-					session.setAttribute("farbe", s1.getFarbe());
+				if (s1.getIstKi() && !s2.getIstKi()) {// ki mensch
+					session.setAttribute("farbe", s2.getFarbe());
 					response.sendRedirect("refreshServlet");
 
-				} else if (!s1.getIstKi() && s2.getIstKi()) {// ki mensch
-					session.setAttribute("farbe", s2.getFarbe());
+				} else if (!s1.getIstKi() && s2.getIstKi()) {// mensch ki
+					session.setAttribute("farbe", s1.getFarbe());
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
@@ -135,45 +136,76 @@ public class ladenServlet extends HttpServlet {
 				}
 
 			} else if (selectedFile.getName().endsWith(".xml")) {
-					SpielBean save = (SpielBean) spiel.laden(selectedFile);
-					System.out.println(selectedFile);
-					System.out.println(selectedFile.getName());
-					System.out.println(selectedFile.getAbsolutePath());
+				SpielBean save = (SpielBean) spiel.laden(selectedFile);
+				System.out.println(selectedFile);
+				System.out.println(selectedFile.getName());
+				System.out.println(selectedFile.getAbsolutePath());
 
-					spiel.laden(selectedFile);
+				if (save.getK1() != null) {
+					save.getK1().getSpieler().getAlleFiguren().clear();
+				}
+				if (save.getK2() != null) {
+					save.getK2().getSpieler().getAlleFiguren().clear();
+				}
+				if (save.getS1() != null) {
+					save.getS1().getAlleFiguren().clear();
+				}
+				if (save.getS2() != null) {
+					save.getS2().getAlleFiguren().clear();
+				}
 
-					session.getServletContext().setAttribute("spiel", save);
+				for (int zeile = 0; zeile <= save.getBrett().getBrettGroesse() - 1; zeile++) {
+					for (int spalte = 0; spalte <= save.getBrett().getBrettGroesse() - 1; spalte++) {
+						if (save.getBrett().getBrettFeldIndex(zeile, spalte).getIstSchwarz()) {
+							if (save.getBrett().getBrettFeldIndex(zeile, spalte).getIstBelegt()) {
+								Spielfigur fig = save.getBrett().getBrettFeldIndex(zeile, spalte).getSpielfigur();
 
-					System.out.println(spiel.getBrett());
-
-					Spieler s1 = spiel.getS1();
-					Spieler s2 = spiel.getS2();
-
-					if (s1.getIstKi() && s2.getIstKi()) {// ki ki
-
-						session.setAttribute("farbe", s1.getFarbe());
-
-						response.sendRedirect("refreshServlet");
+								if (fig.getFarbe() == FarbEnum.SCHWARZ) {
+									save.getS1().getAlleFiguren().add(fig);
+									if (save.getK1() != null) {
+										save.getK1().getSpieler().getAlleFiguren().add(fig);
+									}
+								}
+								if (fig.getFarbe() == FarbEnum.WEIß) {
+									save.getS2().getAlleFiguren().add(fig);
+									if (save.getK2() != null) {
+										save.getK2().getSpieler().getAlleFiguren().add(fig);
+									}
+								}
+							}
+						}
 					}
-					if (s1.getIstKi() && !s2.getIstKi()) {// mensch ki
-						session.setAttribute("farbe", s1.getFarbe());
-						response.sendRedirect("refreshServlet");
+				}
 
-					} else if (!s1.getIstKi() && s2.getIstKi()) {// ki mensch
-						session.setAttribute("farbe", s2.getFarbe());
-						response.sendRedirect("refreshServlet");
+				session.getServletContext().setAttribute("spiel", save);
 
-					} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
-						session.setAttribute("farbe", s1.getFarbe());
-						response.sendRedirect("AufSpielerWartenServlet");
+				Spieler s1 = save.getS1();
+				Spieler s2 = save.getS2();
 
-						// geht wenn davor 2menschen gespielt haben
-						// wenn aber 100% sein soll muss man einen löschen dann auf dem
-						// warten
-						// servlet sitzen und der andre muss beitreten
+				if (s1.getIstKi() && s2.getIstKi()) {// ki ki
 
-					}
+					session.setAttribute("farbe", s1.getFarbe());
+
+					response.sendRedirect("refreshServlet");
+				}
+				if (s1.getIstKi() && !s2.getIstKi()) {// ki mensch
+					session.setAttribute("farbe", s2.getFarbe());
+					response.sendRedirect("refreshServlet");
+
+				} else if (!s1.getIstKi() && s2.getIstKi()) {// mensch ki
+					session.setAttribute("farbe", s1.getFarbe());
+					response.sendRedirect("refreshServlet");
+
+				} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
+					session.setAttribute("farbe", s1.getFarbe());
+					response.sendRedirect("AufSpielerWartenServlet");
+
+					// geht wenn davor 2menschen gespielt haben
+					// wenn aber 100% sein soll muss man einen löschen dann auf dem warten
+					// servlet sitzen und der andre muss beitreten
+
 				}
 			}
 		}
+	}
 }

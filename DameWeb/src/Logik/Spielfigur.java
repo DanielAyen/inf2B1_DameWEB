@@ -2,6 +2,7 @@ package Logik;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -27,19 +28,19 @@ public class Spielfigur implements Serializable {
 	 * @param posY
 	 *            y Koord der Fig.
 	 */
-	@XmlElement
+	@XmlAttribute
 	private FarbEnum farbe;
-	@XmlElement
+	@XmlAttribute
 	private boolean istDame;
 	private static int i = 0;
 	private static int j = 0;
-	@XmlElement
+	@XmlAttribute
 	private int idS = 1;
-	@XmlElement
+	@XmlAttribute
 	private int idW = 1;
-	@XmlElement
+	@XmlAttribute
 	private int posX;
-	@XmlElement
+	@XmlAttribute
 	private int posY;
 
 	/**

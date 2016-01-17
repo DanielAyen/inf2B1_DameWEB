@@ -2,6 +2,7 @@ package Logik;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 /**
@@ -27,9 +28,9 @@ public class Spielbrett implements Serializable {
 	 */
 	@XmlElement
 	private Spielfeld[][] brett;
-	@XmlElement
+	@XmlAttribute
 	private final int maxBrett = 1;
-	@XmlElement
+	@XmlAttribute
 	private int anzBrett = 0;
 
 	/**

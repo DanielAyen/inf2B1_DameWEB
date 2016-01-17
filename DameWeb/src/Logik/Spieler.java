@@ -3,6 +3,7 @@ package Logik;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 /**
@@ -40,19 +41,19 @@ public class Spieler implements Serializable {
 	@XmlElement
 	private ArrayList<Spielfigur> figuren = new ArrayList<Spielfigur>();
 	private String name;
-	@XmlElement
+	@XmlAttribute
 	private static final int maxSpieler = 2;
-	@XmlElement
+	@XmlAttribute
 	private static int anzSpieler = 0;
-	@XmlElement
+	@XmlAttribute
 	private static boolean weißvergeben = false;
-	@XmlElement
+	@XmlAttribute
 	private static boolean schwarzvergeben = false;
-	@XmlElement
+	@XmlAttribute
 	private FarbEnum farbe;
-	@XmlElement
+	@XmlAttribute
 	private boolean istAmZug = false;
-	@XmlElement
+	@XmlAttribute
 	private boolean istKi = false;
 
 	/**

@@ -1,6 +1,7 @@
 package Logik;
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -33,15 +34,15 @@ public class Spielfeld implements Serializable {
 	 */
 	@XmlElement
 	private Spielfigur spielfigur;
-	@XmlElement
+	@XmlAttribute
 	private String id;
-	@XmlElement
+	@XmlAttribute
 	private int posX;
-	@XmlElement
+	@XmlAttribute
 	private int posY;
-	@XmlElement
+	@XmlAttribute
 	private boolean istBelegt = false;
-	@XmlElement
+	@XmlAttribute
 	private boolean istSchwarz;
 
 	/**
