@@ -18,7 +18,8 @@
 				for="sp"> CSV</label> <br /> <input type="radio" id="SER"
 				name="auswahl1" value="SER"> <label for="sp"> SER</label> <br />
 			<input type="radio" id="PDF" name="auswahl1" value="PDF"> <label
-				for="sp"> PDF</label> <br />
+				for="sp"> PDF</label> <br /> <input type="radio" id="XML" name="auswahl1" value="XML"> <label
+				for="sp"> XML</label> <br /> 
 		</fieldset>
 
 

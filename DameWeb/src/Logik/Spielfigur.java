@@ -1,5 +1,9 @@
 package Logik;
+
 import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * 
@@ -15,34 +19,43 @@ public class Spielfigur implements Serializable {
 	 * Attribute
 	 * 
 	 * @param farbe
-	 *          Die Farbe der Figur
+	 *            Die Farbe der Figur
 	 * @param spieler
-	 *          der zugehoerige Spieler
+	 *            der zugehoerige Spieler
 	 * @param posX
-	 *          x Koord der Fig.
+	 *            x Koord der Fig.
 	 * @param posY
-	 *          y Koord der Fig.
+	 *            y Koord der Fig.
 	 */
-
+	@XmlElement
 	private FarbEnum farbe;
+	@XmlElement
 	private boolean istDame;
 	private static int i = 0;
 	private static int j = 0;
+	@XmlElement
 	private int idS = 1;
+	@XmlElement
 	private int idW = 1;
+	@XmlElement
 	private int posX;
+	@XmlElement
 	private int posY;
 
 	/**
 	 * Konstruktor
 	 * 
 	 * @param farbe
-	 *          setzt die Farbe der figur
+	 *            setzt die Farbe der figur
 	 * @param posX
-	 *          setzt die x pos
+	 *            setzt die x pos
 	 * @param posY
-	 *          setzt die y pos
+	 *            setzt die y pos
 	 */
+
+	public Spielfigur() {
+
+	}
 
 	public Spielfigur(FarbEnum farbe, boolean istDame) {
 		this.setFarbe(farbe);
@@ -76,11 +89,11 @@ public class Spielfigur implements Serializable {
 	public boolean getDame(Spielfigur fig) {
 		return this.istDame;
 	}
-
+	@XmlTransient
 	public int getIdW() {
 		return this.idW;
 	}
-
+	@XmlTransient
 	public int getIdS() {
 		return this.idS;
 	}
@@ -103,10 +116,12 @@ public class Spielfigur implements Serializable {
 
 	}
 
+	@XmlTransient
 	public int getPosX() {
 		return this.posX;
 	}
 
+	@XmlTransient
 	public int getPosY() {
 		return this.posY;
 	}
@@ -115,7 +130,7 @@ public class Spielfigur implements Serializable {
 	 * Setter für die Farbe
 	 * 
 	 * @param farbe
-	 *          die Farbe der Fig.
+	 *            die Farbe der Fig.
 	 */
 
 	private void setFarbe(FarbEnum farbe) {

@@ -8,9 +8,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement
+//@XmlType(propOrder = { "kiS", "figurenS", "kiW", "figurenW", "amZug" })
+// dran farbeSuKi figurenS farbeWuKi figurenW)
 /**
  *
- * @author Baris, Daniel, Simon
+ * @author Baris, Daniel, Hannes
  *
  */
 public class SpielBean implements iBediener, Serializable {
@@ -23,67 +30,75 @@ public class SpielBean implements iBediener, Serializable {
 	 * Attribute
 	 *
 	 * @param spielaufgebaut
-	 *          Boolean überprüfung ob das Spiel aufgebaut wurde oder nicht.
+	 *            Boolean überprüfung ob das Spiel aufgebaut wurde oder nicht.
 	 * @param spielerAnzahl
-	 *          Anzahl der aktuellen Spieler
+	 *            Anzahl der aktuellen Spieler
 	 * @param name
-	 *          Name des Spielers
+	 *            Name des Spielers
 	 * @param farbe
-	 *          Farbe der Spieler
+	 *            Farbe der Spieler
 	 * @param Ki
 	 *
 	 * @param spiellaeuft
-	 *          Boolean überprüfung ob das Spiel bereits läuft oder nicht.
+	 *            Boolean überprüfung ob das Spiel bereits läuft oder nicht.
 	 *
 	 * @param schwarzvergeben
-	 *          gibt an ob die Farbe schwarz bereits vergeben ist (False==nicht
-	 *          vergeben)
+	 *            gibt an ob die Farbe schwarz bereits vergeben ist
+	 *            (False==nicht vergeben)
 	 *
 	 * @param weiß
-	 *          gibt an ob die Farbe weiß bereits vergeben ist (False==nicht
-	 *          vergeben)
+	 *            gibt an ob die Farbe weiß bereits vergeben ist (False==nicht
+	 *            vergeben)
 	 *
 	 * @param brett
-	 *          das zugehörige Spielbrett
+	 *            das zugehörige Spielbrett
 	 *
 	 * @param fig
-	 *          die zugehörigen Spielfiguren
+	 *            die zugehörigen Spielfiguren
 	 *
 	 * @param spieler
-	 *          die zugehörigen Spieler
+	 *            die zugehörigen Spieler
 	 *
 	 * @param spielfeld
-	 *          die zugehörigen Spielfelder
+	 *            die zugehörigen Spielfelder
 	 */
 
 	private static iDatenzugriff daten;
 	private DatenzugriffSerialisiert ser = new DatenzugriffSerialisiert();
-	// private DatenzugriffPDF p = new DatenzugriffPDF(); //Ausgeklammert da es
+	// private DatenzugriffPDF p = new DatenzugriffPDF(); Ausgeklammert da es
 	// spacken macht wenn drin..FIXEN
 	private DatenzugriffCSV csv = new DatenzugriffCSV();
+	private DatenzugriffXML xml = new DatenzugriffXML();
+	@XmlElement
 	private boolean spielAufgebaut = false;
+	@XmlElement
 	private int spielerAnzahl = 0;
-	private String name;
-	private String farbe;
-	private String ki;
+	@XmlElement
 	private boolean spiellaeuft = false;
+	@XmlElement
 	private boolean schwarzvergeben = false;
+	@XmlElement
 	private boolean weissvergeben = false;
 	private boolean geschlagen = false;
 	private boolean kannWeiterSchlagen = false;
+	// @XmlElement
 	private int counter = 0;
 	private Spieler gewonnenerSpieler = null;
 	private String logger = "";
 	private boolean first = false;
+	 @XmlElement
 	private Spielbrett brett;
-	private Spieler spieler;
+	@XmlElement
 	private FarbEnum farbeAmZug;
+	 @XmlElement
 	private Spieler s1;
+	 @XmlElement
 	private Spieler s2;
+	 @XmlElement
 	private KI_Dame k1;
+	 @XmlElement
 	private KI_Dame k2;
-	private String dateiname = "csv";
-	private GUI gui;
+
 
 	private int startC;
 	private int endC;
@@ -92,7 +107,6 @@ public class SpielBean implements iBediener, Serializable {
 	private int startCNS;
 	private int startINS;
 
-	private boolean RekHatGeschlagen;
 	private ArrayList<String> FigurenLaufen = new ArrayList<String>();
 	private ArrayList<String> FigurenSchlagen = new ArrayList<String>();
 
@@ -108,7 +122,7 @@ public class SpielBean implements iBediener, Serializable {
 		// ///////////////////////////////////////////
 		// System.out.println("Bitte gebe die gewuenschte Spielbrett Groesse ein. ( 8 , 10 , 12 )");
 		aufbauen(12);
-		// anzeigen();
+		 anzeigen();
 	}
 
 	// ///////////////////////////////////////////
@@ -157,7 +171,8 @@ public class SpielBean implements iBediener, Serializable {
 	// //
 	// System.out.println("ziehen : Erlaubt dir eine Spielfigur zu bewegen. Nicht moeglich solange das Spiel nicht laeuft.");
 	// // System.out.println("anzeigen : Zeigt dir das Spielbrett.");
-	// // System.out.println("ser : erlaubt es dir das Spiel zu serialisieren.");
+	// //
+	// System.out.println("ser : erlaubt es dir das Spiel zu serialisieren.");
 	// //
 	// System.out.println("csv : erlaubt es dir das Spiel als CSV Datei zu speichern.");
 	// // System.out.println("ki ziehen : Lässt die KI ziehen.");
@@ -209,7 +224,9 @@ public class SpielBean implements iBediener, Serializable {
 
 	public int[] wandleUmvString(String Input) {
 		int[] gueltig = new int[3];
-		if (Input.length() > 1 && Input.length() < 4 && (IstBuchstabe(Input.substring(0, 1).toCharArray()) > -1) && (IstZahl(Input.substring(1, Input.length())) > -1)) {
+		if (Input.length() > 1 && Input.length() < 4
+				&& (IstBuchstabe(Input.substring(0, 1).toCharArray()) > -1)
+				&& (IstZahl(Input.substring(1, Input.length())) > -1)) {
 			// // System.out.println("Alles-OK");
 			// // System.out.println(IstBuchstabe(Input.substring(0,
 			// 1).toCharArray()) +
@@ -231,7 +248,8 @@ public class SpielBean implements iBediener, Serializable {
 	 */
 	public int IstZahl(String Input) {
 		try {
-			if (Integer.parseInt(Input) > 0 && Integer.parseInt(Input) <= brett.getBrettGroesse()) {
+			if (Integer.parseInt(Input) > 0
+					&& Integer.parseInt(Input) <= brett.getBrettGroesse()) {
 				return Integer.parseInt(Input) - 1;
 			}
 			return -1;
@@ -250,7 +268,8 @@ public class SpielBean implements iBediener, Serializable {
 
 		Input[0] = Character.toUpperCase(Input[0]);
 
-		if ((int) Input[0] >= 65 && (int) Input[0] <= (65 + brett.getBrettGroesse())) {
+		if ((int) Input[0] >= 65
+				&& (int) Input[0] <= (65 + brett.getBrettGroesse())) {
 			return Input[0] - 65;
 		}
 		return -1;
@@ -262,9 +281,9 @@ public class SpielBean implements iBediener, Serializable {
 	 * schlagen.
 	 *
 	 * @param x
-	 *          Index Zeile von der Spielfigur auf Brett
+	 *            Index Zeile von der Spielfigur auf Brett
 	 * @param y
-	 *          Index Spatlte von der Spielfigur auf Brett
+	 *            Index Spatlte von der Spielfigur auf Brett
 	 * @return int[] gibt array mit moeglichen Zuegen zurueck
 	 */
 
@@ -301,65 +320,105 @@ public class SpielBean implements iBediener, Serializable {
 
 		// Pruefungen ob Felder ringsherum vom Startfeld innerhalb vom Brett
 		// liegen
-		boolean rechtsObenImFeld = xPosNeu1 >= 0 && xPosNeu1 <= indexGroesse && yPosNeu1 >= 0 && yPosNeu1 <= indexGroesse;
-		boolean linksUntenImFeld = xPosNeu2 >= 0 && xPosNeu2 <= indexGroesse && yPosNeu2 >= 0 && yPosNeu2 <= indexGroesse;
-		boolean linksObenImFeld = xPosNeu3 >= 0 && xPosNeu3 <= indexGroesse && yPosNeu3 >= 0 && yPosNeu3 <= indexGroesse;
-		boolean rechtsUntenImFeld = xPosNeu4 >= 0 && xPosNeu4 <= indexGroesse && yPosNeu4 >= 0 && yPosNeu4 <= indexGroesse;
+		boolean rechtsObenImFeld = xPosNeu1 >= 0 && xPosNeu1 <= indexGroesse
+				&& yPosNeu1 >= 0 && yPosNeu1 <= indexGroesse;
+		boolean linksUntenImFeld = xPosNeu2 >= 0 && xPosNeu2 <= indexGroesse
+				&& yPosNeu2 >= 0 && yPosNeu2 <= indexGroesse;
+		boolean linksObenImFeld = xPosNeu3 >= 0 && xPosNeu3 <= indexGroesse
+				&& yPosNeu3 >= 0 && yPosNeu3 <= indexGroesse;
+		boolean rechtsUntenImFeld = xPosNeu4 >= 0 && xPosNeu4 <= indexGroesse
+				&& yPosNeu4 >= 0 && yPosNeu4 <= indexGroesse;
 
 		// laufen Stein
 
 		// Laufen nach Rechts oben
-		if ((((!fig.getDame(fig) && fig.getFarbe() == FarbEnum.SCHWARZ)) && rechtsObenImFeld) && !brett.getBrettFeldIndex(xPosNeu1, yPosNeu1).getIstBelegt()) {
+		if ((((!fig.getDame(fig) && fig.getFarbe() == FarbEnum.SCHWARZ)) && rechtsObenImFeld)
+				&& !brett.getBrettFeldIndex(xPosNeu1, yPosNeu1).getIstBelegt()) {
 			// Pruefung ob moegliches Zielfeld belegt ist.
-			FigurenLaufen.add(brett.getBrettFeldIndex(xPosNeu1, yPosNeu1).getId());
+			FigurenLaufen.add(brett.getBrettFeldIndex(xPosNeu1, yPosNeu1)
+					.getId());
 			laufen++;
 		}
 
 		// Laufen nach Links unten
-		if ((((!fig.getDame(fig) && fig.getFarbe() == FarbEnum.WEIß)) && linksUntenImFeld) && !brett.getBrettFeldIndex(xPosNeu2, yPosNeu2).getIstBelegt()) {
-			FigurenLaufen.add(brett.getBrettFeldIndex(xPosNeu2, yPosNeu2).getId());
+		if ((((!fig.getDame(fig) && fig.getFarbe() == FarbEnum.WEIß)) && linksUntenImFeld)
+				&& !brett.getBrettFeldIndex(xPosNeu2, yPosNeu2).getIstBelegt()) {
+			FigurenLaufen.add(brett.getBrettFeldIndex(xPosNeu2, yPosNeu2)
+					.getId());
 			laufen++;
 		}
 
 		// Laufen nach Links oben
-		if ((((!fig.getDame(fig) && fig.getFarbe() == FarbEnum.SCHWARZ)) && linksObenImFeld) && !brett.getBrettFeldIndex(xPosNeu3, yPosNeu3).getIstBelegt()) {
-			FigurenLaufen.add(brett.getBrettFeldIndex(xPosNeu3, yPosNeu3).getId());
+		if ((((!fig.getDame(fig) && fig.getFarbe() == FarbEnum.SCHWARZ)) && linksObenImFeld)
+				&& !brett.getBrettFeldIndex(xPosNeu3, yPosNeu3).getIstBelegt()) {
+			FigurenLaufen.add(brett.getBrettFeldIndex(xPosNeu3, yPosNeu3)
+					.getId());
 			laufen++;
 		}
 
 		// Laufen nach Rechts unten
-		if ((((!fig.getDame(fig) && fig.getFarbe() == FarbEnum.WEIß)) && rechtsUntenImFeld) && !brett.getBrettFeldIndex(xPosNeu4, yPosNeu4).getIstBelegt()) {
-			FigurenLaufen.add(brett.getBrettFeldIndex(xPosNeu4, yPosNeu4).getId());
+		if ((((!fig.getDame(fig) && fig.getFarbe() == FarbEnum.WEIß)) && rechtsUntenImFeld)
+				&& !brett.getBrettFeldIndex(xPosNeu4, yPosNeu4).getIstBelegt()) {
+			FigurenLaufen.add(brett.getBrettFeldIndex(xPosNeu4, yPosNeu4)
+					.getId());
 			laufen++;
 		}
 
 		// schlagen Stein im einer Schritt
 
 		// Rechts oben
-		if ((!fig.getDame(fig) && rechtsObenImFeld && brett.getBrettFeldIndex(xPosNeu1, yPosNeu1).getIstBelegt() && brett.getBrettFeldIndex(xPosNeu1, yPosNeu1).getSpielfigur().getFarbe() != getAmZug()
-				&& (xPosNeu1 + 1 >= 0 && xPosNeu1 + 1 <= indexGroesse && yPosNeu1 + 1 >= 0 && yPosNeu1 + 1 <= indexGroesse) && (!brett.getBrettFeldIndex(xPosNeu1 + 1, yPosNeu1 + 1).getIstBelegt()))) {
-			FigurenSchlagen.add(brett.getBrettFeldIndex(xPosNeu1 + 1, yPosNeu1 + 1).getId());
+		if ((!fig.getDame(fig)
+				&& rechtsObenImFeld
+				&& brett.getBrettFeldIndex(xPosNeu1, yPosNeu1).getIstBelegt()
+				&& brett.getBrettFeldIndex(xPosNeu1, yPosNeu1).getSpielfigur()
+						.getFarbe() != getAmZug()
+				&& (xPosNeu1 + 1 >= 0 && xPosNeu1 + 1 <= indexGroesse
+						&& yPosNeu1 + 1 >= 0 && yPosNeu1 + 1 <= indexGroesse) && (!brett
+				.getBrettFeldIndex(xPosNeu1 + 1, yPosNeu1 + 1).getIstBelegt()))) {
+			FigurenSchlagen.add(brett.getBrettFeldIndex(xPosNeu1 + 1,
+					yPosNeu1 + 1).getId());
 			schlagen++;
 		}
 
 		// Links unten
-		if ((!fig.getDame(fig) && linksUntenImFeld && brett.getBrettFeldIndex(xPosNeu2, yPosNeu2).getIstBelegt() && brett.getBrettFeldIndex(xPosNeu2, yPosNeu2).getSpielfigur().getFarbe() != getAmZug()
-				&& (xPosNeu2 - 1 >= 0 && xPosNeu2 - 1 <= indexGroesse && yPosNeu2 - 1 >= 0 && yPosNeu2 - 1 <= indexGroesse) && (!brett.getBrettFeldIndex(xPosNeu2 - 1, yPosNeu2 - 1).getIstBelegt()))) {
-			FigurenSchlagen.add(brett.getBrettFeldIndex(xPosNeu2 - 1, yPosNeu2 - 1).getId());
+		if ((!fig.getDame(fig)
+				&& linksUntenImFeld
+				&& brett.getBrettFeldIndex(xPosNeu2, yPosNeu2).getIstBelegt()
+				&& brett.getBrettFeldIndex(xPosNeu2, yPosNeu2).getSpielfigur()
+						.getFarbe() != getAmZug()
+				&& (xPosNeu2 - 1 >= 0 && xPosNeu2 - 1 <= indexGroesse
+						&& yPosNeu2 - 1 >= 0 && yPosNeu2 - 1 <= indexGroesse) && (!brett
+				.getBrettFeldIndex(xPosNeu2 - 1, yPosNeu2 - 1).getIstBelegt()))) {
+			FigurenSchlagen.add(brett.getBrettFeldIndex(xPosNeu2 - 1,
+					yPosNeu2 - 1).getId());
 			schlagen++;
 		}
 
 		// Links oben
-		if ((!fig.getDame(fig) && linksObenImFeld && brett.getBrettFeldIndex(xPosNeu3, yPosNeu3).getIstBelegt() && brett.getBrettFeldIndex(xPosNeu3, yPosNeu3).getSpielfigur().getFarbe() != getAmZug()
-				&& (xPosNeu3 + 1 >= 0 && xPosNeu3 + 1 <= indexGroesse && yPosNeu3 - 1 >= 0 && yPosNeu3 - 1 <= indexGroesse) && (!brett.getBrettFeldIndex(xPosNeu3 + 1, yPosNeu3 - 1).getIstBelegt()))) {
-			FigurenSchlagen.add(brett.getBrettFeldIndex(xPosNeu3 + 1, yPosNeu3 - 1).getId());
+		if ((!fig.getDame(fig)
+				&& linksObenImFeld
+				&& brett.getBrettFeldIndex(xPosNeu3, yPosNeu3).getIstBelegt()
+				&& brett.getBrettFeldIndex(xPosNeu3, yPosNeu3).getSpielfigur()
+						.getFarbe() != getAmZug()
+				&& (xPosNeu3 + 1 >= 0 && xPosNeu3 + 1 <= indexGroesse
+						&& yPosNeu3 - 1 >= 0 && yPosNeu3 - 1 <= indexGroesse) && (!brett
+				.getBrettFeldIndex(xPosNeu3 + 1, yPosNeu3 - 1).getIstBelegt()))) {
+			FigurenSchlagen.add(brett.getBrettFeldIndex(xPosNeu3 + 1,
+					yPosNeu3 - 1).getId());
 			schlagen++;
 		}
 
 		// Rechts unten
-		if ((!fig.getDame(fig) && rechtsUntenImFeld && brett.getBrettFeldIndex(xPosNeu4, yPosNeu4).getIstBelegt() && (brett.getBrettFeldIndex(xPosNeu4, yPosNeu4).getSpielfigur().getFarbe() != getAmZug())
-				&& (xPosNeu4 - 1 >= 0 && xPosNeu4 - 1 <= indexGroesse && yPosNeu4 + 1 >= 0 && yPosNeu4 + 1 <= indexGroesse) && (!brett.getBrettFeldIndex(xPosNeu4 - 1, yPosNeu4 + 1).getIstBelegt()))) {
-			FigurenSchlagen.add(brett.getBrettFeldIndex(xPosNeu4 - 1, yPosNeu4 + 1).getId());
+		if ((!fig.getDame(fig)
+				&& rechtsUntenImFeld
+				&& brett.getBrettFeldIndex(xPosNeu4, yPosNeu4).getIstBelegt()
+				&& (brett.getBrettFeldIndex(xPosNeu4, yPosNeu4).getSpielfigur()
+						.getFarbe() != getAmZug())
+				&& (xPosNeu4 - 1 >= 0 && xPosNeu4 - 1 <= indexGroesse
+						&& yPosNeu4 + 1 >= 0 && yPosNeu4 + 1 <= indexGroesse) && (!brett
+				.getBrettFeldIndex(xPosNeu4 - 1, yPosNeu4 + 1).getIstBelegt()))) {
+			FigurenSchlagen.add(brett.getBrettFeldIndex(xPosNeu4 - 1,
+					yPosNeu4 + 1).getId());
 			schlagen++;
 		}
 
@@ -394,11 +453,10 @@ public class SpielBean implements iBediener, Serializable {
 		return anzMoeglichkeitenVonStartfeld;
 	}
 
-	private int[] Rek_Dame_Moeglich(int x, int y, String richtung, int laufen, int schlagen) {
+	private int[] Rek_Dame_Moeglich(int x, int y, String richtung, int laufen,
+			int schlagen) {
 		// System.out.print(x+"  "+y);
 		int[] amk = new int[2];
-		RekHatGeschlagen = geschlagen;
-
 		// Richtung unten Rechts
 		if (richtung.equalsIgnoreCase("ur")) {
 			// 1.Pruefung: schauen ob nächstes Feld innerhalb des Brettes liegt
@@ -406,18 +464,27 @@ public class SpielBean implements iBediener, Serializable {
 				// 2.Pruefung: schauen ob ne Figur drauf ist. Ist keine Figur
 				// drauf
 				if (!brett.getBrettFeldIndex(x - 1, y + 1).getIstBelegt()) {
-					FigurenLaufen.add(brett.getBrettFeldIndex(x - 1, y + 1).getId());
+					FigurenLaufen.add(brett.getBrettFeldIndex(x - 1, y + 1)
+							.getId());
 					// Rekursionsaufruf mit laufen++
-					amk = Rek_Dame_Moeglich(x - 1, y + 1, richtung, laufen + 1, schlagen);
+					amk = Rek_Dame_Moeglich(x - 1, y + 1, richtung, laufen + 1,
+							schlagen);
 					return amk;
 					// 3.Pruefung: wenn Feld belegt vom Gegner
-				} else if (brett.getBrettFeldIndex(x - 1, y + 1).getIstBelegt() && brett.getBrettFeldIndex(x - 1, y + 1).getSpielfigur().getFarbe() != getAmZug()) {
+				} else if (brett.getBrettFeldIndex(x - 1, y + 1).getIstBelegt()
+						&& brett.getBrettFeldIndex(x - 1, y + 1)
+								.getSpielfigur().getFarbe() != getAmZug()) {
 					// 4.Pruefung: wenn Feld dahinter innerhalb Brett & wenn
 					// Feld dahinter frei
-					if (x - 2 >= 0 && y + 2 <= brett.getBrettGroesse() - 1 && !brett.getBrettFeldIndex(x - 2, y + 2).getIstBelegt()) {
-						FigurenSchlagen.add(brett.getBrettFeldIndex(x - 2, y + 2).getId());
+					if (x - 2 >= 0
+							&& y + 2 <= brett.getBrettGroesse() - 1
+							&& !brett.getBrettFeldIndex(x - 2, y + 2)
+									.getIstBelegt()) {
+						FigurenSchlagen.add(brett.getBrettFeldIndex(x - 2,
+								y + 2).getId());
 						// Rekursionsaufruf mit schlagen++
-						amk = Rek_Dame_Moeglich(x - 2, y + 2, richtung, laufen, schlagen + 1);
+						amk = Rek_Dame_Moeglich(x - 2, y + 2, richtung, laufen,
+								schlagen + 1);
 						return amk;
 					}
 				}
@@ -430,18 +497,27 @@ public class SpielBean implements iBediener, Serializable {
 				// 2.Pruefung: schauen ob ne Figur drauf ist. Ist keine Figur
 				// drauf
 				if (!brett.getBrettFeldIndex(x - 1, y - 1).getIstBelegt()) {
-					FigurenLaufen.add(brett.getBrettFeldIndex(x - 1, y - 1).getId());
+					FigurenLaufen.add(brett.getBrettFeldIndex(x - 1, y - 1)
+							.getId());
 					// Rekursionsaufruf mit laufen++
-					amk = Rek_Dame_Moeglich(x - 1, y - 1, richtung, laufen + 1, schlagen);
+					amk = Rek_Dame_Moeglich(x - 1, y - 1, richtung, laufen + 1,
+							schlagen);
 					return amk;
 					// 3.Pruefung: wenn Feld belegt vom Gegner
-				} else if (brett.getBrettFeldIndex(x - 1, y - 1).getIstBelegt() && brett.getBrettFeldIndex(x - 1, y - 1).getSpielfigur().getFarbe() != getAmZug()) {
+				} else if (brett.getBrettFeldIndex(x - 1, y - 1).getIstBelegt()
+						&& brett.getBrettFeldIndex(x - 1, y - 1)
+								.getSpielfigur().getFarbe() != getAmZug()) {
 					// 4.Pruefung: wenn Feld dahinter innerhalb Brett & wenn
 					// Feld dahinter frei
-					if (x - 2 >= 0 && y - 2 >= 0 && !brett.getBrettFeldIndex(x - 2, y - 2).getIstBelegt()) {
-						FigurenSchlagen.add(brett.getBrettFeldIndex(x - 2, y - 2).getId());
+					if (x - 2 >= 0
+							&& y - 2 >= 0
+							&& !brett.getBrettFeldIndex(x - 2, y - 2)
+									.getIstBelegt()) {
+						FigurenSchlagen.add(brett.getBrettFeldIndex(x - 2,
+								y - 2).getId());
 						// Rekursionsaufruf mit schlagen++
-						amk = Rek_Dame_Moeglich(x - 2, y - 2, richtung, laufen, schlagen + 1);
+						amk = Rek_Dame_Moeglich(x - 2, y - 2, richtung, laufen,
+								schlagen + 1);
 						return amk;
 					}
 				}
@@ -453,23 +529,32 @@ public class SpielBean implements iBediener, Serializable {
 			if (x + 1 <= brett.getBrettGroesse() - 1 && y - 1 >= 0) {
 				// 2.Pruefung: schauen ob ne Figur drauf ist. Ist keine Figur
 				// drauf
-				// System.out.println("oben links belegt: " + brett.getBrettFeldIndex(x
-				// + 1, y - 1).getIstBelegt());
+				// System.out.println("oben links belegt: " +
+				// brett.getBrettFeldIndex(x + 1, y - 1).getIstBelegt());
 				if (!brett.getBrettFeldIndex(x + 1, y - 1).getIstBelegt()) {
-					FigurenLaufen.add(brett.getBrettFeldIndex(x + 1, y - 1).getId());
+					FigurenLaufen.add(brett.getBrettFeldIndex(x + 1, y - 1)
+							.getId());
 					// Rekursionsaufruf mit laufen++
-					amk = Rek_Dame_Moeglich(x + 1, y - 1, richtung, laufen + 1, schlagen);
+					amk = Rek_Dame_Moeglich(x + 1, y - 1, richtung, laufen + 1,
+							schlagen);
 					return amk;
 					// 3.Pruefung: wenn Feld belegt vom Gegner
-				} else if (brett.getBrettFeldIndex(x + 1, y - 1).getIstBelegt() && brett.getBrettFeldIndex(x + 1, y - 1).getSpielfigur().getFarbe() != getAmZug()) {
+				} else if (brett.getBrettFeldIndex(x + 1, y - 1).getIstBelegt()
+						&& brett.getBrettFeldIndex(x + 1, y - 1)
+								.getSpielfigur().getFarbe() != getAmZug()) {
 					// System.out.println("oben links belegt: " +
 					// brett.getBrettFeldIndex(x + 1, y - 1).getIstBelegt());
 					// 4.Pruefung: wenn Feld dahinter innerhalb Brett & wenn
 					// Feld dahinter frei
-					if (x + 2 <= brett.getBrettGroesse() - 1 && y - 2 >= 0 && !brett.getBrettFeldIndex(x + 2, y - 2).getIstBelegt()) {
-						FigurenSchlagen.add(brett.getBrettFeldIndex(x + 2, y - 2).getId());
+					if (x + 2 <= brett.getBrettGroesse() - 1
+							&& y - 2 >= 0
+							&& !brett.getBrettFeldIndex(x + 2, y - 2)
+									.getIstBelegt()) {
+						FigurenSchlagen.add(brett.getBrettFeldIndex(x + 2,
+								y - 2).getId());
 						// Rekursionsaufruf mit schlagen++
-						amk = Rek_Dame_Moeglich(x + 2, y - 2, richtung, laufen, schlagen + 1);
+						amk = Rek_Dame_Moeglich(x + 2, y - 2, richtung, laufen,
+								schlagen + 1);
 						return amk;
 					}
 				}
@@ -478,22 +563,32 @@ public class SpielBean implements iBediener, Serializable {
 		// Richtung oben Rechts
 		if (richtung.equalsIgnoreCase("or")) {
 			// 1.Pruefung: schauen ob nächstes Feld innerhalb des Brettes liegt
-			if (x + 1 <= brett.getBrettGroesse() - 1 && y + 1 <= brett.getBrettGroesse() - 1) {
+			if (x + 1 <= brett.getBrettGroesse() - 1
+					&& y + 1 <= brett.getBrettGroesse() - 1) {
 				// 2.Pruefung: schauen ob ne Figur drauf ist. Ist keine Figur
 				// drauf
 				if (!brett.getBrettFeldIndex(x + 1, y + 1).getIstBelegt()) {
-					FigurenLaufen.add(brett.getBrettFeldIndex(x + 1, y + 1).getId());
+					FigurenLaufen.add(brett.getBrettFeldIndex(x + 1, y + 1)
+							.getId());
 					// Rekursionsaufruf mit laufen++
-					amk = Rek_Dame_Moeglich(x + 1, y + 1, richtung, laufen + 1, schlagen);
+					amk = Rek_Dame_Moeglich(x + 1, y + 1, richtung, laufen + 1,
+							schlagen);
 					return amk;
 					// 3.Pruefung: wenn Feld belegt vom Gegner
-				} else if (brett.getBrettFeldIndex(x + 1, y + 1).getIstBelegt() && brett.getBrettFeldIndex(x + 1, y + 1).getSpielfigur().getFarbe() != getAmZug()) {
+				} else if (brett.getBrettFeldIndex(x + 1, y + 1).getIstBelegt()
+						&& brett.getBrettFeldIndex(x + 1, y + 1)
+								.getSpielfigur().getFarbe() != getAmZug()) {
 					// 4.Pruefung: wenn Feld dahinter innerhalb Brett & wenn
 					// Feld dahinter frei
-					if (x + 2 <= brett.getBrettGroesse() - 1 && y + 2 <= brett.getBrettGroesse() - 1 && !brett.getBrettFeldIndex(x + 2, y + 2).getIstBelegt()) {
-						FigurenSchlagen.add(brett.getBrettFeldIndex(x + 2, y + 2).getId());
+					if (x + 2 <= brett.getBrettGroesse() - 1
+							&& y + 2 <= brett.getBrettGroesse() - 1
+							&& !brett.getBrettFeldIndex(x + 2, y + 2)
+									.getIstBelegt()) {
+						FigurenSchlagen.add(brett.getBrettFeldIndex(x + 2,
+								y + 2).getId());
 						// Rekursionsaufruf mit schlagen++
-						amk = Rek_Dame_Moeglich(x + 2, y + 2, richtung, laufen, schlagen + 1);
+						amk = Rek_Dame_Moeglich(x + 2, y + 2, richtung, laufen,
+								schlagen + 1);
 						return amk;
 					}
 				}
@@ -532,13 +627,13 @@ public class SpielBean implements iBediener, Serializable {
 	 * prueft den gewollten zug
 	 *
 	 * @param xa
-	 *          alte x koord
+	 *            alte x koord
 	 * @param ya
-	 *          alte y koord
+	 *            alte y koord
 	 * @param xn
-	 *          neue x koord
+	 *            neue x koord
 	 * @param yn
-	 *          neue y koord
+	 *            neue y koord
 	 * @return int
 	 *
 	 */
@@ -550,8 +645,10 @@ public class SpielBean implements iBediener, Serializable {
 		Spielfigur fig = brett.getBrettFeldIndex(xa, ya).getSpielfigur();
 		FarbEnum farbe = fig.getFarbe();
 
-		int diffX = brett.getBrettFeldIndex(xa, ya).getPosX() - brett.getBrettFeldIndex(xn, yn).getPosX();
-		int diffY = brett.getBrettFeldIndex(xa, ya).getPosY() - brett.getBrettFeldIndex(xn, yn).getPosY();
+		int diffX = brett.getBrettFeldIndex(xa, ya).getPosX()
+				- brett.getBrettFeldIndex(xn, yn).getPosX();
+		int diffY = brett.getBrettFeldIndex(xa, ya).getPosY()
+				- brett.getBrettFeldIndex(xn, yn).getPosY();
 
 		int tempX = diffX;
 		int tempY = diffY;
@@ -577,7 +674,8 @@ public class SpielBean implements iBediener, Serializable {
 		}
 
 		if (!fig.getDame(fig)) {
-			if (farbe == FarbEnum.SCHWARZ && xa > xn && tempX == 1 && tempY == 1) {
+			if (farbe == FarbEnum.SCHWARZ && xa > xn && tempX == 1
+					&& tempY == 1) {
 
 				if (!brett.getBrettFeldIndex(xn, yn).getIstBelegt()) {
 					// system.err.println("Nach hinten ziehen ist mit einem Stein nicht erlaubt!ssiilikkSchwarz");
@@ -603,7 +701,11 @@ public class SpielBean implements iBediener, Serializable {
 		int hitY = (ya + yn) / 2;
 
 		// Schlagen bei ZugLaenge 2
-		if (tempX == 2 && tempY == 2 && brett.getBrettFeldIndex(hitX, hitY).getIstBelegt() && brett.getBrettFeldIndex(hitX, hitY).getSpielfigur().getFarbe() != getAmZug()) {
+		if (tempX == 2
+				&& tempY == 2
+				&& brett.getBrettFeldIndex(hitX, hitY).getIstBelegt()
+				&& brett.getBrettFeldIndex(hitX, hitY).getSpielfigur()
+						.getFarbe() != getAmZug()) {
 			return 2;
 		}
 
@@ -636,15 +738,18 @@ public class SpielBean implements iBediener, Serializable {
 
 					if (brett.getBrettFeldIndex(i, j).getIstBelegt()) {
 						// wenn etwas auf dem feld ist.
-						if (brett.getBrettFeldIndex(i, j).getSpielfigur().getFarbe() == getAmZug()) {
+						if (brett.getBrettFeldIndex(i, j).getSpielfigur()
+								.getFarbe() == getAmZug()) {
 							// system.err.println("Eigene Figuren schlagen geht nicht.");
 							return -1;
 						}
-						if (brett.getBrettFeldIndex(i + 1, j + 1).getIstBelegt()) {
+						if (brett.getBrettFeldIndex(i + 1, j + 1)
+								.getIstBelegt()) {
 							// system.err.println("Zwei Figuren aufeinmal ueberspringen geht nicht.");
 							return -1;
 						}
-						if (!brett.getBrettFeldIndex(neueX - 1, neueY - 1).getIstBelegt()) {
+						if (!brett.getBrettFeldIndex(neueX - 1, neueY - 1)
+								.getIstBelegt()) {
 							// system.err.println("Du kannst nachdem du geschlagen hast nicht einfach weiter gehen.");
 							return -1;
 						}
@@ -662,15 +767,18 @@ public class SpielBean implements iBediener, Serializable {
 
 					if (brett.getBrettFeldIndex(i, j).getIstBelegt()) {
 						// wenn etwas auf dem feld ist.
-						if (brett.getBrettFeldIndex(i, j).getSpielfigur().getFarbe() == getAmZug()) {
+						if (brett.getBrettFeldIndex(i, j).getSpielfigur()
+								.getFarbe() == getAmZug()) {
 							// system.err.println("Eigene Figuren schlagen geht nicht.");
 							return -1;
 						}
-						if (brett.getBrettFeldIndex(i + 1, j - 1).getIstBelegt()) {
+						if (brett.getBrettFeldIndex(i + 1, j - 1)
+								.getIstBelegt()) {
 							// system.err.println("Zwei Figuren aufeinmal ueberspringen geht nicht.");
 							return -1;
 						}
-						if (!brett.getBrettFeldIndex(neueX - 1, neueY + 1).getIstBelegt()) {
+						if (!brett.getBrettFeldIndex(neueX - 1, neueY + 1)
+								.getIstBelegt()) {
 							// system.err.println("Du kannst nachdem du geschlagen hast nicht einfach weiter gehen.");
 							return -1;
 						}
@@ -689,15 +797,18 @@ public class SpielBean implements iBediener, Serializable {
 
 					if (brett.getBrettFeldIndex(i, j).getIstBelegt()) {
 						// wenn etwas auf dem feld ist.
-						if (brett.getBrettFeldIndex(i, j).getSpielfigur().getFarbe() == getAmZug()) {
+						if (brett.getBrettFeldIndex(i, j).getSpielfigur()
+								.getFarbe() == getAmZug()) {
 							// system.err.println("Eigene Figuren schlagen geht nicht.");
 							return -1;
 						}
-						if (brett.getBrettFeldIndex(i - 1, j + 1).getIstBelegt()) {
+						if (brett.getBrettFeldIndex(i - 1, j + 1)
+								.getIstBelegt()) {
 							// system.err.println("Zwei Figuren aufeinmal ueberspringen geht nicht.");
 							return -1;
 						}
-						if (!brett.getBrettFeldIndex(neueX + 1, neueY - 1).getIstBelegt()) {
+						if (!brett.getBrettFeldIndex(neueX + 1, neueY - 1)
+								.getIstBelegt()) {
 							// system.err.println("Du kannst nachdem du geschlagen hast nicht einfach weiter gehen.");
 							return -1;
 						}
@@ -716,15 +827,18 @@ public class SpielBean implements iBediener, Serializable {
 
 					if (brett.getBrettFeldIndex(i, j).getIstBelegt()) {
 						// wenn etwas auf dem feld ist.
-						if (brett.getBrettFeldIndex(i, j).getSpielfigur().getFarbe() == getAmZug()) {
+						if (brett.getBrettFeldIndex(i, j).getSpielfigur()
+								.getFarbe() == getAmZug()) {
 							// system.err.println("Eigene Figuren schlagen geht nicht.");
 							return -1;
 						}
-						if (brett.getBrettFeldIndex(i - 1, j - 1).getIstBelegt()) {
+						if (brett.getBrettFeldIndex(i - 1, j - 1)
+								.getIstBelegt()) {
 							// system.err.println("Zwei Figuren aufeinmal ueberspringen geht nicht.");
 							return -1;
 						}
-						if (!brett.getBrettFeldIndex(neueX + 1, neueY + 1).getIstBelegt()) {
+						if (!brett.getBrettFeldIndex(neueX + 1, neueY + 1)
+								.getIstBelegt()) {
 							// system.err.println("Du kannst nachdem du geschlagen hast nicht einfach weiter gehen.");
 							return -1;
 						}
@@ -738,12 +852,15 @@ public class SpielBean implements iBediener, Serializable {
 	}
 
 	/**
-	 ** figurBewegen wir aufgerufen nachdem zugPruefen einen returnWert von 1 gibt
+	 ** figurBewegen wir aufgerufen nachdem zugPruefen einen returnWert von 1
+	 * gibt
 	 */
 	private void figurBewegen(int xa, int ya, int xn, int yn) {
 
-		int diffX = brett.getBrettFeldIndex(xa, ya).getPosX() - brett.getBrettFeldIndex(xn, yn).getPosX();
-		int diffY = brett.getBrettFeldIndex(xa, ya).getPosY() - brett.getBrettFeldIndex(xn, yn).getPosY();
+		int diffX = brett.getBrettFeldIndex(xa, ya).getPosX()
+				- brett.getBrettFeldIndex(xn, yn).getPosX();
+		int diffY = brett.getBrettFeldIndex(xa, ya).getPosY()
+				- brett.getBrettFeldIndex(xn, yn).getPosY();
 		// int diff = diffX - diffY;
 
 		Spielfigur fig = brett.getBrettFeldIndex(xa, ya).getSpielfigur();
@@ -752,10 +869,10 @@ public class SpielBean implements iBediener, Serializable {
 		/*
 		 * Ein Schritt_________________________________________________
 		 * 
-		 * Rechts Oben: (diff == 0 && diffX > -2)-------------------------- Links
-		 * Oben: (diff == 2 && diffX > -2)--------------------------- Rechts Unten:
-		 * (diff == 2 && diffX > 0)-------------------------- Links Unten: (diff ==
-		 * 0 && diffX > 0)---------------------------
+		 * Rechts Oben: (diff == 0 && diffX > -2)--------------------------
+		 * Links Oben: (diff == 2 && diffX > -2)---------------------------
+		 * Rechts Unten: (diff == 2 && diffX > 0)--------------------------
+		 * Links Unten: (diff == 0 && diffX > 0)---------------------------
 		 */
 
 		// Stein
@@ -800,10 +917,10 @@ public class SpielBean implements iBediener, Serializable {
 		/*
 		 * Mehr als Ein Schritt____________________________________________
 		 * 
-		 * Rechts Oben: (diff == 0 && diffX < -1)-------------------------- Links
-		 * Oben: (diff > 2 && diffX < -1)---------------------------- Rechts Unten:
-		 * (diff > 2 && diffX > 0)--------------------------- Links Unten: (diff ==
-		 * 0 && diffX > 0)---------------------------
+		 * Rechts Oben: (diff == 0 && diffX < -1)--------------------------
+		 * Links Oben: (diff > 2 && diffX < -1)----------------------------
+		 * Rechts Unten: (diff > 2 && diffX > 0)---------------------------
+		 * Links Unten: (diff == 0 && diffX > 0)---------------------------
 		 */
 
 		// Dame
@@ -824,8 +941,12 @@ public class SpielBean implements iBediener, Serializable {
 				// // System.out.println("Angefangen zu laufen oben rechts");
 				for (int i = alteX + 1; i <= neueX; i++) {
 					if (!brett.getBrettFeldIndex(i, j).getIstBelegt()) {
-						brett.getBrettFeldIndex(i, j).setSpielfigur(brett.getBrettFeldIndex(i - 1, j - 1).getSpielfigur());
-						brett.getBrettFeldIndex(i - 1, j - 1).removeSpielfigur(brett.getBrettFeldIndex(i - 1, j - 1).getSpielfigur());
+						brett.getBrettFeldIndex(i, j).setSpielfigur(
+								brett.getBrettFeldIndex(i - 1, j - 1)
+										.getSpielfigur());
+						brett.getBrettFeldIndex(i - 1, j - 1).removeSpielfigur(
+								brett.getBrettFeldIndex(i - 1, j - 1)
+										.getSpielfigur());
 						// //
 						// System.out.println("naechstes feld. wenn nicht ende weiterlaufe");
 					} else {
@@ -834,7 +955,8 @@ public class SpielBean implements iBediener, Serializable {
 						// auf das Feld hinter dem GegnerStein bewegt. Damit die
 						// Schleife aber richtig funktioniert muss die Dame
 						// wieder ein Feld nach hinten bewegt werden
-						brett.getBrettFeldIndex(i + 1, j + 1).removeSpielfigur(fig);
+						brett.getBrettFeldIndex(i + 1, j + 1).removeSpielfigur(
+								fig);
 						brett.getBrettFeldIndex(i, j).setSpielfigur(fig);
 					}
 					j++;
@@ -849,15 +971,20 @@ public class SpielBean implements iBediener, Serializable {
 				for (int i = alteX + 1; i <= neueX; i++) {
 					// // System.out.println("laufen nach oben links");
 					if (!brett.getBrettFeldIndex(i, j).getIstBelegt()) {
-						brett.getBrettFeldIndex(i, j).setSpielfigur(brett.getBrettFeldIndex(i - 1, j + 1).getSpielfigur());
-						brett.getBrettFeldIndex(i - 1, j + 1).removeSpielfigur(brett.getBrettFeldIndex(i - 1, j + 1).getSpielfigur());
+						brett.getBrettFeldIndex(i, j).setSpielfigur(
+								brett.getBrettFeldIndex(i - 1, j + 1)
+										.getSpielfigur());
+						brett.getBrettFeldIndex(i - 1, j + 1).removeSpielfigur(
+								brett.getBrettFeldIndex(i - 1, j + 1)
+										.getSpielfigur());
 					} else {
 						figurSchlagen(i - 1, j + 1, i + 1, j - 1);
 						// nach der figurSchlagen Methode wird die Spielfigur
 						// auf das Feld hinter dem GegnerStein bewegt. Damit die
 						// Schleife aber richtig funktioniert muss die Dame
 						// wieder ein Feld nach hinten bewegt werden
-						brett.getBrettFeldIndex(i + 1, j - 1).removeSpielfigur(fig);
+						brett.getBrettFeldIndex(i + 1, j - 1).removeSpielfigur(
+								fig);
 						brett.getBrettFeldIndex(i, j).setSpielfigur(fig);
 					}
 					j--;
@@ -871,15 +998,20 @@ public class SpielBean implements iBediener, Serializable {
 				for (int i = alteX - 1; i >= neueX; i--) {
 					// // System.out.println("laufen nach unten rechts");
 					if (!brett.getBrettFeldIndex(i, j).getIstBelegt()) {
-						brett.getBrettFeldIndex(i, j).setSpielfigur(brett.getBrettFeldIndex(i + 1, j - 1).getSpielfigur());
-						brett.getBrettFeldIndex(i + 1, j - 1).removeSpielfigur(brett.getBrettFeldIndex(i + 1, j - 1).getSpielfigur());
+						brett.getBrettFeldIndex(i, j).setSpielfigur(
+								brett.getBrettFeldIndex(i + 1, j - 1)
+										.getSpielfigur());
+						brett.getBrettFeldIndex(i + 1, j - 1).removeSpielfigur(
+								brett.getBrettFeldIndex(i + 1, j - 1)
+										.getSpielfigur());
 					} else {
 						figurSchlagen(i + 1, j - 1, i - 1, j + 1);
 						// nach der figurSchlagen Methode wird die Spielfigur
 						// auf das Feld hinter dem GegnerStein bewegt. Damit die
 						// Schleife aber richtig funktioniert muss die Dame
 						// wieder ein Feld nach hinten bewegt werden
-						brett.getBrettFeldIndex(i - 1, j + 1).removeSpielfigur(fig);
+						brett.getBrettFeldIndex(i - 1, j + 1).removeSpielfigur(
+								fig);
 						brett.getBrettFeldIndex(i, j).setSpielfigur(fig);
 					}
 					j++;
@@ -893,15 +1025,20 @@ public class SpielBean implements iBediener, Serializable {
 				for (int i = alteX - 1; i >= neueX; i--) {
 					// // System.out.println("Laufen nach unten links");
 					if (!brett.getBrettFeldIndex(i, j).getIstBelegt()) {
-						brett.getBrettFeldIndex(i, j).setSpielfigur(brett.getBrettFeldIndex(i + 1, j + 1).getSpielfigur());
-						brett.getBrettFeldIndex(i + 1, j + 1).removeSpielfigur(brett.getBrettFeldIndex(i + 1, j + 1).getSpielfigur());
+						brett.getBrettFeldIndex(i, j).setSpielfigur(
+								brett.getBrettFeldIndex(i + 1, j + 1)
+										.getSpielfigur());
+						brett.getBrettFeldIndex(i + 1, j + 1).removeSpielfigur(
+								brett.getBrettFeldIndex(i + 1, j + 1)
+										.getSpielfigur());
 					} else {
 						figurSchlagen(i + 1, j + 1, i - 1, j - 1);
 						// nach der figurSchlagen Methode wird die Spielfigur
 						// auf das Feld hinter dem GegnerStein bewegt. Damit die
 						// Schleife aber richtig funktioniert muss die Dame
 						// wieder ein Feld nach hinten bewegt werden
-						brett.getBrettFeldIndex(i - 1, j - 1).removeSpielfigur(fig);
+						brett.getBrettFeldIndex(i - 1, j - 1).removeSpielfigur(
+								fig);
 						brett.getBrettFeldIndex(i, j).setSpielfigur(fig);
 					}
 					j--;
@@ -921,7 +1058,8 @@ public class SpielBean implements iBediener, Serializable {
 				if (brett.getBrettFeldIndex(i, j).getSpielfigur() == null) {
 					// Tu nichts falls null, ansonsten...
 				} else {
-					Spielfigur fig = brett.getBrettFeldIndex(i, j).getSpielfigur();
+					Spielfigur fig = brett.getBrettFeldIndex(i, j)
+							.getSpielfigur();
 
 					int x = fig.getPosX();
 					int brettgroesse = 0;
@@ -951,8 +1089,8 @@ public class SpielBean implements iBediener, Serializable {
 	}
 
 	/**
-	 * Ermittelt alle Spielfiguren eines Spielers auf dem Brett. Schreibt diese in
-	 * die ArrayList FigurDieSchlagenKoennen.
+	 * Ermittelt alle Spielfiguren eines Spielers auf dem Brett. Schreibt diese
+	 * in die ArrayList FigurDieSchlagenKoennen.
 	 *
 	 */
 	private void ermittleAlleSpielfiguren() {
@@ -961,8 +1099,11 @@ public class SpielBean implements iBediener, Serializable {
 
 		for (int zeile = 0; zeile < brett.getBrettGroesse(); zeile++) {
 			for (int spalte = 0; spalte < brett.getBrettGroesse(); spalte++) {
-				if (brett.getBrettFeldIndex(zeile, spalte).getIstBelegt() == true && brett.getBrettFeldIndex(zeile, spalte).getIstSchwarz() == true) {
-					Spielfigur figur = brett.getBrettFeldIndex(zeile, spalte).getSpielfigur();
+				if (brett.getBrettFeldIndex(zeile, spalte).getIstBelegt() == true
+						&& brett.getBrettFeldIndex(zeile, spalte)
+								.getIstSchwarz() == true) {
+					Spielfigur figur = brett.getBrettFeldIndex(zeile, spalte)
+							.getSpielfigur();
 					if (figur.getFarbe() == getAmZug()) {
 						moeglicheZuegeStartposition(zeile, spalte);
 						if (moeglicheZuegeStartposition(zeile, spalte)[1] != 0) {
@@ -980,7 +1121,8 @@ public class SpielBean implements iBediener, Serializable {
 	 */
 	private void figurSchlagen(int altepx, int altepy, int neuepx, int neuepy) {
 
-		Spielfigur fig = brett.getBrettFeldIndex(altepx, altepy).getSpielfigur();
+		Spielfigur fig = brett.getBrettFeldIndex(altepx, altepy)
+				.getSpielfigur();
 		int alteX = brett.getBrettFeldIndex(altepx, altepy).getPosX();
 		int alteY = brett.getBrettFeldIndex(altepx, altepy).getPosY();
 
@@ -995,8 +1137,11 @@ public class SpielBean implements iBediener, Serializable {
 			// 1.Pruefung ob Feld nach aktuellem Feld belegt ist
 			if (brett.getBrettFeldIndex(alteX + 1, alteY + 1).getIstBelegt()) {
 				// 2.Pruefung wenn ja ist es Genger Figur
-				if (brett.getBrettFeldIndex(alteX + 1, alteY + 1).getSpielfigur().getFarbe() != getAmZug()) {
-					figurEntfernen(brett.getBrettFeldIndex(alteX + 1, alteY + 1).getSpielfigur());
+				if (brett.getBrettFeldIndex(alteX + 1, alteY + 1)
+						.getSpielfigur().getFarbe() != getAmZug()) {
+					figurEntfernen(brett
+							.getBrettFeldIndex(alteX + 1, alteY + 1)
+							.getSpielfigur());
 					brett.getBrettFeldIndex(alteX, alteY).removeSpielfigur(fig);
 					brett.getBrettFeldIndex(neueX, neueY).setSpielfigur(fig);
 					geschlagen = true;
@@ -1013,13 +1158,16 @@ public class SpielBean implements iBediener, Serializable {
 		if (diffX < 0 && diffY > 0) {
 			// // System.out.println("nach oben links s1");
 			if (brett.getBrettFeldIndex(alteX + 1, alteY - 1).getIstBelegt()) {
-				if (brett.getBrettFeldIndex(alteX + 1, alteY - 1).getSpielfigur().getFarbe() != getAmZug()) {
+				if (brett.getBrettFeldIndex(alteX + 1, alteY - 1)
+						.getSpielfigur().getFarbe() != getAmZug()) {
 					// prüfen ob feld zwischen alt und neu leer ist wenn
 					// nicht dann
 					// farbe prüfen (Wenn alles korrekt die
 					// figurEntfernen()aufrufen)
 					// // System.out.println("nach oben links s2");
-					figurEntfernen(brett.getBrettFeldIndex(alteX + 1, alteY - 1).getSpielfigur());
+					figurEntfernen(brett
+							.getBrettFeldIndex(alteX + 1, alteY - 1)
+							.getSpielfigur());
 					brett.getBrettFeldIndex(alteX, alteY).removeSpielfigur(fig);
 					brett.getBrettFeldIndex(neueX, neueY).setSpielfigur(fig);
 					geschlagen = true;
@@ -1036,13 +1184,16 @@ public class SpielBean implements iBediener, Serializable {
 		if (diffX > 0 && diffY < 0) {
 			// // System.out.println("nach unten rechts s1");
 			if (brett.getBrettFeldIndex(alteX - 1, alteY + 1).getIstBelegt()) {
-				if (brett.getBrettFeldIndex(alteX - 1, alteY + 1).getSpielfigur().getFarbe() != getAmZug()) {
+				if (brett.getBrettFeldIndex(alteX - 1, alteY + 1)
+						.getSpielfigur().getFarbe() != getAmZug()) {
 					// prüfen ob feld zwischen alt und neu leer ist wenn
 					// nicht dann
 					// farbe prüfen (Wenn alles korrekt die
 					// figurEntfernen()aufrufen)
 					// // System.out.println("nach unten rechts s2");
-					figurEntfernen(brett.getBrettFeldIndex(alteX - 1, alteY + 1).getSpielfigur());
+					figurEntfernen(brett
+							.getBrettFeldIndex(alteX - 1, alteY + 1)
+							.getSpielfigur());
 					brett.getBrettFeldIndex(alteX, alteY).removeSpielfigur(fig);
 					brett.getBrettFeldIndex(neueX, neueY).setSpielfigur(fig);
 					geschlagen = true;
@@ -1059,13 +1210,16 @@ public class SpielBean implements iBediener, Serializable {
 		if (diffX > 0 && diffY > 0) {
 			// // System.out.println("nach unten links s1");
 			if (brett.getBrettFeldIndex(alteX - 1, alteY - 1).getIstBelegt()) {
-				if (brett.getBrettFeldIndex(alteX - 1, alteY - 1).getSpielfigur().getFarbe() != getAmZug()) {
+				if (brett.getBrettFeldIndex(alteX - 1, alteY - 1)
+						.getSpielfigur().getFarbe() != getAmZug()) {
 					// prüfen ob feld zwischen alt und neu leer ist wenn
 					// nicht dann
 					// farbe prüfen (Wenn alles korrekt die
 					// figurEntfernen()aufrufen)
 					// // System.out.println("nach unten links s2");
-					figurEntfernen(brett.getBrettFeldIndex(alteX - 1, alteY - 1).getSpielfigur());
+					figurEntfernen(brett
+							.getBrettFeldIndex(alteX - 1, alteY - 1)
+							.getSpielfigur());
 					brett.getBrettFeldIndex(alteX, alteY).removeSpielfigur(fig);
 					brett.getBrettFeldIndex(neueX, neueY).setSpielfigur(fig);
 					geschlagen = true;
@@ -1084,14 +1238,15 @@ public class SpielBean implements iBediener, Serializable {
 	 * Methode zum entfernen einer Spielfigur vom brett/feld und vom Spieler
 	 *
 	 * @param spielfigur
-	 *          die zu entfernende Figur
+	 *            die zu entfernende Figur
 	 */
 	private void figurEntfernen(Spielfigur spielfigur) {
 
 		if (s1.getAlleFiguren().contains(spielfigur)) {
 			s1.getAlleFiguren().remove(spielfigur);
 
-			brett.getBrettFeldIndex(spielfigur.getPosX(), spielfigur.getPosY()).removeSpielfigur(spielfigur);
+			brett.getBrettFeldIndex(spielfigur.getPosX(), spielfigur.getPosY())
+					.removeSpielfigur(spielfigur);
 
 			if (s1.getAlleFiguren().isEmpty())
 				spielerHatGewonnen(s2.getFarbe());
@@ -1100,7 +1255,8 @@ public class SpielBean implements iBediener, Serializable {
 			if (s2.getAlleFiguren().contains(spielfigur)) {
 				s2.getAlleFiguren().remove(spielfigur);
 
-				brett.getBrettFeldIndex(spielfigur.getPosX(), spielfigur.getPosY()).removeSpielfigur(spielfigur);
+				brett.getBrettFeldIndex(spielfigur.getPosX(),
+						spielfigur.getPosY()).removeSpielfigur(spielfigur);
 
 				if (s2.getAlleFiguren().isEmpty())
 					spielerHatGewonnen(s1.getFarbe());
@@ -1113,8 +1269,8 @@ public class SpielBean implements iBediener, Serializable {
 
 	/**
 	 * @param spielfigur
-	 *          wenn eine Spielfigur die Moeglichkeit hat zu schlagen und diesen
-	 *          Zug nicht wahrnimmt, wird er entfernt
+	 *            wenn eine Spielfigur die Moeglichkeit hat zu schlagen und
+	 *            diesen Zug nicht wahrnimmt, wird er entfernt
 	 *
 	 *
 	 */
@@ -1129,13 +1285,13 @@ public class SpielBean implements iBediener, Serializable {
 		farbeAmZug = farbe;
 	}
 
-	/**
-	 * gibt den derzeitigen Spieler der am zug ist
-	 */
-	public FarbEnum getAmZug() {
-
-		return farbeAmZug;
-	}
+	// /**
+	// * gibt den derzeitigen Spieler der am zug ist
+	// */
+	// public FarbEnum getAmZug() {
+	//
+	// return farbeAmZug;
+	// }
 
 	/**
 	 * zug beenden
@@ -1174,18 +1330,20 @@ public class SpielBean implements iBediener, Serializable {
 	 * methode zum erstellen der Spielfiguren
 	 *
 	 * @param spieler
-	 *          der spieler wessen figuren erstellt werden
+	 *            der spieler wessen figuren erstellt werden
 	 * @param brett
-	 *          das Spielbrett woruf die figuren kommen
+	 *            das Spielbrett woruf die figuren kommen
 	 */
 	public void erstelleFiguren(Spieler spieler, Spielbrett brett) {
 
 		if (spieler.getFarbe() == FarbEnum.SCHWARZ) {
 			for (int i = 0; i < brett.getBrettGroesse() / 2 - 1; i++) {
 				for (int j = 0; j < brett.getBrettGroesse(); j++) {
-					if (brett.getBrettFeldIndex(i, j).getIstBelegt() == false && brett.getBrettFeldIndex(i, j).getIstSchwarz() == true) {
+					if (brett.getBrettFeldIndex(i, j).getIstBelegt() == false
+							&& brett.getBrettFeldIndex(i, j).getIstSchwarz() == true) {
 
-						Spielfigur fig = (new Spielfigur(FarbEnum.SCHWARZ, false));
+						Spielfigur fig = (new Spielfigur(FarbEnum.SCHWARZ,
+								false));
 						fig.setPosX(i);
 						fig.setPosY(j);
 
@@ -1196,9 +1354,11 @@ public class SpielBean implements iBediener, Serializable {
 				}
 			}
 		} else {
-			for (int i = brett.getBrettGroesse() - 1; i > brett.getBrettGroesse() / 2; i--) {
+			for (int i = brett.getBrettGroesse() - 1; i > brett
+					.getBrettGroesse() / 2; i--) {
 				for (int j = 0; j < brett.getBrettGroesse(); j++) {
-					if (brett.getBrettFeldIndex(i, j).getIstBelegt() == false && brett.getBrettFeldIndex(i, j).getIstSchwarz() == true) {
+					if (brett.getBrettFeldIndex(i, j).getIstBelegt() == false
+							&& brett.getBrettFeldIndex(i, j).getIstSchwarz() == true) {
 
 						Spielfigur fig = (new Spielfigur(FarbEnum.WEIß, false));
 						fig.setPosX(i);
@@ -1248,7 +1408,7 @@ public class SpielBean implements iBediener, Serializable {
 	/**
 	 *
 	 * @param daten
-	 *          uebergabe
+	 *            uebergabe
 	 */
 	public static void setdZugriff(iDatenzugriff daten) {
 		SpielBean.daten = daten;
@@ -1266,7 +1426,7 @@ public class SpielBean implements iBediener, Serializable {
 	 * speichert das Spiel
 	 *
 	 * @param string
-	 *          name der Datei
+	 *            name der Datei
 	 */
 
 	public void Speichern(File selectedFile) throws IOException {
@@ -1283,6 +1443,9 @@ public class SpielBean implements iBediener, Serializable {
 		if (name.toLowerCase().endsWith(".ser")) {
 			dateiende = "ser";
 		}
+		if (name.toLowerCase().endsWith(".xml")) {
+			dateiende = "xml";
+		}
 
 		switch (dateiende) {
 		case "csv":
@@ -1294,7 +1457,9 @@ public class SpielBean implements iBediener, Serializable {
 				String brett = this.brett.getBrettGroesse() + ";\n";
 				o = brett;
 
-				o = o + this.s1.getName() + ";" + this.s1.getFarbe() + ";" + this.s1.getIstKi() + ";\n" + this.s2.getName() + ";" + this.s2.getFarbe() + ";" + this.s2.getIstKi() + ";\n";
+				o = o + this.s1.getName() + ";" + this.s1.getFarbe() + ";"
+						+ this.s1.getIstKi() + ";\n" + this.s2.getName() + ";"
+						+ this.s2.getFarbe() + ";" + this.s2.getIstKi() + ";\n";
 				// String farbes=s1.getFarbe() + ";" ;
 				// o= o+farbes;
 				for (Spielfigur s : s1.getAlleFiguren()) {
@@ -1329,6 +1494,9 @@ public class SpielBean implements iBediener, Serializable {
 		case "ser":
 			ser.speichern(this, pfad);
 			break;
+		case "xml":
+			xml.speichern(this, pfad);
+			break;
 		case "pdf":
 			// p.speichern(null, pfad);//TODO
 			// TODO
@@ -1347,6 +1515,10 @@ public class SpielBean implements iBediener, Serializable {
 		if (s.endsWith(".csv")) {
 			this.ladenCSV(selectedFile);
 			return "ok";
+		}
+		if (s.endsWith(".xml")) {
+			Object a = this.ladenXML(selectedFile);
+			return a;
 		} else if (s.endsWith(".ser")) {
 			Object a = this.ladenSER(selectedFile);
 			return a;
@@ -1360,7 +1532,8 @@ public class SpielBean implements iBediener, Serializable {
 	@SuppressWarnings("unchecked")
 	public void ladenCSV(File selectedFile) {
 		// String f = dateiname;
-		// TODO kann sein, dass arraylist da mit 10 initalisiert auf 6 runter muss
+		// TODO kann sein, dass arraylist da mit 10 initalisiert auf 6 runter
+		// muss
 		// und derzeit fehler wirft
 		// ArrayList<String[]> o = new ArrayList<String[]>();
 		FarbEnum farbe;
@@ -1368,7 +1541,8 @@ public class SpielBean implements iBediener, Serializable {
 
 		try {
 
-			ArrayList<String[]> o = (ArrayList<String[]>) csv.laden(selectedFile);
+			ArrayList<String[]> o = (ArrayList<String[]>) csv
+					.laden(selectedFile);
 
 			// System.out.println("Löschen?");
 			if (this.starten()) {
@@ -1442,7 +1616,9 @@ public class SpielBean implements iBediener, Serializable {
 
 					if (brett.getBrettFeldIndex(i, j).getIstSchwarz()) {
 						if (brett.getBrettFeldIndex(i, j).getIstBelegt()) {
-							brett.getBrettFeldIndex(i, j).removeSpielfigur(brett.getBrettFeldIndex(i, j).getSpielfigur());
+							brett.getBrettFeldIndex(i, j).removeSpielfigur(
+									brett.getBrettFeldIndex(i, j)
+											.getSpielfigur());
 						}
 					}
 				}
@@ -1535,7 +1711,8 @@ public class SpielBean implements iBediener, Serializable {
 		//
 		// if (brett.getBrettFeldIndex(i, j).getIstSchwarz()) {
 		// if (brett.getBrettFeldIndex(i, j).getIstBelegt()) {
-		// brett.getBrettFeldIndex(i, j).removeSpielfigur(brett.getBrettFeldIndex(i,
+		// brett.getBrettFeldIndex(i,
+		// j).removeSpielfigur(brett.getBrettFeldIndex(i,
 		// j).getSpielfigur());
 		// }
 		// }
@@ -1554,31 +1731,49 @@ public class SpielBean implements iBediener, Serializable {
 		return spiel;
 	}
 
+	public SpielBean ladenXML(File selectedFile) {
+
+		// System.out.println("1: "+selectedFile.getName());
+		// System.out.println("2: "+selectedFile.getAbsolutePath());
+		// // System.out.println("3: "+ser.laden(selectedFile));
+		SpielBean spiel;
+		try {
+			spiel = (SpielBean) xml.laden(selectedFile);
+			return spiel;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
+
 	/*
-	 * // System.out.println("Spielernamen eingeben\n"); name = reader.readLine();
-	 * // System.out.println("spielerfarbe eingeben (s für schwarz w für weiß)" );
+	 * // System.out.println("Spielernamen eingeben\n"); name =
+	 * reader.readLine(); //
+	 * System.out.println("spielerfarbe eingeben (s für schwarz w für weiß)" );
 	 * 
 	 * do { farbe = reader.readLine(); // farben switch switch (farbe) {
 	 * 
 	 * // case 1 farbe case "s":
 	 * 
 	 * // System.out.println(
-	 * "ist der Spieler eine Ki oder ein Mensch? (m für Mensch k für Ki)" ); do {
-	 * ki = reader.readLine(); // innerrer ki switch switch (ki) { // case 1 ki
-	 * case "m": Spieler s1 = new Spieler(name, FarbEnum.SCHWARZ, false); break;
-	 * // case 2 ki case "k": Spieler s2 = new Spieler(name, FarbEnum.SCHWARZ,
-	 * true); break; // default für ki default: //
-	 * System.out.println("weder k noch m eingeben."); } } while (!ki.equals("m")
-	 * || (!ki.equals("k")));
+	 * "ist der Spieler eine Ki oder ein Mensch? (m für Mensch k für Ki)" ); do
+	 * { ki = reader.readLine(); // innerrer ki switch switch (ki) { // case 1
+	 * ki case "m": Spieler s1 = new Spieler(name, FarbEnum.SCHWARZ, false);
+	 * break; // case 2 ki case "k": Spieler s2 = new Spieler(name,
+	 * FarbEnum.SCHWARZ, true); break; // default für ki default: //
+	 * System.out.println("weder k noch m eingeben."); } } while
+	 * (!ki.equals("m") || (!ki.equals("k")));
 	 * 
 	 * break; // case 2 farbe case "w": // System.out.println(
-	 * "ist der Spieler eine Ki oder ein Mensch? (m für Mensch k für Ki)" ); ki =
-	 * reader.readLine(); // innerer ki switch do { switch (ki) { // case 1 ki
+	 * "ist der Spieler eine Ki oder ein Mensch? (m für Mensch k für Ki)" ); ki
+	 * = reader.readLine(); // innerer ki switch do { switch (ki) { // case 1 ki
 	 * case "m": Spieler s1 = new Spieler(name, FarbEnum.SCHWARZ, false); break;
 	 * // case 2 ki case "k": Spieler s2 = new Spieler(name, FarbEnum.SCHWARZ,
 	 * true); break; // default für ki default: //
-	 * System.out.println("weder k noch m eingeben."); } } while (!ki.equals("m")
-	 * || (!ki.equals("k"))); break;
+	 * System.out.println("weder k noch m eingeben."); } } while
+	 * (!ki.equals("m") || (!ki.equals("k"))); break;
 	 * 
 	 * // default für farbe default: //
 	 * System.out.println("weder s noch w eingeben.");
@@ -1599,7 +1794,7 @@ public class SpielBean implements iBediener, Serializable {
 	 * Spielbrett aufbauen
 	 *
 	 * @param groesse
-	 *          groesse des bretts
+	 *            groesse des bretts
 	 * @return war es erfolgreich? true/false
 	 */
 	public boolean aufbauen(int groesse) {
@@ -1627,43 +1822,43 @@ public class SpielBean implements iBediener, Serializable {
 	/**
 	 * Spielbrett anzeigen
 	 */
-	// public void anzeigen() {
-	//
-	// if (spielAufgebaut) {
-	// // brett.display();
-	// // System.out.println("\n");
-	//
-	// } else {
-	// //
-	// System.out.println("Du kannst kein Brett anzeigen das nicht existiert! Nutze aufbauen um ein Brett zu erstellen.");
-	// return;
-	// }
-	//
-	// }
+	 public void anzeigen() {
+	
+	 if (spielAufgebaut) {
+	  brett.display();
+	  System.out.println("\n");
+	
+	 } else {
+	 //
+	 System.out.println("Du kannst kein Brett anzeigen das nicht existiert! Nutze aufbauen um ein Brett zu erstellen.");
+	 return;
+	 }
+	
+	 }
 
 	/**
 	 * Zum erstellen der Spieler
 	 *
 	 * @param name
-	 *          name des Spielers
+	 *            name des Spielers
 	 * @param farbe
-	 *          farbe des Spielers (Enum)
+	 *            farbe des Spielers (Enum)
 	 * @param istKi
-	 *          boolean ob ki true oder false
+	 *            boolean ob ki true oder false
 	 * @return gibt zurück ob erfolgreich oder nicht
 	 */
 	public Spieler spielerErstellen(String name, FarbEnum farbe, boolean istKi) {// WAR
-																																								// RETURN
-																																								// BOOLEAN
-																																								// ALLES
-																																								// WAS
-																																								// NULL==FALSE
-																																								// REST
-																																								// TRUE
-																																								// GEÄNDERT
-																																								// WEGEN
-																																								// NEU
-																																								// SERVLET
+																					// RETURN
+																					// BOOLEAN
+																					// ALLES
+																					// WAS
+																					// NULL==FALSE
+																					// REST
+																					// TRUE
+																					// GEÄNDERT
+																					// WEGEN
+																					// NEU
+																					// SERVLET
 
 		if (!spielAufgebaut) {
 			// System.out.println("Du musst zuerst ein Spielbrett aufbauen!");
@@ -1679,7 +1874,8 @@ public class SpielBean implements iBediener, Serializable {
 			return null;
 		}
 
-		if (farbe == FarbEnum.SCHWARZ && schwarzvergeben == true || farbe == FarbEnum.WEIß && weissvergeben == true) {
+		if (farbe == FarbEnum.SCHWARZ && schwarzvergeben == true
+				|| farbe == FarbEnum.WEIß && weissvergeben == true) {
 			// System.out.println("Farbe bereits vergeben.");
 			return null;
 		}
@@ -1764,7 +1960,7 @@ public class SpielBean implements iBediener, Serializable {
 			// //system.err.println("Spiel hat noch nicht begonnen! Zurueck in Hauptmenue");
 			return false;
 		} else {
-			log("ziehen..." + startp+""+ endp);
+			log("ziehen..." + testint++);
 			// brett.display();
 			kannWeiterSchlagen = false;
 
@@ -1782,12 +1978,14 @@ public class SpielBean implements iBediener, Serializable {
 			// wird die Eingabe Startposition auf Gueltigkeit
 			// ueberpruft, heisst Startposition muss die Endposition
 			// vom letzten Zug sein
-			if (geschlagen == true && (startC != startCNS || startI != startINS)) {
+			if (geschlagen == true
+					&& (startC != startCNS || startI != startINS)) {
 				// // System.out.println("startC: " + startC
 				// + " |startCNS: " + startCNS + " / startI: "
 				// + startI + "|startINS: " + startINS);
 				// System.out.println("Du  musst mit der Figur " +
-				// brett.gibBrettFeldSchachnotation(startINS, startCNS) + " ziehen");
+				// brett.gibBrettFeldSchachnotation(startINS, startCNS) +
+				// " ziehen");
 				startC = 0;
 				startI = 0;
 				return false;
@@ -1798,13 +1996,14 @@ public class SpielBean implements iBediener, Serializable {
 			int[] tmpS = moeglicheZuegeStartposition(startC, startI);
 			int tempZuegeLaufen = tmpS[0];
 			int tempZuegeSchlagen = tmpS[1];
-			// System.out.println("Anzahl Zuege Laufen: " + tempZuegeLaufen + " " +
-			// FigurenLaufen.toString() + "\nAnzahl Zuege Schlagen: " +
+			// System.out.println("Anzahl Zuege Laufen: " + tempZuegeLaufen +
+			// " " + FigurenLaufen.toString() + "\nAnzahl Zuege Schlagen: " +
 			// tempZuegeSchlagen + " " + FigurenSchlagen.toString());
 
 			// Wenn eine Spielfigur uebrig und keine gueltigen Zuege
 			// mehr vorhanden, dann hat Spieler 2 gewonnen
-			if (s1.getAlleFiguren().size() == 1 && s1.getFarbe() == getAmZug() && (tempZuegeLaufen == 0 && tempZuegeSchlagen == 0)) {
+			if (s1.getAlleFiguren().size() == 1 && s1.getFarbe() == getAmZug()
+					&& (tempZuegeLaufen == 0 && tempZuegeSchlagen == 0)) {
 				// spieler 2 gewinnt
 				// system.err.println("Du hast keine Zugmoeglichkeiten mehr.");
 				spielerHatGewonnen(s2.getFarbe());
@@ -1813,7 +2012,8 @@ public class SpielBean implements iBediener, Serializable {
 
 			// Wenn eine Spielfigur uebrig und keine gueltigen Zuege
 			// mehr vorhanden, dann hat Spieler 1 gewonnen
-			if (s2.getAlleFiguren().size() == 1 && s2.getFarbe() == getAmZug() && (tempZuegeLaufen == 0 && tempZuegeSchlagen == 0)) {
+			if (s2.getAlleFiguren().size() == 1 && s2.getFarbe() == getAmZug()
+					&& (tempZuegeLaufen == 0 && tempZuegeSchlagen == 0)) {
 				// spieler 1 gewinnt
 				// system.err.println("Du hast keine Zugmoeglichkeiten mehr.");
 				spielerHatGewonnen(s1.getFarbe());
@@ -1852,7 +2052,10 @@ public class SpielBean implements iBediener, Serializable {
 
 					int anzFDSK = FigurDieSchlagenKoennen.size();
 					for (int i = 0; i < anzFDSK; i++) {
-						if (startCNS == FigurDieSchlagenKoennen.get(i).getPosX() && startINS == FigurDieSchlagenKoennen.get(i).getPosY()) {
+						if (startCNS == FigurDieSchlagenKoennen.get(i)
+								.getPosX()
+								&& startINS == FigurDieSchlagenKoennen.get(i)
+										.getPosY()) {
 							counter++;
 						}
 					}
@@ -1865,8 +2068,8 @@ public class SpielBean implements iBediener, Serializable {
 					} else {
 						// System.out.println(geschlagen);
 						// System.out.println("Du darfst mit der Figur " +
-						// brett.gibBrettFeldSchachnotation(startINS, startCNS) +
-						// " nurnoch schlagen!");
+						// brett.gibBrettFeldSchachnotation(startINS, startCNS)
+						// + " nurnoch schlagen!");
 						// // System.out.println("startC: " + startC
 						// + " |startCNS: " + startCNS +
 						// " / startI: "
@@ -1885,7 +2088,8 @@ public class SpielBean implements iBediener, Serializable {
 
 				// Diese Abfrage muss erfolgen weil Dame kann laufen
 				// und schlagen
-				if (geschlagen == true && moeglicheZuegeStartposition(endC, endI)[1] != 0) {
+				if (geschlagen == true
+						&& moeglicheZuegeStartposition(endC, endI)[1] != 0) {
 					kannWeiterSchlagen = true;
 					// brett.display();
 					return true;
@@ -1894,14 +2098,15 @@ public class SpielBean implements iBediener, Serializable {
 				if (geschlagen == false && FigurDieSchlagenKoennen.size() != 0) {
 					// System.out.println("Die Figur an der Stelle " +
 					// brett.gibBrettFeldSchachnotation(FigurDieSchlagenKoennen.get(0).getPosY(),
-					// FigurDieSchlagenKoennen.get(0).getPosX()) + " wird gepustet");
+					// FigurDieSchlagenKoennen.get(0).getPosX()) +
+					// " wird gepustet");
 					pusten(FigurDieSchlagenKoennen.get(0));
 				}
 				zugBeenden();
 				dameWerden();
 				// brett.display();
-				// System.out.println("Der Spieler mit der Farbe: " + getAmZug() +
-				// " ist nun am Zug.");
+				// System.out.println("Der Spieler mit der Farbe: " + getAmZug()
+				// + " ist nun am Zug.");
 				// System.out.println("Gib ziehen ein");
 				return true;
 			}
@@ -1909,15 +2114,16 @@ public class SpielBean implements iBediener, Serializable {
 			if (zugPruefen == 2) {
 				figurSchlagen(startC, startI, endC, endI);
 
-				if (geschlagen == true && moeglicheZuegeStartposition(endC, endI)[1] != 0) {
+				if (geschlagen == true
+						&& moeglicheZuegeStartposition(endC, endI)[1] != 0) {
 					kannWeiterSchlagen = true;
 					// brett.display();
 				} else {
 					dameWerden();
 					zugBeenden();
 					// brett.display();
-					// System.out.println("Der Spieler mit der Farbe: " + getAmZug() +
-					// " ist nun am Zug.");
+					// System.out.println("Der Spieler mit der Farbe: " +
+					// getAmZug() + " ist nun am Zug.");
 					// System.out.println("Gib ziehen ein");
 				}
 				return true;
@@ -1948,8 +2154,9 @@ public class SpielBean implements iBediener, Serializable {
 	}
 
 	public void willNichtWeiterZiehen() {
-		// System.out.println("Die Figur " + brett.gibBrettFeldSchachnotation(endI,
-		// endC) + " wird entfernt(Pusten)!");
+		// System.out.println("Die Figur " +
+		// brett.gibBrettFeldSchachnotation(endI, endC) +
+		// " wird entfernt(Pusten)!");
 		pusten(brett.getBrettFeldIndex(endC, endI).getSpielfigur());
 		startC = 0;
 		startI = 0;
@@ -2039,7 +2246,9 @@ public class SpielBean implements iBediener, Serializable {
 				dameWerden();
 			}
 			if (zugPruefenKI == 2) {
-				Spielfigur figur = brett.getBrettFeldIndex((zuge[0]), (zuge[1])).getSpielfigur();
+				Spielfigur figur = brett
+						.getBrettFeldIndex((zuge[0]), (zuge[1]))
+						.getSpielfigur();
 				if (!figur.getDame(figur)) {
 					if (zuge[2] == 0 || zuge[2] == brett.getBrettGroesse() - 1) {
 						k1.setHatGeschlagen(false);
@@ -2052,25 +2261,30 @@ public class SpielBean implements iBediener, Serializable {
 			if (k1.hatGeschlagen()) {
 				int[] zugee = zuge;
 				do {
-					Spielfigur figur = brett.getBrettFeldIndex((zugee[2]), (zugee[3])).getSpielfigur();
+					Spielfigur figur = brett.getBrettFeldIndex((zugee[2]),
+							(zugee[3])).getSpielfigur();
 					zugee = k1.getWeitereSchlaege(zugee[2], zugee[3], figur);
 					tmpZug = zugee;
 
 					if (zugee != null) {
-						int zugdanachPruefenKI = zugPruefen(zugee[0], zugee[1], zugee[2], zugee[3]);
+						int zugdanachPruefenKI = zugPruefen(zugee[0], zugee[1],
+								zugee[2], zugee[3]);
 						if (zugdanachPruefenKI == 1) {
 							figurBewegen(zugee[0], zugee[1], zugee[2], zugee[3]);
 							setZugFurLog(zugee[0], zugee[1], zugee[2], zugee[3]);
 							dameWerden();
 						}
 						if (zugdanachPruefenKI == 2) {
-							Spielfigur figure = brett.getBrettFeldIndex((zugee[0]), (zugee[1])).getSpielfigur();
+							Spielfigur figure = brett.getBrettFeldIndex(
+									(zugee[0]), (zugee[1])).getSpielfigur();
 							if (!figur.getDame(figure)) {
-								if (zugee[2] == 0 || zugee[2] == brett.getBrettGroesse() - 1) {
+								if (zugee[2] == 0
+										|| zugee[2] == brett.getBrettGroesse() - 1) {
 									k1.setHatGeschlagen(false);
 								}
 							}
-							figurSchlagen(zugee[0], zugee[1], zugee[2], zugee[3]);
+							figurSchlagen(zugee[0], zugee[1], zugee[2],
+									zugee[3]);
 							setZugFurLog(zugee[0], zugee[1], zugee[2], zugee[3]);
 							dameWerden();
 						}
@@ -2081,11 +2295,6 @@ public class SpielBean implements iBediener, Serializable {
 			// brett.display();
 			zugBeenden();
 			k1.setHatGeschlagen(false);
-			for (int i = 0; i < getZugFurLog().size(); i++) {
-
-				log(getZugFurLog().get(i));
-				getZugFurLog().clear();
-			}
 			return true;
 
 		}
@@ -2109,7 +2318,9 @@ public class SpielBean implements iBediener, Serializable {
 				dameWerden();
 			}
 			if (zugPruefenKI == 2) {
-				Spielfigur figur = brett.getBrettFeldIndex((zuge[0]), (zuge[1])).getSpielfigur();
+				Spielfigur figur = brett
+						.getBrettFeldIndex((zuge[0]), (zuge[1]))
+						.getSpielfigur();
 				if (!figur.getDame(figur)) {
 					if (zuge[2] == 0 || zuge[2] == brett.getBrettGroesse() - 1) {
 						k2.setHatGeschlagen(false);
@@ -2122,25 +2333,30 @@ public class SpielBean implements iBediener, Serializable {
 			if (k2.hatGeschlagen()) {
 				int[] zugee = zuge;
 				do {
-					Spielfigur figur = brett.getBrettFeldIndex((zugee[2]), (zugee[3])).getSpielfigur();
+					Spielfigur figur = brett.getBrettFeldIndex((zugee[2]),
+							(zugee[3])).getSpielfigur();
 					zugee = k2.getWeitereSchlaege(zugee[2], zugee[3], figur);
 					tmpZug = zugee;
 
 					if (zugee != null) {
-						int zugdanachPruefenKI = zugPruefen(zugee[0], zugee[1], zugee[2], zugee[3]);
+						int zugdanachPruefenKI = zugPruefen(zugee[0], zugee[1],
+								zugee[2], zugee[3]);
 						if (zugdanachPruefenKI == 1) {
 							figurBewegen(zugee[0], zugee[1], zugee[2], zugee[3]);
 							setZugFurLog(zugee[0], zugee[1], zugee[2], zugee[3]);
 							dameWerden();
 						}
 						if (zugdanachPruefenKI == 2) {
-							Spielfigur figure = brett.getBrettFeldIndex((zugee[0]), (zugee[1])).getSpielfigur();
+							Spielfigur figure = brett.getBrettFeldIndex(
+									(zugee[0]), (zugee[1])).getSpielfigur();
 							if (!figur.getDame(figure)) {
-								if (zugee[2] == 0 || zugee[2] == brett.getBrettGroesse() - 1) {
+								if (zugee[2] == 0
+										|| zugee[2] == brett.getBrettGroesse() - 1) {
 									k2.setHatGeschlagen(false);
 								}
 							}
-							figurSchlagen(zugee[0], zugee[1], zugee[2], zugee[3]);
+							figurSchlagen(zugee[0], zugee[1], zugee[2],
+									zugee[3]);
 							setZugFurLog(zugee[0], zugee[1], zugee[2], zugee[3]);
 							dameWerden();
 						}
@@ -2151,17 +2367,10 @@ public class SpielBean implements iBediener, Serializable {
 			// brett.display();
 			zugBeenden();
 			k2.setHatGeschlagen(false);
-			for (int i = 0; i < getZugFurLog().size(); i++) {
-
-				log(getZugFurLog().get(i));
-				getZugFurLog().clear();
-			}
 			return true;
 		}
-		
-
-	
-		return false;}
+		return false;
+	}
 
 	private void setZugFurLog(int zugee, int zugee2, int zugee3, int zugee4) {
 		char a = (char) (zugee2 + 97);
@@ -2177,13 +2386,10 @@ public class SpielBean implements iBediener, Serializable {
 	public void log(String text) {
 
 		if (first == false) {
-			logger = text;
+			logger = text + logger;
 			first = true;
 		} else {
-			System.out.println(logger);
-			String temp = text + "\n––––––––––––––––––––––––\n" + logger;// <br />
-			logger=temp;
-			System.out.println(logger);
+			logger = text + "\n––––––––––––––––––––––––\n" + logger;// <br />
 			// Wenn etwas im Logger
 			// gezeigt
 			// werden soll einfach
@@ -2239,5 +2445,45 @@ public class SpielBean implements iBediener, Serializable {
 	public SpielBean getSpielBean() {
 		return this;
 	}
-
+//
+//	@XmlElement(name = "dran")
+	public FarbEnum getAmZug() {
+		return farbeAmZug;
+	}
+//
+//	@XmlElement(name = "farbeSuKi")
+//	public boolean getKiS() {
+//		return s1.getIstKi();
+//	}
+//
+//	@XmlElement(name = "figurenS")
+//	public String getFigurenS() {
+//		String s = "";
+//		for (Spielfigur sp : s1.getAlleFiguren()) {
+//			String figurs = sp.getIdS() + ";";
+//			String posx = sp.getPosX() + ";";
+//			String posy = sp.getPosY() + ";";
+//			String dame = sp.getDame(sp) + ";";
+//			s = s + figurs + posx + posy + dame;
+//		}
+//		return s;
+//	}
+//
+//	@XmlElement(name = "farbeWuKi")
+//	public boolean getKiW() {
+//		return s2.getIstKi();
+//	}
+//
+//	@XmlElement(name = "figurenW")
+//	public String getFigurenW() {
+//		String s = "";
+//		for (Spielfigur sp : s2.getAlleFiguren()) {
+//			String figurs = sp.getIdS() + ";";
+//			String posx = sp.getPosX() + ";";
+//			String posy = sp.getPosY() + ";";
+//			String dame = sp.getDame(sp) + ";";
+//			s = s + figurs + posx + posy + dame;
+//		}
+//		return s;
+//	}
 }

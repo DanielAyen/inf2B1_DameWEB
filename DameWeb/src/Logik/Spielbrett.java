@@ -1,5 +1,8 @@
 package Logik;
+
 import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlElement;
 
 /**
  * 
@@ -22,14 +25,22 @@ public class Spielbrett implements Serializable {
 	 * @param anzBrett
 	 *          Derzeitige Anzahl an Spielbrettern
 	 */
+	@XmlElement
 	private Spielfeld[][] brett;
+	@XmlElement
 	private final int maxBrett = 1;
+	@XmlElement
 	private int anzBrett = 0;
 
 	/**
 	 * Konstruktor für das Spielbrett, es darf max ein Brett existieren Das brett
 	 * ist ein 2Dim Array welches mit Feldern gefüllt wird
 	 */
+	
+	public Spielbrett(){
+		
+	}
+	
 	public Spielbrett(int groesse) {
 		if (anzBrett < maxBrett) {
 			if (groesse == 8 || groesse == 10 || groesse == 12) {
@@ -177,53 +188,53 @@ public class Spielbrett implements Serializable {
 	 * 
 	 * Geht durch das Array und gibt jedes einzelne Feld aus
 	 */
-//	public void display() {
-		// System.out.println("o=weiß x=schwarz | (x) ist ein Stein, {X} ist eine Dame.");
-		// // System.out.println("A   B   C   D   E   F   G   H   ");
+	public void display() {
+		 System.out.println("o=weiß x=schwarz | (x) ist ein Stein, {X} ist eine Dame.");
+		  System.out.println("A   B   C   D   E   F   G   H   ");
 
-//		System.out.print("    ");
-//		for (int i = 65; i < 65 + brett[0].length; i++) {
-//			System.out.print(" " + (char) i + "   ");
+		System.out.print("    ");
+		for (int i = 65; i < 65 + brett[0].length; i++) {
+			System.out.print(" " + (char) i + "   ");
 
-//		}
-//		 System.out.println("");
-//		for (int zeile = brett.length - 1; zeile >= 0; zeile--) {
-//
-//			if (brett[zeile] != null) {
-//
-//				for (int spalte = 0; spalte < brett[zeile].length; spalte++) {
-//					// Die if is dafür da dass das Brett so wie es z.Z.ist ( farbe in form
-//					// von x/o und die notation h3) schön untereinander da steht
-//
-//					if (spalte == 0) {
-//						if (zeile + 1 > 9) {
-//							System.out.print((zeile + 1) + "  ");
-//						} else
-//							System.out.print((zeile + 1) + "   ");
-//					}
-//
-//					if (zeile > 8) { //
-//						System.out.print(brett[zeile][spalte] + "  ");
-//					} else { //
-//						System.out.print(brett[zeile][spalte] + "  ");
-//					}
-//
-//					if (spalte == brett[zeile].length - 1) {
-//						System.out.print((zeile + 1) + "   ");
-//
-//					}
-//
-//				}
-//			}
-//			// System.out.println();
-//		}
-//		System.out.print("    ");
-//		for (int i = 65; i < 65 + brett[0].length; i++) {
-//			System.out.print(" " + (char) i + "   ");
-//
-//		}
-//		// System.out.println();
-//	}
+		}
+		 System.out.println("");
+		for (int zeile = brett.length - 1; zeile >= 0; zeile--) {
+
+			if (brett[zeile] != null) {
+
+				for (int spalte = 0; spalte < brett[zeile].length; spalte++) {
+//					 Die if is dafür da dass das Brett so wie es z.Z.ist ( farbe in form
+//					 von x/o und die notation h3) schön untereinander da steht
+
+					if (spalte == 0) {
+						if (zeile + 1 > 9) {
+							System.out.print((zeile + 1) + "  ");
+						} else
+							System.out.print((zeile + 1) + "   ");
+					}
+
+					if (zeile > 8) { 
+						System.out.print(brett[zeile][spalte] + "  ");
+					} else { 
+						System.out.print(brett[zeile][spalte] + "  ");
+					}
+
+					if (spalte == brett[zeile].length - 1) {
+						System.out.print((zeile + 1) + "   ");
+
+					}
+
+				}
+			}
+			 System.out.println();
+		}
+		System.out.print("    ");
+		for (int i = 65; i < 65 + brett[0].length; i++) {
+			System.out.print(" " + (char) i + "   ");
+
+		}
+		 System.out.println();
+	}
 
 	/**
 	 * Gibt das Spielfeld in CSV Notation aus

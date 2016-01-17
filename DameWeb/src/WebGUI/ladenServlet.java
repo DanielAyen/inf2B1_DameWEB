@@ -44,7 +44,7 @@ public class ladenServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		String name = request.getParameter("dateiName");
-		File selectedFile = new File("/home/informatik/repository_lokal/DameWeb/Saves/" + name);
+		File selectedFile = new File("/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/Saves/" + name);
 		System.out.println(spiel.getBrett());
 		if (!selectedFile.exists()) {
 
@@ -91,14 +91,89 @@ public class ladenServlet extends HttpServlet {
 
 				}
 
-			} else if (selectedFile.getName().endsWith(".ser")) {
+				// -------------------für ser und xml:
+				// session.getServletContext.setAttribute("spiel" spiel)
+
+			}
+			if (selectedFile.getName().endsWith(".ser")) {
+				SpielBean save = (SpielBean) spiel.laden(selectedFile);
+				System.out.println(selectedFile);
+				System.out.println(selectedFile.getName());
+				System.out.println(selectedFile.getAbsolutePath());
 
 				spiel.laden(selectedFile);
 
-			} else {
+				session.getServletContext().setAttribute("spiel", save);
 
+				System.out.println(spiel.getBrett());
+
+				Spieler s1 = spiel.getS1();
+				Spieler s2 = spiel.getS2();
+
+				if (s1.getIstKi() && s2.getIstKi()) {// ki ki
+
+					session.setAttribute("farbe", s1.getFarbe());
+
+					response.sendRedirect("refreshServlet");
+				}
+				if (s1.getIstKi() && !s2.getIstKi()) {// mensch ki
+					session.setAttribute("farbe", s1.getFarbe());
+					response.sendRedirect("refreshServlet");
+
+				} else if (!s1.getIstKi() && s2.getIstKi()) {// ki mensch
+					session.setAttribute("farbe", s2.getFarbe());
+					response.sendRedirect("refreshServlet");
+
+				} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
+					session.setAttribute("farbe", s1.getFarbe());
+					response.sendRedirect("AufSpielerWartenServlet");
+
+					// geht wenn davor 2menschen gespielt haben
+					// wenn aber 100% sein soll muss man einen löschen dann auf dem warten
+					// servlet sitzen und der andre muss beitreten
+
+				}
+
+			} else if (selectedFile.getName().endsWith(".xml")) {
+					SpielBean save = (SpielBean) spiel.laden(selectedFile);
+					System.out.println(selectedFile);
+					System.out.println(selectedFile.getName());
+					System.out.println(selectedFile.getAbsolutePath());
+
+					spiel.laden(selectedFile);
+
+					session.getServletContext().setAttribute("spiel", save);
+
+					System.out.println(spiel.getBrett());
+
+					Spieler s1 = spiel.getS1();
+					Spieler s2 = spiel.getS2();
+
+					if (s1.getIstKi() && s2.getIstKi()) {// ki ki
+
+						session.setAttribute("farbe", s1.getFarbe());
+
+						response.sendRedirect("refreshServlet");
+					}
+					if (s1.getIstKi() && !s2.getIstKi()) {// mensch ki
+						session.setAttribute("farbe", s1.getFarbe());
+						response.sendRedirect("refreshServlet");
+
+					} else if (!s1.getIstKi() && s2.getIstKi()) {// ki mensch
+						session.setAttribute("farbe", s2.getFarbe());
+						response.sendRedirect("refreshServlet");
+
+					} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
+						session.setAttribute("farbe", s1.getFarbe());
+						response.sendRedirect("AufSpielerWartenServlet");
+
+						// geht wenn davor 2menschen gespielt haben
+						// wenn aber 100% sein soll muss man einen löschen dann auf dem
+						// warten
+						// servlet sitzen und der andre muss beitreten
+
+					}
+				}
 			}
 		}
-	}
-
 }

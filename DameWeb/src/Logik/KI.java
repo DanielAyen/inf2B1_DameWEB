@@ -1,7 +1,10 @@
 package Logik;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
+
+import javax.xml.bind.annotation.XmlElement;
 
 /**
  *
@@ -14,8 +17,11 @@ public abstract class KI implements Serializable {
                                              *
                                              */
 	private static final long serialVersionUID = -1632008787864445195L;
+	@XmlElement
 	public Spieler spieler;
+	@XmlElement
 	private Spielbrett brett;
+	@XmlElement
 	private boolean schlag = false;
 
 	/**
@@ -25,6 +31,10 @@ public abstract class KI implements Serializable {
 	 * @param brett
 	 */
 
+	public KI(){
+		
+	}
+	
 	public KI(Spieler spieler, Spielbrett brett) {
 		if (spieler == null) {
 			throw new RuntimeException("Ki darf nicht ohne Spieler exisitieren");

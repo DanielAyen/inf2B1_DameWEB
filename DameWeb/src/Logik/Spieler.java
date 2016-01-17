@@ -1,6 +1,9 @@
 package Logik;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import javax.xml.bind.annotation.XmlElement;
 
 /**
  * 
@@ -34,14 +37,22 @@ public class Spieler implements Serializable {
 	 *          eine ArrayList für die Spielfiguren eines Spielers.
 	 *
 	 */
+	@XmlElement
 	private ArrayList<Spielfigur> figuren = new ArrayList<Spielfigur>();
 	private String name;
+	@XmlElement
 	private static final int maxSpieler = 2;
+	@XmlElement
 	private static int anzSpieler = 0;
+	@XmlElement
 	private static boolean weißvergeben = false;
+	@XmlElement
 	private static boolean schwarzvergeben = false;
+	@XmlElement
 	private FarbEnum farbe;
+	@XmlElement
 	private boolean istAmZug = false;
+	@XmlElement
 	private boolean istKi = false;
 
 	/**
@@ -56,6 +67,13 @@ public class Spieler implements Serializable {
 	 * @param istKi
 	 *          ob der zu erstellende Spieler eine Ki sein soll oder nicht
 	 */
+	
+	
+	public Spieler(){
+		
+	}
+	
+	
 	public Spieler(String name, FarbEnum farbe, boolean istKi) {
 		if (anzSpieler < maxSpieler && (spielerPrüfen(name, farbe)) == 0) {
 			anzSpieler++;

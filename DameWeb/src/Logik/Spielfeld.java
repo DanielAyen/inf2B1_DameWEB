@@ -1,6 +1,9 @@
 package Logik;
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
+
 /**
  * 
  * @author Baris, Daniel, Simon,Hannes
@@ -28,11 +31,17 @@ public class Spielfeld implements Serializable {
 	 *          die Farbe des Spielfelds
 	 * 
 	 */
+	@XmlElement
 	private Spielfigur spielfigur;
+	@XmlElement
 	private String id;
+	@XmlElement
 	private int posX;
+	@XmlElement
 	private int posY;
+	@XmlElement
 	private boolean istBelegt = false;
+	@XmlElement
 	private boolean istSchwarz;
 
 	/**
@@ -47,6 +56,11 @@ public class Spielfeld implements Serializable {
 	 * @param y
 	 *          y Koord. im Array
 	 */
+	
+	public Spielfeld(){
+		
+	}
+	
 	public Spielfeld(boolean istSchwarz, int x, int y) {
 
 		this.istSchwarz = istSchwarz;
@@ -60,6 +74,7 @@ public class Spielfeld implements Serializable {
 	 * 
 	 * @return die akt Spielfigur
 	 */
+	@XmlTransient
 	public Spielfigur getSpielfigur() {
 		return this.spielfigur;
 	}
