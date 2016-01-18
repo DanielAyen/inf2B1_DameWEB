@@ -25,17 +25,18 @@ public class DatenzugriffPDF implements iDatenzugriff, Serializable {
 	private static final long serialVersionUID = -1632008787864445195L;
 	// public static final String ZielOrdner = "/home/informatik/Dame.pdf";
 	public static SpielBean spiel;
-	public static String location="/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Bilder/";//baris
-	public static final String FeldS = location+"felds.png";
-	public static final String FeldW = location+"feldw.png";
-	public static final String FigurS = location+"FeldSSteinS.png";
-	public static final String FigurW = location+"FeldSSteinW.png";
-	public static final String DameS = location+"dameS.png";
-	public static final String DameW = location+"dameW.png";
-	public static final String FigurSG = location+"SteinSG.png";
-	public static final String FigurWG = location+"SteinWG2.png";
-	public static final String DameSG = location+"dameSG.png";
-	public static final String DameWG = location+"dameWG.png";
+	public static String location = "/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Bilder/";// baris
+	// daniel "/home/informatik/repository_lokal/DameWeb/Bilder";
+	public static final String FeldS = location + "felds.png";
+	public static final String FeldW = location + "feldw.png";
+	public static final String FigurS = location + "FeldSSteinS.png";
+	public static final String FigurW = location + "FeldSSteinW.png";
+	public static final String DameS = location + "dameS.png";
+	public static final String DameW = location + "dameW.png";
+	public static final String FigurSG = location + "SteinSG.png";
+	public static final String FigurWG = location + "SteinWG2.png";
+	public static final String DameSG = location + "dameSG.png";
+	public static final String DameWG = location + "dameWG.png";
 
 	/**
 	 * speichert / schreibt die PDF
@@ -45,8 +46,8 @@ public class DatenzugriffPDF implements iDatenzugriff, Serializable {
 	 * @throws DocumentException
 	 */
 	@Override
-	public void speichernPdf(SpielBean spielA,Object o, String pfad) throws IOException {
-spiel=spielA;
+	public void speichernPdf(SpielBean spielA, Object o, String pfad) throws IOException {
+		spiel = spielA;
 		Document document = new Document(PageSize.A4.rotate());
 		try {
 			PdfWriter.getInstance(document, new FileOutputStream(pfad));
@@ -141,7 +142,7 @@ spiel=spielA;
 	@Override
 	public void speichern(Object o, String pfad) throws IOException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -48,7 +48,7 @@ public class speichernServlet extends HttpServlet {
 		
 		String location="/home/informatik/repository_lokal/DameWeb/Saves";//daniel
 		//Hannes "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/Saves/"
-		//baris ...
+		//baris "/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Saves/"
 				
 				
 	//	System.out.println(name);

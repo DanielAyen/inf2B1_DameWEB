@@ -50,9 +50,10 @@ public class ladenServlet extends HttpServlet {
 
 		String location = "/home/informatik/repository_lokal/DameWeb/Saves";// Daniel
 		// Hannes "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/Saves/"
+		// "/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Saves/"
 
-		File selectedFile = new File(location+name);
-		//System.out.println(spiel.getBrett());
+		File selectedFile = new File(location + name);
+		// System.out.println(spiel.getBrett());
 		if (!selectedFile.exists()) {
 
 			response.sendRedirect("Laden.jsp");
@@ -65,11 +66,11 @@ public class ladenServlet extends HttpServlet {
 
 			} else if (selectedFile.getName().endsWith(".csv")) {
 
-				//System.out.println(selectedFile);
-			//	System.out.println(selectedFile.getName());
-			//	System.out.println(selectedFile.getAbsolutePath());
+				// System.out.println(selectedFile);
+				// System.out.println(selectedFile.getName());
+				// System.out.println(selectedFile.getAbsolutePath());
 				spiel.laden(selectedFile);
-			//	System.out.println(spiel.getBrett());
+				// System.out.println(spiel.getBrett());
 
 				Spieler s1 = spiel.getS1();
 				Spieler s2 = spiel.getS2();
@@ -104,13 +105,13 @@ public class ladenServlet extends HttpServlet {
 			}
 			if (selectedFile.getName().endsWith(".ser")) {
 				SpielBean save = (SpielBean) spiel.laden(selectedFile);
-			//	System.out.println(selectedFile);
-			//	System.out.println(selectedFile.getName());
-			//	System.out.println(selectedFile.getAbsolutePath());
+				// System.out.println(selectedFile);
+				// System.out.println(selectedFile.getName());
+				// System.out.println(selectedFile.getAbsolutePath());
 
 				session.getServletContext().setAttribute("spiel", save);
 
-			//	System.out.println(spiel.getBrett());
+				// System.out.println(spiel.getBrett());
 
 				Spieler s1 = save.getS1();
 				Spieler s2 = save.getS2();
@@ -141,9 +142,9 @@ public class ladenServlet extends HttpServlet {
 
 			} else if (selectedFile.getName().endsWith(".xml")) {
 				SpielBean save = (SpielBean) spiel.laden(selectedFile);
-			//	System.out.println(selectedFile);
-			//	System.out.println(selectedFile.getName());
-			//	System.out.println(selectedFile.getAbsolutePath());
+				// System.out.println(selectedFile);
+				// System.out.println(selectedFile.getName());
+				// System.out.println(selectedFile.getAbsolutePath());
 
 				if (save.getK1() != null) {
 					save.getK1().getSpieler().getAlleFiguren().clear();
