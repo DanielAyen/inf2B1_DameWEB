@@ -15,13 +15,13 @@ import Logik.SpielBean;
  * Servlet implementation class weiterServlet
  */
 @WebServlet("/weiterServlet")
-public class weiterServlet extends HttpServlet {
+public class weiterServletJa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public weiterServlet() {
+	public weiterServletJa() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -42,25 +42,10 @@ public class weiterServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 
-		String weiter = request.getParameter("weiter");
-
-		if (weiter != null) {
-
-			if (weiter.equals("ja")) {
+	
 
 				spiel.willWeiterZiehen();
 				response.sendRedirect("refreshServlet");
-
-			} else if (weiter.equals("nein")) {
-
-				spiel.willNichtWeiterZiehen();
-				response.sendRedirect("refreshServlet");
-
-			}
-
-		}
-		response.sendRedirect("refreshServlet");
-
 	}
 
 }

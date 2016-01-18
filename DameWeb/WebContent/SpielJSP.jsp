@@ -15,13 +15,13 @@
 		HttpSession cheatSession = request.getSession(true);
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		FarbEnum farbe = (FarbEnum) cheatSession.getAttribute("farbe");
-		String deineFarbe= (String) session.getAttribute("deineFarbe");
-		boolean weiter=(boolean) session.getAttribute("weiter");
+		String deineFarbe = (String) session.getAttribute("deineFarbe");
+		boolean weiter = (boolean) session.getAttribute("weiter");
 
-		if(deineFarbe!=null){
-			out.println("Du hast die Farbe: "+deineFarbe);
+		if (deineFarbe != null) {
+			out.println("Du hast die Farbe: " + deineFarbe);
 		}
-		
+
 		//out.print(farbeS2);
 		//out.print(farbeS1);
 		if (spiel == null || farbe == null) {
@@ -77,7 +77,7 @@
 
 									// buttonArray[zeile][spalte].setIcon(felds);
 									ausgabe += "<td><a href=zugServlet?X=" + ((char) (65 + j)) + "&Y=" + (i + 1) + "><img src=\"felds.png\" alt=\"S X:" + i + "Y:" + j + "\"></a></td>";
-									
+
 									cnt++;
 								} else {
 
@@ -167,11 +167,10 @@
 				out.println("<form action=\"kiServlet\"><input type=\"submit\" value=\"KI ziehen\" style=\"position:relative; top:10%; left: 95%;\"></form>");
 				String reset = "reset";
 				out.println("<form action=\"resetServlet\"><input type=\"submit\" value=\"Reset\" style=\"position:relative; top:10%; left: 95%;\"></form>");
-				
-				if(weiter){
-					out.println("<p>Möchtest du weiter ziehen?");
-					out.println("<form action=\"weiterServlet?weiter=ja\"><input type=\"submit\" value=\"JA\" style=\"position:relative; top:10%; left: 95%;\"></form>");
-					out.println("<form action=\"weiterServlet?weiter=nein\"><input type=\"submit\" value=\"NEIN\" style=\"position:relative; top:10%; left: 95%;\"></form>");
+
+				if (weiter) {
+					out.println("<form action=\"weiterServletJa\"><input type=\"submit\" value=\"Weiterziehen: JA\" style=\"position:relative; top:10%; left: 95%;\"></form>");
+					out.println("<form action=\"weiterServletNein\"><input type=\"submit\" value=\"Weiterziehen: NEIN\" style=\"position:relative; top:10%; left: 95%;\"></form>");
 
 				}
 			}
