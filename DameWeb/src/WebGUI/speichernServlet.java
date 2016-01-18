@@ -45,6 +45,12 @@ public class speichernServlet extends HttpServlet {
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		String name = request.getParameter("dateiName");
 		String auswahl1 = request.getParameter("auswahl1");
+		
+		String location="/home/informatik/repository_lokal/DameWeb/Saves";//daniel
+		//Hannes "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/Saves/"
+		//baris ...
+				
+				
 		System.out.println(name);
 		System.out.println(auswahl1);
 
@@ -54,25 +60,25 @@ public class speichernServlet extends HttpServlet {
 				System.out.println(spiel.getBrett());
 
 				if (auswahl1.equals("CSV")) {
-					File selectedFile = new File("/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/Saves/" + name + ".csv");
+					File selectedFile = new File(location + name + ".csv");
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
 					response.sendRedirect("OK.jsp");
 					
 				} else if (auswahl1.equals("SER")) {
-					File selectedFile = new File("/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/Saves/" + name + ".ser");
+					File selectedFile = new File(location + name + ".ser");
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
 					response.sendRedirect("OK.jsp");
 					
 				} else if (auswahl1.equals("PDF")) {
-					File selectedFile = new File("/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/Saves/" + name + ".pdf");
+					File selectedFile = new File(location + name + ".pdf");
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
 					response.sendRedirect("OK.jsp");
 					
 				} else if (auswahl1.equals("XML")) {
-					File selectedFile = new File("/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/Saves/" + name + ".xml");
+					File selectedFile = new File(location + name + ".xml");
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
 					response.sendRedirect("OK.jsp");

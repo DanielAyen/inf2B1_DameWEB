@@ -16,6 +16,7 @@
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		FarbEnum farbe = (FarbEnum) cheatSession.getAttribute("farbe");
 		String deineFarbe= (String) session.getAttribute("deineFarbe");
+		boolean weiter=(boolean) session.getAttribute("weiter");
 
 		if(deineFarbe!=null){
 			out.println("Du hast die Farbe: "+deineFarbe);
@@ -166,6 +167,13 @@
 				out.println("<form action=\"kiServlet\"><input type=\"submit\" value=\"KI ziehen\" style=\"position:relative; top:10%; left: 95%;\"></form>");
 				String reset = "reset";
 				out.println("<form action=\"resetServlet\"><input type=\"submit\" value=\"Reset\" style=\"position:relative; top:10%; left: 95%;\"></form>");
+				
+				if(weiter){
+					out.println("<p>Möchtest du weiter ziehen?");
+					out.println("<form action=\"weiterServlet?weiter=ja\"><input type=\"submit\" value=\"JA\" style=\"position:relative; top:10%; left: 95%;\"></form>");
+					out.println("<form action=\"weiterServlet?weiter=nein\"><input type=\"submit\" value=\"NEIN\" style=\"position:relative; top:10%; left: 95%;\"></form>");
+
+				}
 			}
 			out.println(ausgabe);
 		}
