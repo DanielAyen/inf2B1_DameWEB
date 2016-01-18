@@ -13,9 +13,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="Bibliotheken/itextpdf-5.5.0-javadoc.jar"/>
-	<classpathentry kind="lib" path="Bibliotheken/itextpdf-5.5.0-sources.jar"/>
-	<classpathentry kind="lib" path="Bibliotheken/itextpdf-5.5.0.jar"/>
 	<classpathentry kind="lib" path="Bibliotheken/javax.mail.jar"/>
+	<classpathentry kind="lib" path="/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/WebContent/WEB-INF/lib/itextpdf-5.5.0.jar" sourcepath="WebContent/WEB-INF/lib/itextpdf-5.5.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

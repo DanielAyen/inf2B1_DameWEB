@@ -60,4 +60,10 @@ public class DatenzugriffSerialisiert implements iDatenzugriff, Serializable {
 		}
 		return null;
 	}
+
+	@Override
+	public void speichernPdf(SpielBean spiel, Object o, String pfad) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -73,6 +73,12 @@ public class DatenzugriffCSV implements iDatenzugriff, Serializable {
 		writer.flush();
 		writer.close();
 	}
+
+	@Override
+	public void speichernPdf(SpielBean spiel, Object o, String pfad) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
 // public void speichern(String dateiname, String dateiende, Object o) {

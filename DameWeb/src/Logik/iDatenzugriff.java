@@ -13,6 +13,7 @@ import java.util.Properties;
 public interface iDatenzugriff {
 
 	void speichern(Object o, String pfad) throws IOException;
+	void speichernPdf(SpielBean spiel,Object o, String pfad) throws IOException;
 
 	Object laden(File selectedFile) throws IOException;
 
