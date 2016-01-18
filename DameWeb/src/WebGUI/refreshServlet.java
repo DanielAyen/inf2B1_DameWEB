@@ -254,6 +254,11 @@ public class refreshServlet extends HttpServlet {
 
 								}
 							}
+							
+							session.setAttribute("brett", brettS);
+							session.setAttribute("log", spiel.getLog());
+
+							response.sendRedirect("SpielJSP.jsp");
 						}
 						// ausgabe += "</tr>";
 					}
@@ -269,10 +274,10 @@ public class refreshServlet extends HttpServlet {
 			// ausgabe += "<textarea id=\"log\" readonly>" + spiel.getLog() +
 			// "</textarea>";
 
-			session.setAttribute("brett", brettS);
-			session.setAttribute("log", spiel.getLog());
+			//session.setAttribute("brett", brettS);
+			//session.setAttribute("log", spiel.getLog());
 
-			response.sendRedirect("SpielJSP.jsp");
+			//response.sendRedirect("SpielJSP.jsp");
 
 		}
 	}
