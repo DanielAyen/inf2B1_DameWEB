@@ -2460,6 +2460,12 @@ public class SpielBean implements iBediener, Serializable {
 	public FarbEnum getAmZug() {
 		return farbeAmZug;
 	}
+	
+	public void setkannWeiterSchlagen(){
+		
+		kannWeiterSchlagen=false;
+		
+	}
 //
 //	@XmlElement(name = "farbeSuKi")
 //	public boolean getKiS() {

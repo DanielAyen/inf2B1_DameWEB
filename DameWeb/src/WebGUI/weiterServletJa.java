@@ -45,6 +45,7 @@ public class weiterServletJa extends HttpServlet {
 	
 
 				spiel.willWeiterZiehen();
+				spiel.setkannWeiterSchlagen();
 				response.sendRedirect("refreshServlet");
 	}
 

@@ -43,6 +43,7 @@ public class weiterServletNein extends HttpServlet {
 	
 
 				spiel.willNichtWeiterZiehen();
+				spiel.setkannWeiterSchlagen();
 				response.sendRedirect("refreshServlet");
 	}
 
