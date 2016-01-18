@@ -2,7 +2,7 @@ package WebGUI;
 
 import Logik.FarbEnum;
 import Logik.Spielfigur;
-
+import Logik.KI_Dame;
 import java.io.File;
 import java.io.IOException;
 
@@ -48,9 +48,10 @@ public class ladenServlet extends HttpServlet {
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		String name = request.getParameter("dateiName");
 
-		String location = "/home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Saves/";// Daniel
-		// Hannes "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/Saves/"
+		String location = "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/WebContent/WebSaves/"; // Hannes 
+		
 		// "/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Saves/"
+		// "/home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Saves/";// Daniel
 
 		File selectedFile = new File(location + name);
 		// System.out.println(spiel.getBrett());
@@ -145,20 +146,11 @@ public class ladenServlet extends HttpServlet {
 				// System.out.println(selectedFile);
 				// System.out.println(selectedFile.getName());
 				// System.out.println(selectedFile.getAbsolutePath());
-
-				if (save.getK1() != null) {
-					save.getK1().getSpieler().getAlleFiguren().clear();
-				}
-				if (save.getK2() != null) {
-					save.getK2().getSpieler().getAlleFiguren().clear();
-				}
-				if (save.getS1() != null) {
+		
+				
 					save.getS1().getAlleFiguren().clear();
-				}
-				if (save.getS2() != null) {
 					save.getS2().getAlleFiguren().clear();
-				}
-
+				
 				for (int zeile = 0; zeile <= save.getBrett().getBrettGroesse() - 1; zeile++) {
 					for (int spalte = 0; spalte <= save.getBrett().getBrettGroesse() - 1; spalte++) {
 						if (save.getBrett().getBrettFeldIndex(zeile, spalte).getIstSchwarz()) {
@@ -167,19 +159,23 @@ public class ladenServlet extends HttpServlet {
 
 								if (fig.getFarbe() == FarbEnum.SCHWARZ) {
 									save.getS1().getAlleFiguren().add(fig);
-									if (save.getK1() != null) {
-										save.getK1().getSpieler().getAlleFiguren().add(fig);
-									}
 								}
 								if (fig.getFarbe() == FarbEnum.WEIß) {
 									save.getS2().getAlleFiguren().add(fig);
-									if (save.getK2() != null) {
-										save.getK2().getSpieler().getAlleFiguren().add(fig);
 									}
 								}
 							}
 						}
-					}
+				}
+				
+				if (save.getK1() != null){
+					KI_Dame nk1 = new KI_Dame(save.getS1(),save.getBrett());
+					save.setK1(nk1);
+				}
+				
+				if (save.getK2() != null){
+					KI_Dame nk2 = new KI_Dame(save.getS2(),save.getBrett());
+					save.setK2(nk2);
 				}
 
 				session.getServletContext().setAttribute("spiel", save);

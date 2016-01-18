@@ -45,7 +45,7 @@
 
 			String[][] brettAusgabe = new String[12][12];
 			brettAusgabe = (String[][]) session.getAttribute("brett");
-			String gewonnen = null; //(String) session.getAttribute("spielergewonnen");
+			String gewonnen = (String) session.getAttribute("spielergewonnen");
 			if (gewonnen != null) {
 				System.out.println("GEWONNENJSP");
 				ausgabe = "<h1>DER SPIELER MIT DER FARBE " + gewonnen + " HAT GEWONNEN</h1>";

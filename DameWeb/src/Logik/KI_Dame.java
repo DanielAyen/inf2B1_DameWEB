@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author Baris, Daniel, Simon, Hannes
  *
  */
-class KI_Dame extends KI  implements Serializable{
+public class KI_Dame extends KI  implements Serializable{
 	
 	/**
 	 * 

@@ -45,9 +45,9 @@ public class speichernServlet extends HttpServlet {
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		String name = request.getParameter("dateiName");
 		String auswahl1 = request.getParameter("auswahl1");
-		
-		String location="/home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Saves/";//daniel
-		//Hannes "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/Saves/"
+
+		String location="/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/WebContent/WebSaves/";// Hannes
+		//Daniel "/home/informatik/repository_lokal/inf2B1_DameWEB/DameWeb/Saves/"
 		//baris "/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Saves/"
 				
 				
@@ -76,6 +76,7 @@ public class speichernServlet extends HttpServlet {
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
 					session.getServletContext().setAttribute("pfad", location+name+".pdf");
+					session.getServletContext().setAttribute("pfad", "WebSaves/"+name+".pdf");
 					response.sendRedirect("PDF.jsp");
 					
 					

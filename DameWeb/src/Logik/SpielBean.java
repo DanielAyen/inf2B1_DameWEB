@@ -114,7 +114,7 @@ public class SpielBean implements iBediener, Serializable {
 
 	private ArrayList<Spielfigur> FigurDieSchlagenKoennen = new ArrayList<Spielfigur>();
 
-	private ArrayList<String> zugFurLog = new ArrayList<String>();
+//	private String zugFurLog = "";
 
 	private int testint = 0;
 
@@ -2381,8 +2381,8 @@ public class SpielBean implements iBediener, Serializable {
 		int d = zugee3 + 1;
 		// ((char) (zielKoords[3] + 97)) + "" + (zielKoords[2] + 1)
 		String ausgabe = "Startposition: " + a + b + " Endposition: " + c + d;
+		log(ausgabe);
 		// System.out.println(ausgabe);
-		zugFurLog.add(ausgabe);
 	}
 
 	public void log(String text) {
@@ -2410,11 +2410,11 @@ public class SpielBean implements iBediener, Serializable {
 
 	}
 
-	public ArrayList<String> getZugFurLog() {
-
-		return zugFurLog;
-
-	}
+//	public ArrayList<String> getZugFurLog() {
+//
+//		return zugFurLog;
+//
+//	}
 
 	public KI getK1() {
 		if (k1 == null)
@@ -2422,10 +2422,18 @@ public class SpielBean implements iBediener, Serializable {
 		return k1;
 	}
 
+	public void setK1(KI_Dame ki){
+		k1 = ki;
+	}
+	
 	public KI getK2() {
 		if (k2 == null)
 			return null;
 		return k2;
+	}
+	
+	public void setK2(KI_Dame ki){
+		k2= ki;
 	}
 
 	public Spieler getS1() {

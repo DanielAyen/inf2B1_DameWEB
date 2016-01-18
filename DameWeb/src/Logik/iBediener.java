@@ -46,8 +46,6 @@ public interface iBediener {
 
 	public boolean kizieh();
 
-	public ArrayList<String> getZugFurLog();
-
 	public Spieler getGewonnenerSpieler();
 
 	public boolean starten();

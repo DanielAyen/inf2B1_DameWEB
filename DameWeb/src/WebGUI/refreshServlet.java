@@ -73,14 +73,13 @@ public class refreshServlet extends HttpServlet {
 				if (spiel.getBrett() != null) {
 
 					// ausgabe = "<table border=\"1\"> <tr>";
+					String gewonnen = null;
 					Spieler gewspieler = spiel.getGewonnenerSpieler();
 					if (gewspieler != null) {
 						System.out.println("gewspieler");
-						String gewonnen = "" + gewspieler.getFarbe();
-
-						session.setAttribute("spielergewonnen", gewonnen);
-
+						gewonnen = "" + gewspieler.getFarbe();
 					}
+					session.setAttribute("spielergewonnen", gewonnen);
 
 					int cnt = 0;
 					for (int i = 11; i >= 0; i--) {// zeile
@@ -231,13 +230,7 @@ public class refreshServlet extends HttpServlet {
 
 			// ausgabe += "<textarea id=\"log\" readonly>" + spiel.getLog() +
 			// "</textarea>";
-			boolean weiter = false;
-
-			if (spiel.kannWeiterZiehen()) {
-
-				weiter = spiel.kannWeiterZiehen();
-
-			}
+			boolean weiter = spiel.kannWeiterZiehen();
 
 			session.setAttribute("weiter", weiter);
 			session.setAttribute("brett", brettS);
