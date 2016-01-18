@@ -51,13 +51,13 @@ public class speichernServlet extends HttpServlet {
 		//baris ...
 				
 				
-		System.out.println(name);
-		System.out.println(auswahl1);
+	//	System.out.println(name);
+		//System.out.println(auswahl1);
 
 		if (name != null && auswahl1 != null) {
 			if ((Pattern.matches("[a-z A-Z 0-9]*", name))) {
-				System.out.println("JOP");
-				System.out.println(spiel.getBrett());
+			//	System.out.println("JOP");
+			//	System.out.println(spiel.getBrett());
 
 				if (auswahl1.equals("CSV")) {
 					File selectedFile = new File(location + name + ".csv");
@@ -87,7 +87,7 @@ public class speichernServlet extends HttpServlet {
 				}
 
 			} else {
-				System.out.println("NOP");
+			//	System.out.println("NOP");
 
 				response.sendRedirect("Speichern.jsp");
 
