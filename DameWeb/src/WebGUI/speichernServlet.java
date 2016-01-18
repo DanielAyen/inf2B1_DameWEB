@@ -46,7 +46,7 @@ public class speichernServlet extends HttpServlet {
 		String name = request.getParameter("dateiName");
 		String auswahl1 = request.getParameter("auswahl1");
 		
-		String location="/home/informatik/repository_lokal/DameWeb/Saves";//daniel
+		String location="/home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Saves/";//daniel
 		//Hannes "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/Saves/"
 		//baris "/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Saves/"
 				
@@ -75,7 +75,9 @@ public class speichernServlet extends HttpServlet {
 					File selectedFile = new File(location + name + ".pdf");
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
-					response.sendRedirect("OK.jsp");
+					session.getServletContext().setAttribute("pfad", location+name+".pdf");
+					response.sendRedirect("PDF.jsp");
+					
 					
 				} else if (auswahl1.equals("XML")) {
 					File selectedFile = new File(location + name + ".xml");
