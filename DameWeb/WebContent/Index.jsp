@@ -27,7 +27,7 @@
 	<!-- DATEI PFADE IN SPEICHERN/LADEN UND DATENZUGRIFF PDF ANPASSEN JE NACH PC!!!!!!!!!!!!!!!!!!!! -->
 	<!-- DATEI PFADE IN SPEICHERN/LADEN UND DATENZUGRIFF PDF ANPASSEN JE NACH PC!!!!!!!!!!!!!!!!!!!! -->
 	<!-- DATEI PFADE IN SPEICHERN/LADEN UND DATENZUGRIFF PDF ANPASSEN JE NACH PC!!!!!!!!!!!!!!!!!!!! -->
-	<!-- /home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Saves/ ENDE IST WICHTIG_-->
+	<!-- /home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Saves/ ENDE IST WICHTIG -->
 
 
 
