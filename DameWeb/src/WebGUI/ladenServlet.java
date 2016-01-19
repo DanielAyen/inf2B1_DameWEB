@@ -77,21 +77,25 @@ public class ladenServlet extends HttpServlet {
 				if (s1.getIstKi() && s2.getIstKi()) {// ki ki
 
 					session.setAttribute("farbe", s1.getFarbe());
+					spiel.logClear();
 					response.sendRedirect("refreshServlet");
 				}
 				if (s1.getIstKi() && !s2.getIstKi()) {// ki mensch
 
 					session.setAttribute("farbe", s2.getFarbe());
+					spiel.logClear();
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && s2.getIstKi()) {// mensch ki
 
 					session.setAttribute("farbe", s1.getFarbe());
+					spiel.logClear();
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
 
 					session.setAttribute("farbe", s1.getFarbe());
+					spiel.logClear();
 					response.sendRedirect("AufSpielerWartenServlet");
 
 					// geht wenn davor 2menschen gespielt haben
@@ -118,21 +122,25 @@ public class ladenServlet extends HttpServlet {
 				if (s1.getIstKi() && s2.getIstKi()) {// ki ki
 
 					session.setAttribute("farbe", s1.getFarbe());
+					spiel.logClear();
 					response.sendRedirect("refreshServlet");
 				}
 				if (s1.getIstKi() && !s2.getIstKi()) {// ki mensch
 
 					session.setAttribute("farbe", s2.getFarbe());
+					spiel.logClear();
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && s2.getIstKi()) {// mensch ki
 
 					session.setAttribute("farbe", s1.getFarbe());
+					spiel.logClear();
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
 
 					session.setAttribute("farbe", s1.getFarbe());
+					spiel.logClear();
 					response.sendRedirect("AufSpielerWartenServlet");
 
 					// geht wenn davor 2menschen gespielt haben
@@ -184,21 +192,25 @@ public class ladenServlet extends HttpServlet {
 				if (s1.getIstKi() && s2.getIstKi()) {// ki ki
 
 					session.setAttribute("farbe", s1.getFarbe());
+					spiel.logClear();
 					response.sendRedirect("refreshServlet");
 				}
 				if (s1.getIstKi() && !s2.getIstKi()) {// ki mensch
 
 					session.setAttribute("farbe", s2.getFarbe());
+					spiel.logClear();
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && s2.getIstKi()) {// mensch ki
 
 					session.setAttribute("farbe", s1.getFarbe());
+					spiel.logClear();
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
 
 					session.setAttribute("farbe", s1.getFarbe());
+					spiel.logClear();
 					response.sendRedirect("AufSpielerWartenServlet");
 
 					// geht wenn davor 2menschen gespielt haben

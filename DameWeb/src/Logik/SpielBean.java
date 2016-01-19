@@ -120,7 +120,7 @@ public class SpielBean implements iBediener, Serializable {
 
 	public void spielStarten() {
 
-		log("TEST");
+		
 		// ///////////////////////////////////////////
 		// System.out.println("Bitte gebe die gewuenschte Spielbrett Groesse ein. ( 8 , 10 , 12 )");
 		aufbauen(12);
@@ -2187,6 +2187,7 @@ public class SpielBean implements iBediener, Serializable {
 			schwarzvergeben = false;
 			weissvergeben = false;
 			geschlagen = false;
+			logger="";
 
 			// private Spielbrett brett;
 			// Spieler spieler=null;
