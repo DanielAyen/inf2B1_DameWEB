@@ -1962,7 +1962,7 @@ public class SpielBean implements iBediener, Serializable {
 			// //system.err.println("Spiel hat noch nicht begonnen! Zurueck in Hauptmenue");
 			return false;
 		} else {
-			log("ziehen..." + testint++);
+			log("ziehen...");
 			// brett.display();
 			kannWeiterSchlagen = false;
 
