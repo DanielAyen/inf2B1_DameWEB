@@ -75,7 +75,7 @@ public class refreshServlet extends HttpServlet {
 					Spieler gewspieler = spiel.getGewonnenerSpieler();
 					session.setAttribute("spielergewonnen", gewonnen);
 					if (gewspieler != null) {
-						System.out.println("gewspieler");
+						//System.out.println("gewspieler");
 						gewonnen = "" + gewspieler.getFarbe();
 						session.setAttribute("spielergewonnen", gewonnen);
 						// gewonnen JSP

@@ -25,8 +25,8 @@ public class DatenzugriffPDF implements iDatenzugriff, Serializable {
 	private static final long serialVersionUID = -1632008787864445195L;
 	// public static final String ZielOrdner = "/home/informatik/Dame.pdf";
 	public static SpielBean spiel;
-	public static String location = "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/WebContent/";
-	//public static String location = "/home/informatik/repository_lokal/DameWeb/Bilder";// Daniel
+	//public static String location = "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/WebContent/";
+	public static String location = "/home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Bilder/";// Daniel
 //			"/home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Bilder/";// baris
 	public static final String FeldS = location + "felds.png";
 	public static final String FeldW = location + "feldw.png";

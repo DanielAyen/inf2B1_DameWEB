@@ -41,9 +41,9 @@ public class NeuServlet extends HttpServlet {
 		boolean istKi = false;
 		boolean pruefFarbe = false;
 		boolean pruefArt = false;
-		System.out.println(auswahl1);
-		System.out.println(auswahl2);
-		System.out.println(farbe);
+		//System.out.println(auswahl1);
+		//System.out.println(auswahl2);
+		//System.out.println(farbe);
 		if (auswahl1 != null && auswahl2 != null && farbe != null) {
 			// Farbe
 			if (farbe.equals("Schwarz")) {

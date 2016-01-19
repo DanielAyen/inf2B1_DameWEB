@@ -45,9 +45,11 @@ public class speichernServlet extends HttpServlet {
 		String name = request.getParameter("dateiName");
 		String auswahl1 = request.getParameter("auswahl1");
 
-		String location = "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/WebContent/WebSaves/";// Hannes
-		// String
-		// location="/home/informatik/repository_lokal/inf2B1_DameWEB/DameWeb/Saves/";//Daniel
+		// String location =
+		// "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/WebContent/WebSaves/";//
+		// Hannes
+		String location = "/home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Saves/";// Daniel
+		String location2 = "/home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/WebContent/WebSaves/";// Daniel
 		// String
 		// location="/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Saves/";//Baris
 
@@ -72,11 +74,14 @@ public class speichernServlet extends HttpServlet {
 					response.sendRedirect("OK.jsp");
 
 				} else if (auswahl1.equals("PDF")) {
-					File selectedFile = new File(location + name + ".pdf");
+					File selectedFile = new File(location2 + name + ".pdf");
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
-					session.getServletContext().setAttribute("pfad", location + name + ".pdf");
-					session.getServletContext().setAttribute("pfad", "WebSaves/" + name + ".pdf");
+					session.getServletContext().setAttribute("pfad", "http://localhost:8080/DameWeb/WebSaves/" + name + ".pdf");
+					
+					
+					//session.getServletContext().setAttribute("pfad", "WebSaves/" + name + ".pdf");
+					
 					response.sendRedirect("PDF.jsp");
 
 				} else if (auswahl1.equals("XML")) {

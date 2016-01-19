@@ -1,0 +1,1006 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<spielBean spielAufgebaut="true" spielerAnzahl="2" spiellaeuft="true" schwarzvergeben="true" weissvergeben="true" farbeAmZug="WEIß">
+    <brett maxBrett="1" anzBrett="1">
+        <brett>
+            <item id="A1" posX="0" posY="0" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="1" idW="1" posX="0" posY="0"/>
+            </item>
+            <item id="B1" posX="0" posY="1" istBelegt="false" istSchwarz="false"/>
+            <item id="C1" posX="0" posY="2" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="2" idW="1" posX="0" posY="2"/>
+            </item>
+            <item id="D1" posX="0" posY="3" istBelegt="false" istSchwarz="false"/>
+            <item id="E1" posX="0" posY="4" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="3" idW="1" posX="0" posY="4"/>
+            </item>
+            <item id="F1" posX="0" posY="5" istBelegt="false" istSchwarz="false"/>
+            <item id="G1" posX="0" posY="6" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="4" idW="1" posX="0" posY="6"/>
+            </item>
+            <item id="H1" posX="0" posY="7" istBelegt="false" istSchwarz="false"/>
+            <item id="I1" posX="0" posY="8" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="5" idW="1" posX="0" posY="8"/>
+            </item>
+            <item id="J1" posX="0" posY="9" istBelegt="false" istSchwarz="false"/>
+            <item id="K1" posX="0" posY="10" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="6" idW="1" posX="0" posY="10"/>
+            </item>
+            <item id="L1" posX="0" posY="11" istBelegt="false" istSchwarz="false"/>
+        </brett>
+        <brett>
+            <item id="A2" posX="1" posY="0" istBelegt="false" istSchwarz="false"/>
+            <item id="B2" posX="1" posY="1" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="7" idW="1" posX="1" posY="1"/>
+            </item>
+            <item id="C2" posX="1" posY="2" istBelegt="false" istSchwarz="false"/>
+            <item id="D2" posX="1" posY="3" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="8" idW="1" posX="1" posY="3"/>
+            </item>
+            <item id="E2" posX="1" posY="4" istBelegt="false" istSchwarz="false"/>
+            <item id="F2" posX="1" posY="5" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="9" idW="1" posX="1" posY="5"/>
+            </item>
+            <item id="G2" posX="1" posY="6" istBelegt="false" istSchwarz="false"/>
+            <item id="H2" posX="1" posY="7" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="10" idW="1" posX="1" posY="7"/>
+            </item>
+            <item id="I2" posX="1" posY="8" istBelegt="false" istSchwarz="false"/>
+            <item id="J2" posX="1" posY="9" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="11" idW="1" posX="1" posY="9"/>
+            </item>
+            <item id="K2" posX="1" posY="10" istBelegt="false" istSchwarz="false"/>
+            <item id="L2" posX="1" posY="11" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="12" idW="1" posX="1" posY="11"/>
+            </item>
+        </brett>
+        <brett>
+            <item id="A3" posX="2" posY="0" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="13" idW="1" posX="2" posY="0"/>
+            </item>
+            <item id="B3" posX="2" posY="1" istBelegt="false" istSchwarz="false"/>
+            <item id="C3" posX="2" posY="2" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="14" idW="1" posX="2" posY="2"/>
+            </item>
+            <item id="D3" posX="2" posY="3" istBelegt="false" istSchwarz="false"/>
+            <item id="E3" posX="2" posY="4" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="15" idW="1" posX="2" posY="4"/>
+            </item>
+            <item id="F3" posX="2" posY="5" istBelegt="false" istSchwarz="false"/>
+            <item id="G3" posX="2" posY="6" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="16" idW="1" posX="2" posY="6"/>
+            </item>
+            <item id="H3" posX="2" posY="7" istBelegt="false" istSchwarz="false"/>
+            <item id="I3" posX="2" posY="8" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="17" idW="1" posX="2" posY="8"/>
+            </item>
+            <item id="J3" posX="2" posY="9" istBelegt="false" istSchwarz="false"/>
+            <item id="K3" posX="2" posY="10" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="18" idW="1" posX="2" posY="10"/>
+            </item>
+            <item id="L3" posX="2" posY="11" istBelegt="false" istSchwarz="false"/>
+        </brett>
+        <brett>
+            <item id="A4" posX="3" posY="0" istBelegt="false" istSchwarz="false"/>
+            <item id="B4" posX="3" posY="1" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="19" idW="1" posX="3" posY="1"/>
+            </item>
+            <item id="C4" posX="3" posY="2" istBelegt="false" istSchwarz="false"/>
+            <item id="D4" posX="3" posY="3" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="20" idW="1" posX="3" posY="3"/>
+            </item>
+            <item id="E4" posX="3" posY="4" istBelegt="false" istSchwarz="false"/>
+            <item id="F4" posX="3" posY="5" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="21" idW="1" posX="3" posY="5"/>
+            </item>
+            <item id="G4" posX="3" posY="6" istBelegt="false" istSchwarz="false"/>
+            <item id="H4" posX="3" posY="7" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="22" idW="1" posX="3" posY="7"/>
+            </item>
+            <item id="I4" posX="3" posY="8" istBelegt="false" istSchwarz="false"/>
+            <item id="J4" posX="3" posY="9" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="23" idW="1" posX="3" posY="9"/>
+            </item>
+            <item id="K4" posX="3" posY="10" istBelegt="false" istSchwarz="false"/>
+            <item id="L4" posX="3" posY="11" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="24" idW="1" posX="3" posY="11"/>
+            </item>
+        </brett>
+        <brett>
+            <item id="A5" posX="4" posY="0" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="25" idW="1" posX="4" posY="0"/>
+            </item>
+            <item id="B5" posX="4" posY="1" istBelegt="false" istSchwarz="false"/>
+            <item id="C5" posX="4" posY="2" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="26" idW="1" posX="4" posY="2"/>
+            </item>
+            <item id="D5" posX="4" posY="3" istBelegt="false" istSchwarz="false"/>
+            <item id="E5" posX="4" posY="4" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="27" idW="1" posX="4" posY="4"/>
+            </item>
+            <item id="F5" posX="4" posY="5" istBelegt="false" istSchwarz="false"/>
+            <item id="G5" posX="4" posY="6" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="28" idW="1" posX="4" posY="6"/>
+            </item>
+            <item id="H5" posX="4" posY="7" istBelegt="false" istSchwarz="false"/>
+            <item id="I5" posX="4" posY="8" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="29" idW="1" posX="4" posY="8"/>
+            </item>
+            <item id="J5" posX="4" posY="9" istBelegt="false" istSchwarz="false"/>
+            <item id="K5" posX="4" posY="10" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="SCHWARZ" istDame="false" idS="30" idW="1" posX="4" posY="10"/>
+            </item>
+            <item id="L5" posX="4" posY="11" istBelegt="false" istSchwarz="false"/>
+        </brett>
+        <brett>
+            <item id="A6" posX="5" posY="0" istBelegt="false" istSchwarz="false"/>
+            <item id="B6" posX="5" posY="1" istBelegt="false" istSchwarz="true"/>
+            <item id="C6" posX="5" posY="2" istBelegt="false" istSchwarz="false"/>
+            <item id="D6" posX="5" posY="3" istBelegt="false" istSchwarz="true"/>
+            <item id="E6" posX="5" posY="4" istBelegt="false" istSchwarz="false"/>
+            <item id="F6" posX="5" posY="5" istBelegt="false" istSchwarz="true"/>
+            <item id="G6" posX="5" posY="6" istBelegt="false" istSchwarz="false"/>
+            <item id="H6" posX="5" posY="7" istBelegt="false" istSchwarz="true"/>
+            <item id="I6" posX="5" posY="8" istBelegt="false" istSchwarz="false"/>
+            <item id="J6" posX="5" posY="9" istBelegt="false" istSchwarz="true"/>
+            <item id="K6" posX="5" posY="10" istBelegt="false" istSchwarz="false"/>
+            <item id="L6" posX="5" posY="11" istBelegt="false" istSchwarz="true"/>
+        </brett>
+        <brett>
+            <item id="A7" posX="6" posY="0" istBelegt="false" istSchwarz="true"/>
+            <item id="B7" posX="6" posY="1" istBelegt="false" istSchwarz="false"/>
+            <item id="C7" posX="6" posY="2" istBelegt="false" istSchwarz="true"/>
+            <item id="D7" posX="6" posY="3" istBelegt="false" istSchwarz="false"/>
+            <item id="E7" posX="6" posY="4" istBelegt="false" istSchwarz="true"/>
+            <item id="F7" posX="6" posY="5" istBelegt="false" istSchwarz="false"/>
+            <item id="G7" posX="6" posY="6" istBelegt="false" istSchwarz="true"/>
+            <item id="H7" posX="6" posY="7" istBelegt="false" istSchwarz="false"/>
+            <item id="I7" posX="6" posY="8" istBelegt="false" istSchwarz="true"/>
+            <item id="J7" posX="6" posY="9" istBelegt="false" istSchwarz="false"/>
+            <item id="K7" posX="6" posY="10" istBelegt="false" istSchwarz="true"/>
+            <item id="L7" posX="6" posY="11" istBelegt="false" istSchwarz="false"/>
+        </brett>
+        <brett>
+            <item id="A8" posX="7" posY="0" istBelegt="false" istSchwarz="false"/>
+            <item id="B8" posX="7" posY="1" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="25" posX="7" posY="1"/>
+            </item>
+            <item id="C8" posX="7" posY="2" istBelegt="false" istSchwarz="false"/>
+            <item id="D8" posX="7" posY="3" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="26" posX="7" posY="3"/>
+            </item>
+            <item id="E8" posX="7" posY="4" istBelegt="false" istSchwarz="false"/>
+            <item id="F8" posX="7" posY="5" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="27" posX="7" posY="5"/>
+            </item>
+            <item id="G8" posX="7" posY="6" istBelegt="false" istSchwarz="false"/>
+            <item id="H8" posX="7" posY="7" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="28" posX="7" posY="7"/>
+            </item>
+            <item id="I8" posX="7" posY="8" istBelegt="false" istSchwarz="false"/>
+            <item id="J8" posX="7" posY="9" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="29" posX="7" posY="9"/>
+            </item>
+            <item id="K8" posX="7" posY="10" istBelegt="false" istSchwarz="false"/>
+            <item id="L8" posX="7" posY="11" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="30" posX="7" posY="11"/>
+            </item>
+        </brett>
+        <brett>
+            <item id="A9" posX="8" posY="0" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="19" posX="8" posY="0"/>
+            </item>
+            <item id="B9" posX="8" posY="1" istBelegt="false" istSchwarz="false"/>
+            <item id="C9" posX="8" posY="2" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="20" posX="8" posY="2"/>
+            </item>
+            <item id="D9" posX="8" posY="3" istBelegt="false" istSchwarz="false"/>
+            <item id="E9" posX="8" posY="4" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="21" posX="8" posY="4"/>
+            </item>
+            <item id="F9" posX="8" posY="5" istBelegt="false" istSchwarz="false"/>
+            <item id="G9" posX="8" posY="6" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="22" posX="8" posY="6"/>
+            </item>
+            <item id="H9" posX="8" posY="7" istBelegt="false" istSchwarz="false"/>
+            <item id="I9" posX="8" posY="8" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="23" posX="8" posY="8"/>
+            </item>
+            <item id="J9" posX="8" posY="9" istBelegt="false" istSchwarz="false"/>
+            <item id="K9" posX="8" posY="10" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="24" posX="8" posY="10"/>
+            </item>
+            <item id="L9" posX="8" posY="11" istBelegt="false" istSchwarz="false"/>
+        </brett>
+        <brett>
+            <item id="A10" posX="9" posY="0" istBelegt="false" istSchwarz="false"/>
+            <item id="B10" posX="9" posY="1" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="13" posX="9" posY="1"/>
+            </item>
+            <item id="C10" posX="9" posY="2" istBelegt="false" istSchwarz="false"/>
+            <item id="D10" posX="9" posY="3" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="14" posX="9" posY="3"/>
+            </item>
+            <item id="E10" posX="9" posY="4" istBelegt="false" istSchwarz="false"/>
+            <item id="F10" posX="9" posY="5" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="15" posX="9" posY="5"/>
+            </item>
+            <item id="G10" posX="9" posY="6" istBelegt="false" istSchwarz="false"/>
+            <item id="H10" posX="9" posY="7" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="16" posX="9" posY="7"/>
+            </item>
+            <item id="I10" posX="9" posY="8" istBelegt="false" istSchwarz="false"/>
+            <item id="J10" posX="9" posY="9" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="17" posX="9" posY="9"/>
+            </item>
+            <item id="K10" posX="9" posY="10" istBelegt="false" istSchwarz="false"/>
+            <item id="L10" posX="9" posY="11" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="18" posX="9" posY="11"/>
+            </item>
+        </brett>
+        <brett>
+            <item id="A11" posX="10" posY="0" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="7" posX="10" posY="0"/>
+            </item>
+            <item id="B11" posX="10" posY="1" istBelegt="false" istSchwarz="false"/>
+            <item id="C11" posX="10" posY="2" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="8" posX="10" posY="2"/>
+            </item>
+            <item id="D11" posX="10" posY="3" istBelegt="false" istSchwarz="false"/>
+            <item id="E11" posX="10" posY="4" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="9" posX="10" posY="4"/>
+            </item>
+            <item id="F11" posX="10" posY="5" istBelegt="false" istSchwarz="false"/>
+            <item id="G11" posX="10" posY="6" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="10" posX="10" posY="6"/>
+            </item>
+            <item id="H11" posX="10" posY="7" istBelegt="false" istSchwarz="false"/>
+            <item id="I11" posX="10" posY="8" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="11" posX="10" posY="8"/>
+            </item>
+            <item id="J11" posX="10" posY="9" istBelegt="false" istSchwarz="false"/>
+            <item id="K11" posX="10" posY="10" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="12" posX="10" posY="10"/>
+            </item>
+            <item id="L11" posX="10" posY="11" istBelegt="false" istSchwarz="false"/>
+        </brett>
+        <brett>
+            <item id="A12" posX="11" posY="0" istBelegt="false" istSchwarz="false"/>
+            <item id="B12" posX="11" posY="1" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="1" posX="11" posY="1"/>
+            </item>
+            <item id="C12" posX="11" posY="2" istBelegt="false" istSchwarz="false"/>
+            <item id="D12" posX="11" posY="3" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="2" posX="11" posY="3"/>
+            </item>
+            <item id="E12" posX="11" posY="4" istBelegt="false" istSchwarz="false"/>
+            <item id="F12" posX="11" posY="5" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="3" posX="11" posY="5"/>
+            </item>
+            <item id="G12" posX="11" posY="6" istBelegt="false" istSchwarz="false"/>
+            <item id="H12" posX="11" posY="7" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="4" posX="11" posY="7"/>
+            </item>
+            <item id="I12" posX="11" posY="8" istBelegt="false" istSchwarz="false"/>
+            <item id="J12" posX="11" posY="9" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="5" posX="11" posY="9"/>
+            </item>
+            <item id="K12" posX="11" posY="10" istBelegt="false" istSchwarz="false"/>
+            <item id="L12" posX="11" posY="11" istBelegt="true" istSchwarz="true">
+                <spielfigur farbe="WEIß" istDame="false" idS="1" idW="6" posX="11" posY="11"/>
+            </item>
+        </brett>
+    </brett>
+    <s1 maxSpieler="2" anzSpieler="2" weißvergeben="true" schwarzvergeben="true" farbe="SCHWARZ" istAmZug="false" istKi="true">
+        <figuren farbe="SCHWARZ" istDame="false" idS="1" idW="1" posX="0" posY="0"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="2" idW="1" posX="0" posY="2"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="3" idW="1" posX="0" posY="4"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="4" idW="1" posX="0" posY="6"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="5" idW="1" posX="0" posY="8"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="6" idW="1" posX="0" posY="10"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="7" idW="1" posX="1" posY="1"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="8" idW="1" posX="1" posY="3"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="9" idW="1" posX="1" posY="5"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="10" idW="1" posX="1" posY="7"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="11" idW="1" posX="1" posY="9"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="12" idW="1" posX="1" posY="11"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="13" idW="1" posX="2" posY="0"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="14" idW="1" posX="2" posY="2"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="15" idW="1" posX="2" posY="4"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="16" idW="1" posX="2" posY="6"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="17" idW="1" posX="2" posY="8"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="18" idW="1" posX="2" posY="10"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="19" idW="1" posX="3" posY="1"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="20" idW="1" posX="3" posY="3"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="21" idW="1" posX="3" posY="5"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="22" idW="1" posX="3" posY="7"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="23" idW="1" posX="3" posY="9"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="24" idW="1" posX="3" posY="11"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="25" idW="1" posX="4" posY="0"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="26" idW="1" posX="4" posY="2"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="27" idW="1" posX="4" posY="4"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="28" idW="1" posX="4" posY="6"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="29" idW="1" posX="4" posY="8"/>
+        <figuren farbe="SCHWARZ" istDame="false" idS="30" idW="1" posX="4" posY="10"/>
+    </s1>
+    <s2 maxSpieler="2" anzSpieler="2" weißvergeben="true" schwarzvergeben="true" farbe="WEIß" istAmZug="false" istKi="true">
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="1" posX="11" posY="1"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="2" posX="11" posY="3"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="3" posX="11" posY="5"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="4" posX="11" posY="7"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="5" posX="11" posY="9"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="6" posX="11" posY="11"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="7" posX="10" posY="0"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="8" posX="10" posY="2"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="9" posX="10" posY="4"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="10" posX="10" posY="6"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="11" posX="10" posY="8"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="12" posX="10" posY="10"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="13" posX="9" posY="1"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="14" posX="9" posY="3"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="15" posX="9" posY="5"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="16" posX="9" posY="7"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="17" posX="9" posY="9"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="18" posX="9" posY="11"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="19" posX="8" posY="0"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="20" posX="8" posY="2"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="21" posX="8" posY="4"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="22" posX="8" posY="6"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="23" posX="8" posY="8"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="24" posX="8" posY="10"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="25" posX="7" posY="1"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="26" posX="7" posY="3"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="27" posX="7" posY="5"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="28" posX="7" posY="7"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="29" posX="7" posY="9"/>
+        <figuren farbe="WEIß" istDame="false" idS="1" idW="30" posX="7" posY="11"/>
+    </s2>
+    <k1 schlag="false">
+        <spieler maxSpieler="2" anzSpieler="2" weißvergeben="true" schwarzvergeben="true" farbe="SCHWARZ" istAmZug="false" istKi="true">
+            <figuren farbe="SCHWARZ" istDame="false" idS="1" idW="1" posX="0" posY="0"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="2" idW="1" posX="0" posY="2"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="3" idW="1" posX="0" posY="4"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="4" idW="1" posX="0" posY="6"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="5" idW="1" posX="0" posY="8"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="6" idW="1" posX="0" posY="10"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="7" idW="1" posX="1" posY="1"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="8" idW="1" posX="1" posY="3"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="9" idW="1" posX="1" posY="5"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="10" idW="1" posX="1" posY="7"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="11" idW="1" posX="1" posY="9"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="12" idW="1" posX="1" posY="11"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="13" idW="1" posX="2" posY="0"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="14" idW="1" posX="2" posY="2"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="15" idW="1" posX="2" posY="4"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="16" idW="1" posX="2" posY="6"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="17" idW="1" posX="2" posY="8"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="18" idW="1" posX="2" posY="10"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="19" idW="1" posX="3" posY="1"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="20" idW="1" posX="3" posY="3"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="21" idW="1" posX="3" posY="5"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="22" idW="1" posX="3" posY="7"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="23" idW="1" posX="3" posY="9"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="24" idW="1" posX="3" posY="11"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="25" idW="1" posX="4" posY="0"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="26" idW="1" posX="4" posY="2"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="27" idW="1" posX="4" posY="4"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="28" idW="1" posX="4" posY="6"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="29" idW="1" posX="4" posY="8"/>
+            <figuren farbe="SCHWARZ" istDame="false" idS="30" idW="1" posX="4" posY="10"/>
+        </spieler>
+        <brett maxBrett="1" anzBrett="1">
+            <brett>
+                <item id="A1" posX="0" posY="0" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="1" idW="1" posX="0" posY="0"/>
+                </item>
+                <item id="B1" posX="0" posY="1" istBelegt="false" istSchwarz="false"/>
+                <item id="C1" posX="0" posY="2" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="2" idW="1" posX="0" posY="2"/>
+                </item>
+                <item id="D1" posX="0" posY="3" istBelegt="false" istSchwarz="false"/>
+                <item id="E1" posX="0" posY="4" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="3" idW="1" posX="0" posY="4"/>
+                </item>
+                <item id="F1" posX="0" posY="5" istBelegt="false" istSchwarz="false"/>
+                <item id="G1" posX="0" posY="6" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="4" idW="1" posX="0" posY="6"/>
+                </item>
+                <item id="H1" posX="0" posY="7" istBelegt="false" istSchwarz="false"/>
+                <item id="I1" posX="0" posY="8" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="5" idW="1" posX="0" posY="8"/>
+                </item>
+                <item id="J1" posX="0" posY="9" istBelegt="false" istSchwarz="false"/>
+                <item id="K1" posX="0" posY="10" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="6" idW="1" posX="0" posY="10"/>
+                </item>
+                <item id="L1" posX="0" posY="11" istBelegt="false" istSchwarz="false"/>
+            </brett>
+            <brett>
+                <item id="A2" posX="1" posY="0" istBelegt="false" istSchwarz="false"/>
+                <item id="B2" posX="1" posY="1" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="7" idW="1" posX="1" posY="1"/>
+                </item>
+                <item id="C2" posX="1" posY="2" istBelegt="false" istSchwarz="false"/>
+                <item id="D2" posX="1" posY="3" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="8" idW="1" posX="1" posY="3"/>
+                </item>
+                <item id="E2" posX="1" posY="4" istBelegt="false" istSchwarz="false"/>
+                <item id="F2" posX="1" posY="5" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="9" idW="1" posX="1" posY="5"/>
+                </item>
+                <item id="G2" posX="1" posY="6" istBelegt="false" istSchwarz="false"/>
+                <item id="H2" posX="1" posY="7" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="10" idW="1" posX="1" posY="7"/>
+                </item>
+                <item id="I2" posX="1" posY="8" istBelegt="false" istSchwarz="false"/>
+                <item id="J2" posX="1" posY="9" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="11" idW="1" posX="1" posY="9"/>
+                </item>
+                <item id="K2" posX="1" posY="10" istBelegt="false" istSchwarz="false"/>
+                <item id="L2" posX="1" posY="11" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="12" idW="1" posX="1" posY="11"/>
+                </item>
+            </brett>
+            <brett>
+                <item id="A3" posX="2" posY="0" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="13" idW="1" posX="2" posY="0"/>
+                </item>
+                <item id="B3" posX="2" posY="1" istBelegt="false" istSchwarz="false"/>
+                <item id="C3" posX="2" posY="2" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="14" idW="1" posX="2" posY="2"/>
+                </item>
+                <item id="D3" posX="2" posY="3" istBelegt="false" istSchwarz="false"/>
+                <item id="E3" posX="2" posY="4" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="15" idW="1" posX="2" posY="4"/>
+                </item>
+                <item id="F3" posX="2" posY="5" istBelegt="false" istSchwarz="false"/>
+                <item id="G3" posX="2" posY="6" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="16" idW="1" posX="2" posY="6"/>
+                </item>
+                <item id="H3" posX="2" posY="7" istBelegt="false" istSchwarz="false"/>
+                <item id="I3" posX="2" posY="8" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="17" idW="1" posX="2" posY="8"/>
+                </item>
+                <item id="J3" posX="2" posY="9" istBelegt="false" istSchwarz="false"/>
+                <item id="K3" posX="2" posY="10" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="18" idW="1" posX="2" posY="10"/>
+                </item>
+                <item id="L3" posX="2" posY="11" istBelegt="false" istSchwarz="false"/>
+            </brett>
+            <brett>
+                <item id="A4" posX="3" posY="0" istBelegt="false" istSchwarz="false"/>
+                <item id="B4" posX="3" posY="1" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="19" idW="1" posX="3" posY="1"/>
+                </item>
+                <item id="C4" posX="3" posY="2" istBelegt="false" istSchwarz="false"/>
+                <item id="D4" posX="3" posY="3" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="20" idW="1" posX="3" posY="3"/>
+                </item>
+                <item id="E4" posX="3" posY="4" istBelegt="false" istSchwarz="false"/>
+                <item id="F4" posX="3" posY="5" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="21" idW="1" posX="3" posY="5"/>
+                </item>
+                <item id="G4" posX="3" posY="6" istBelegt="false" istSchwarz="false"/>
+                <item id="H4" posX="3" posY="7" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="22" idW="1" posX="3" posY="7"/>
+                </item>
+                <item id="I4" posX="3" posY="8" istBelegt="false" istSchwarz="false"/>
+                <item id="J4" posX="3" posY="9" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="23" idW="1" posX="3" posY="9"/>
+                </item>
+                <item id="K4" posX="3" posY="10" istBelegt="false" istSchwarz="false"/>
+                <item id="L4" posX="3" posY="11" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="24" idW="1" posX="3" posY="11"/>
+                </item>
+            </brett>
+            <brett>
+                <item id="A5" posX="4" posY="0" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="25" idW="1" posX="4" posY="0"/>
+                </item>
+                <item id="B5" posX="4" posY="1" istBelegt="false" istSchwarz="false"/>
+                <item id="C5" posX="4" posY="2" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="26" idW="1" posX="4" posY="2"/>
+                </item>
+                <item id="D5" posX="4" posY="3" istBelegt="false" istSchwarz="false"/>
+                <item id="E5" posX="4" posY="4" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="27" idW="1" posX="4" posY="4"/>
+                </item>
+                <item id="F5" posX="4" posY="5" istBelegt="false" istSchwarz="false"/>
+                <item id="G5" posX="4" posY="6" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="28" idW="1" posX="4" posY="6"/>
+                </item>
+                <item id="H5" posX="4" posY="7" istBelegt="false" istSchwarz="false"/>
+                <item id="I5" posX="4" posY="8" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="29" idW="1" posX="4" posY="8"/>
+                </item>
+                <item id="J5" posX="4" posY="9" istBelegt="false" istSchwarz="false"/>
+                <item id="K5" posX="4" posY="10" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="30" idW="1" posX="4" posY="10"/>
+                </item>
+                <item id="L5" posX="4" posY="11" istBelegt="false" istSchwarz="false"/>
+            </brett>
+            <brett>
+                <item id="A6" posX="5" posY="0" istBelegt="false" istSchwarz="false"/>
+                <item id="B6" posX="5" posY="1" istBelegt="false" istSchwarz="true"/>
+                <item id="C6" posX="5" posY="2" istBelegt="false" istSchwarz="false"/>
+                <item id="D6" posX="5" posY="3" istBelegt="false" istSchwarz="true"/>
+                <item id="E6" posX="5" posY="4" istBelegt="false" istSchwarz="false"/>
+                <item id="F6" posX="5" posY="5" istBelegt="false" istSchwarz="true"/>
+                <item id="G6" posX="5" posY="6" istBelegt="false" istSchwarz="false"/>
+                <item id="H6" posX="5" posY="7" istBelegt="false" istSchwarz="true"/>
+                <item id="I6" posX="5" posY="8" istBelegt="false" istSchwarz="false"/>
+                <item id="J6" posX="5" posY="9" istBelegt="false" istSchwarz="true"/>
+                <item id="K6" posX="5" posY="10" istBelegt="false" istSchwarz="false"/>
+                <item id="L6" posX="5" posY="11" istBelegt="false" istSchwarz="true"/>
+            </brett>
+            <brett>
+                <item id="A7" posX="6" posY="0" istBelegt="false" istSchwarz="true"/>
+                <item id="B7" posX="6" posY="1" istBelegt="false" istSchwarz="false"/>
+                <item id="C7" posX="6" posY="2" istBelegt="false" istSchwarz="true"/>
+                <item id="D7" posX="6" posY="3" istBelegt="false" istSchwarz="false"/>
+                <item id="E7" posX="6" posY="4" istBelegt="false" istSchwarz="true"/>
+                <item id="F7" posX="6" posY="5" istBelegt="false" istSchwarz="false"/>
+                <item id="G7" posX="6" posY="6" istBelegt="false" istSchwarz="true"/>
+                <item id="H7" posX="6" posY="7" istBelegt="false" istSchwarz="false"/>
+                <item id="I7" posX="6" posY="8" istBelegt="false" istSchwarz="true"/>
+                <item id="J7" posX="6" posY="9" istBelegt="false" istSchwarz="false"/>
+                <item id="K7" posX="6" posY="10" istBelegt="false" istSchwarz="true"/>
+                <item id="L7" posX="6" posY="11" istBelegt="false" istSchwarz="false"/>
+            </brett>
+            <brett>
+                <item id="A8" posX="7" posY="0" istBelegt="false" istSchwarz="false"/>
+                <item id="B8" posX="7" posY="1" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="25" posX="7" posY="1"/>
+                </item>
+                <item id="C8" posX="7" posY="2" istBelegt="false" istSchwarz="false"/>
+                <item id="D8" posX="7" posY="3" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="26" posX="7" posY="3"/>
+                </item>
+                <item id="E8" posX="7" posY="4" istBelegt="false" istSchwarz="false"/>
+                <item id="F8" posX="7" posY="5" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="27" posX="7" posY="5"/>
+                </item>
+                <item id="G8" posX="7" posY="6" istBelegt="false" istSchwarz="false"/>
+                <item id="H8" posX="7" posY="7" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="28" posX="7" posY="7"/>
+                </item>
+                <item id="I8" posX="7" posY="8" istBelegt="false" istSchwarz="false"/>
+                <item id="J8" posX="7" posY="9" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="29" posX="7" posY="9"/>
+                </item>
+                <item id="K8" posX="7" posY="10" istBelegt="false" istSchwarz="false"/>
+                <item id="L8" posX="7" posY="11" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="30" posX="7" posY="11"/>
+                </item>
+            </brett>
+            <brett>
+                <item id="A9" posX="8" posY="0" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="19" posX="8" posY="0"/>
+                </item>
+                <item id="B9" posX="8" posY="1" istBelegt="false" istSchwarz="false"/>
+                <item id="C9" posX="8" posY="2" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="20" posX="8" posY="2"/>
+                </item>
+                <item id="D9" posX="8" posY="3" istBelegt="false" istSchwarz="false"/>
+                <item id="E9" posX="8" posY="4" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="21" posX="8" posY="4"/>
+                </item>
+                <item id="F9" posX="8" posY="5" istBelegt="false" istSchwarz="false"/>
+                <item id="G9" posX="8" posY="6" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="22" posX="8" posY="6"/>
+                </item>
+                <item id="H9" posX="8" posY="7" istBelegt="false" istSchwarz="false"/>
+                <item id="I9" posX="8" posY="8" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="23" posX="8" posY="8"/>
+                </item>
+                <item id="J9" posX="8" posY="9" istBelegt="false" istSchwarz="false"/>
+                <item id="K9" posX="8" posY="10" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="24" posX="8" posY="10"/>
+                </item>
+                <item id="L9" posX="8" posY="11" istBelegt="false" istSchwarz="false"/>
+            </brett>
+            <brett>
+                <item id="A10" posX="9" posY="0" istBelegt="false" istSchwarz="false"/>
+                <item id="B10" posX="9" posY="1" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="13" posX="9" posY="1"/>
+                </item>
+                <item id="C10" posX="9" posY="2" istBelegt="false" istSchwarz="false"/>
+                <item id="D10" posX="9" posY="3" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="14" posX="9" posY="3"/>
+                </item>
+                <item id="E10" posX="9" posY="4" istBelegt="false" istSchwarz="false"/>
+                <item id="F10" posX="9" posY="5" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="15" posX="9" posY="5"/>
+                </item>
+                <item id="G10" posX="9" posY="6" istBelegt="false" istSchwarz="false"/>
+                <item id="H10" posX="9" posY="7" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="16" posX="9" posY="7"/>
+                </item>
+                <item id="I10" posX="9" posY="8" istBelegt="false" istSchwarz="false"/>
+                <item id="J10" posX="9" posY="9" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="17" posX="9" posY="9"/>
+                </item>
+                <item id="K10" posX="9" posY="10" istBelegt="false" istSchwarz="false"/>
+                <item id="L10" posX="9" posY="11" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="18" posX="9" posY="11"/>
+                </item>
+            </brett>
+            <brett>
+                <item id="A11" posX="10" posY="0" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="7" posX="10" posY="0"/>
+                </item>
+                <item id="B11" posX="10" posY="1" istBelegt="false" istSchwarz="false"/>
+                <item id="C11" posX="10" posY="2" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="8" posX="10" posY="2"/>
+                </item>
+                <item id="D11" posX="10" posY="3" istBelegt="false" istSchwarz="false"/>
+                <item id="E11" posX="10" posY="4" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="9" posX="10" posY="4"/>
+                </item>
+                <item id="F11" posX="10" posY="5" istBelegt="false" istSchwarz="false"/>
+                <item id="G11" posX="10" posY="6" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="10" posX="10" posY="6"/>
+                </item>
+                <item id="H11" posX="10" posY="7" istBelegt="false" istSchwarz="false"/>
+                <item id="I11" posX="10" posY="8" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="11" posX="10" posY="8"/>
+                </item>
+                <item id="J11" posX="10" posY="9" istBelegt="false" istSchwarz="false"/>
+                <item id="K11" posX="10" posY="10" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="12" posX="10" posY="10"/>
+                </item>
+                <item id="L11" posX="10" posY="11" istBelegt="false" istSchwarz="false"/>
+            </brett>
+            <brett>
+                <item id="A12" posX="11" posY="0" istBelegt="false" istSchwarz="false"/>
+                <item id="B12" posX="11" posY="1" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="1" posX="11" posY="1"/>
+                </item>
+                <item id="C12" posX="11" posY="2" istBelegt="false" istSchwarz="false"/>
+                <item id="D12" posX="11" posY="3" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="2" posX="11" posY="3"/>
+                </item>
+                <item id="E12" posX="11" posY="4" istBelegt="false" istSchwarz="false"/>
+                <item id="F12" posX="11" posY="5" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="3" posX="11" posY="5"/>
+                </item>
+                <item id="G12" posX="11" posY="6" istBelegt="false" istSchwarz="false"/>
+                <item id="H12" posX="11" posY="7" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="4" posX="11" posY="7"/>
+                </item>
+                <item id="I12" posX="11" posY="8" istBelegt="false" istSchwarz="false"/>
+                <item id="J12" posX="11" posY="9" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="5" posX="11" posY="9"/>
+                </item>
+                <item id="K12" posX="11" posY="10" istBelegt="false" istSchwarz="false"/>
+                <item id="L12" posX="11" posY="11" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="6" posX="11" posY="11"/>
+                </item>
+            </brett>
+        </brett>
+    </k1>
+    <k2 schlag="false">
+        <spieler maxSpieler="2" anzSpieler="2" weißvergeben="true" schwarzvergeben="true" farbe="WEIß" istAmZug="false" istKi="true">
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="1" posX="11" posY="1"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="2" posX="11" posY="3"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="3" posX="11" posY="5"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="4" posX="11" posY="7"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="5" posX="11" posY="9"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="6" posX="11" posY="11"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="7" posX="10" posY="0"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="8" posX="10" posY="2"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="9" posX="10" posY="4"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="10" posX="10" posY="6"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="11" posX="10" posY="8"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="12" posX="10" posY="10"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="13" posX="9" posY="1"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="14" posX="9" posY="3"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="15" posX="9" posY="5"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="16" posX="9" posY="7"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="17" posX="9" posY="9"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="18" posX="9" posY="11"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="19" posX="8" posY="0"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="20" posX="8" posY="2"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="21" posX="8" posY="4"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="22" posX="8" posY="6"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="23" posX="8" posY="8"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="24" posX="8" posY="10"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="25" posX="7" posY="1"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="26" posX="7" posY="3"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="27" posX="7" posY="5"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="28" posX="7" posY="7"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="29" posX="7" posY="9"/>
+            <figuren farbe="WEIß" istDame="false" idS="1" idW="30" posX="7" posY="11"/>
+        </spieler>
+        <brett maxBrett="1" anzBrett="1">
+            <brett>
+                <item id="A1" posX="0" posY="0" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="1" idW="1" posX="0" posY="0"/>
+                </item>
+                <item id="B1" posX="0" posY="1" istBelegt="false" istSchwarz="false"/>
+                <item id="C1" posX="0" posY="2" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="2" idW="1" posX="0" posY="2"/>
+                </item>
+                <item id="D1" posX="0" posY="3" istBelegt="false" istSchwarz="false"/>
+                <item id="E1" posX="0" posY="4" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="3" idW="1" posX="0" posY="4"/>
+                </item>
+                <item id="F1" posX="0" posY="5" istBelegt="false" istSchwarz="false"/>
+                <item id="G1" posX="0" posY="6" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="4" idW="1" posX="0" posY="6"/>
+                </item>
+                <item id="H1" posX="0" posY="7" istBelegt="false" istSchwarz="false"/>
+                <item id="I1" posX="0" posY="8" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="5" idW="1" posX="0" posY="8"/>
+                </item>
+                <item id="J1" posX="0" posY="9" istBelegt="false" istSchwarz="false"/>
+                <item id="K1" posX="0" posY="10" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="6" idW="1" posX="0" posY="10"/>
+                </item>
+                <item id="L1" posX="0" posY="11" istBelegt="false" istSchwarz="false"/>
+            </brett>
+            <brett>
+                <item id="A2" posX="1" posY="0" istBelegt="false" istSchwarz="false"/>
+                <item id="B2" posX="1" posY="1" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="7" idW="1" posX="1" posY="1"/>
+                </item>
+                <item id="C2" posX="1" posY="2" istBelegt="false" istSchwarz="false"/>
+                <item id="D2" posX="1" posY="3" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="8" idW="1" posX="1" posY="3"/>
+                </item>
+                <item id="E2" posX="1" posY="4" istBelegt="false" istSchwarz="false"/>
+                <item id="F2" posX="1" posY="5" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="9" idW="1" posX="1" posY="5"/>
+                </item>
+                <item id="G2" posX="1" posY="6" istBelegt="false" istSchwarz="false"/>
+                <item id="H2" posX="1" posY="7" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="10" idW="1" posX="1" posY="7"/>
+                </item>
+                <item id="I2" posX="1" posY="8" istBelegt="false" istSchwarz="false"/>
+                <item id="J2" posX="1" posY="9" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="11" idW="1" posX="1" posY="9"/>
+                </item>
+                <item id="K2" posX="1" posY="10" istBelegt="false" istSchwarz="false"/>
+                <item id="L2" posX="1" posY="11" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="12" idW="1" posX="1" posY="11"/>
+                </item>
+            </brett>
+            <brett>
+                <item id="A3" posX="2" posY="0" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="13" idW="1" posX="2" posY="0"/>
+                </item>
+                <item id="B3" posX="2" posY="1" istBelegt="false" istSchwarz="false"/>
+                <item id="C3" posX="2" posY="2" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="14" idW="1" posX="2" posY="2"/>
+                </item>
+                <item id="D3" posX="2" posY="3" istBelegt="false" istSchwarz="false"/>
+                <item id="E3" posX="2" posY="4" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="15" idW="1" posX="2" posY="4"/>
+                </item>
+                <item id="F3" posX="2" posY="5" istBelegt="false" istSchwarz="false"/>
+                <item id="G3" posX="2" posY="6" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="16" idW="1" posX="2" posY="6"/>
+                </item>
+                <item id="H3" posX="2" posY="7" istBelegt="false" istSchwarz="false"/>
+                <item id="I3" posX="2" posY="8" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="17" idW="1" posX="2" posY="8"/>
+                </item>
+                <item id="J3" posX="2" posY="9" istBelegt="false" istSchwarz="false"/>
+                <item id="K3" posX="2" posY="10" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="18" idW="1" posX="2" posY="10"/>
+                </item>
+                <item id="L3" posX="2" posY="11" istBelegt="false" istSchwarz="false"/>
+            </brett>
+            <brett>
+                <item id="A4" posX="3" posY="0" istBelegt="false" istSchwarz="false"/>
+                <item id="B4" posX="3" posY="1" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="19" idW="1" posX="3" posY="1"/>
+                </item>
+                <item id="C4" posX="3" posY="2" istBelegt="false" istSchwarz="false"/>
+                <item id="D4" posX="3" posY="3" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="20" idW="1" posX="3" posY="3"/>
+                </item>
+                <item id="E4" posX="3" posY="4" istBelegt="false" istSchwarz="false"/>
+                <item id="F4" posX="3" posY="5" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="21" idW="1" posX="3" posY="5"/>
+                </item>
+                <item id="G4" posX="3" posY="6" istBelegt="false" istSchwarz="false"/>
+                <item id="H4" posX="3" posY="7" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="22" idW="1" posX="3" posY="7"/>
+                </item>
+                <item id="I4" posX="3" posY="8" istBelegt="false" istSchwarz="false"/>
+                <item id="J4" posX="3" posY="9" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="23" idW="1" posX="3" posY="9"/>
+                </item>
+                <item id="K4" posX="3" posY="10" istBelegt="false" istSchwarz="false"/>
+                <item id="L4" posX="3" posY="11" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="24" idW="1" posX="3" posY="11"/>
+                </item>
+            </brett>
+            <brett>
+                <item id="A5" posX="4" posY="0" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="25" idW="1" posX="4" posY="0"/>
+                </item>
+                <item id="B5" posX="4" posY="1" istBelegt="false" istSchwarz="false"/>
+                <item id="C5" posX="4" posY="2" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="26" idW="1" posX="4" posY="2"/>
+                </item>
+                <item id="D5" posX="4" posY="3" istBelegt="false" istSchwarz="false"/>
+                <item id="E5" posX="4" posY="4" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="27" idW="1" posX="4" posY="4"/>
+                </item>
+                <item id="F5" posX="4" posY="5" istBelegt="false" istSchwarz="false"/>
+                <item id="G5" posX="4" posY="6" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="28" idW="1" posX="4" posY="6"/>
+                </item>
+                <item id="H5" posX="4" posY="7" istBelegt="false" istSchwarz="false"/>
+                <item id="I5" posX="4" posY="8" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="29" idW="1" posX="4" posY="8"/>
+                </item>
+                <item id="J5" posX="4" posY="9" istBelegt="false" istSchwarz="false"/>
+                <item id="K5" posX="4" posY="10" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="SCHWARZ" istDame="false" idS="30" idW="1" posX="4" posY="10"/>
+                </item>
+                <item id="L5" posX="4" posY="11" istBelegt="false" istSchwarz="false"/>
+            </brett>
+            <brett>
+                <item id="A6" posX="5" posY="0" istBelegt="false" istSchwarz="false"/>
+                <item id="B6" posX="5" posY="1" istBelegt="false" istSchwarz="true"/>
+                <item id="C6" posX="5" posY="2" istBelegt="false" istSchwarz="false"/>
+                <item id="D6" posX="5" posY="3" istBelegt="false" istSchwarz="true"/>
+                <item id="E6" posX="5" posY="4" istBelegt="false" istSchwarz="false"/>
+                <item id="F6" posX="5" posY="5" istBelegt="false" istSchwarz="true"/>
+                <item id="G6" posX="5" posY="6" istBelegt="false" istSchwarz="false"/>
+                <item id="H6" posX="5" posY="7" istBelegt="false" istSchwarz="true"/>
+                <item id="I6" posX="5" posY="8" istBelegt="false" istSchwarz="false"/>
+                <item id="J6" posX="5" posY="9" istBelegt="false" istSchwarz="true"/>
+                <item id="K6" posX="5" posY="10" istBelegt="false" istSchwarz="false"/>
+                <item id="L6" posX="5" posY="11" istBelegt="false" istSchwarz="true"/>
+            </brett>
+            <brett>
+                <item id="A7" posX="6" posY="0" istBelegt="false" istSchwarz="true"/>
+                <item id="B7" posX="6" posY="1" istBelegt="false" istSchwarz="false"/>
+                <item id="C7" posX="6" posY="2" istBelegt="false" istSchwarz="true"/>
+                <item id="D7" posX="6" posY="3" istBelegt="false" istSchwarz="false"/>
+                <item id="E7" posX="6" posY="4" istBelegt="false" istSchwarz="true"/>
+                <item id="F7" posX="6" posY="5" istBelegt="false" istSchwarz="false"/>
+                <item id="G7" posX="6" posY="6" istBelegt="false" istSchwarz="true"/>
+                <item id="H7" posX="6" posY="7" istBelegt="false" istSchwarz="false"/>
+                <item id="I7" posX="6" posY="8" istBelegt="false" istSchwarz="true"/>
+                <item id="J7" posX="6" posY="9" istBelegt="false" istSchwarz="false"/>
+                <item id="K7" posX="6" posY="10" istBelegt="false" istSchwarz="true"/>
+                <item id="L7" posX="6" posY="11" istBelegt="false" istSchwarz="false"/>
+            </brett>
+            <brett>
+                <item id="A8" posX="7" posY="0" istBelegt="false" istSchwarz="false"/>
+                <item id="B8" posX="7" posY="1" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="25" posX="7" posY="1"/>
+                </item>
+                <item id="C8" posX="7" posY="2" istBelegt="false" istSchwarz="false"/>
+                <item id="D8" posX="7" posY="3" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="26" posX="7" posY="3"/>
+                </item>
+                <item id="E8" posX="7" posY="4" istBelegt="false" istSchwarz="false"/>
+                <item id="F8" posX="7" posY="5" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="27" posX="7" posY="5"/>
+                </item>
+                <item id="G8" posX="7" posY="6" istBelegt="false" istSchwarz="false"/>
+                <item id="H8" posX="7" posY="7" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="28" posX="7" posY="7"/>
+                </item>
+                <item id="I8" posX="7" posY="8" istBelegt="false" istSchwarz="false"/>
+                <item id="J8" posX="7" posY="9" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="29" posX="7" posY="9"/>
+                </item>
+                <item id="K8" posX="7" posY="10" istBelegt="false" istSchwarz="false"/>
+                <item id="L8" posX="7" posY="11" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="30" posX="7" posY="11"/>
+                </item>
+            </brett>
+            <brett>
+                <item id="A9" posX="8" posY="0" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="19" posX="8" posY="0"/>
+                </item>
+                <item id="B9" posX="8" posY="1" istBelegt="false" istSchwarz="false"/>
+                <item id="C9" posX="8" posY="2" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="20" posX="8" posY="2"/>
+                </item>
+                <item id="D9" posX="8" posY="3" istBelegt="false" istSchwarz="false"/>
+                <item id="E9" posX="8" posY="4" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="21" posX="8" posY="4"/>
+                </item>
+                <item id="F9" posX="8" posY="5" istBelegt="false" istSchwarz="false"/>
+                <item id="G9" posX="8" posY="6" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="22" posX="8" posY="6"/>
+                </item>
+                <item id="H9" posX="8" posY="7" istBelegt="false" istSchwarz="false"/>
+                <item id="I9" posX="8" posY="8" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="23" posX="8" posY="8"/>
+                </item>
+                <item id="J9" posX="8" posY="9" istBelegt="false" istSchwarz="false"/>
+                <item id="K9" posX="8" posY="10" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="24" posX="8" posY="10"/>
+                </item>
+                <item id="L9" posX="8" posY="11" istBelegt="false" istSchwarz="false"/>
+            </brett>
+            <brett>
+                <item id="A10" posX="9" posY="0" istBelegt="false" istSchwarz="false"/>
+                <item id="B10" posX="9" posY="1" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="13" posX="9" posY="1"/>
+                </item>
+                <item id="C10" posX="9" posY="2" istBelegt="false" istSchwarz="false"/>
+                <item id="D10" posX="9" posY="3" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="14" posX="9" posY="3"/>
+                </item>
+                <item id="E10" posX="9" posY="4" istBelegt="false" istSchwarz="false"/>
+                <item id="F10" posX="9" posY="5" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="15" posX="9" posY="5"/>
+                </item>
+                <item id="G10" posX="9" posY="6" istBelegt="false" istSchwarz="false"/>
+                <item id="H10" posX="9" posY="7" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="16" posX="9" posY="7"/>
+                </item>
+                <item id="I10" posX="9" posY="8" istBelegt="false" istSchwarz="false"/>
+                <item id="J10" posX="9" posY="9" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="17" posX="9" posY="9"/>
+                </item>
+                <item id="K10" posX="9" posY="10" istBelegt="false" istSchwarz="false"/>
+                <item id="L10" posX="9" posY="11" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="18" posX="9" posY="11"/>
+                </item>
+            </brett>
+            <brett>
+                <item id="A11" posX="10" posY="0" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="7" posX="10" posY="0"/>
+                </item>
+                <item id="B11" posX="10" posY="1" istBelegt="false" istSchwarz="false"/>
+                <item id="C11" posX="10" posY="2" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="8" posX="10" posY="2"/>
+                </item>
+                <item id="D11" posX="10" posY="3" istBelegt="false" istSchwarz="false"/>
+                <item id="E11" posX="10" posY="4" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="9" posX="10" posY="4"/>
+                </item>
+                <item id="F11" posX="10" posY="5" istBelegt="false" istSchwarz="false"/>
+                <item id="G11" posX="10" posY="6" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="10" posX="10" posY="6"/>
+                </item>
+                <item id="H11" posX="10" posY="7" istBelegt="false" istSchwarz="false"/>
+                <item id="I11" posX="10" posY="8" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="11" posX="10" posY="8"/>
+                </item>
+                <item id="J11" posX="10" posY="9" istBelegt="false" istSchwarz="false"/>
+                <item id="K11" posX="10" posY="10" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="12" posX="10" posY="10"/>
+                </item>
+                <item id="L11" posX="10" posY="11" istBelegt="false" istSchwarz="false"/>
+            </brett>
+            <brett>
+                <item id="A12" posX="11" posY="0" istBelegt="false" istSchwarz="false"/>
+                <item id="B12" posX="11" posY="1" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="1" posX="11" posY="1"/>
+                </item>
+                <item id="C12" posX="11" posY="2" istBelegt="false" istSchwarz="false"/>
+                <item id="D12" posX="11" posY="3" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="2" posX="11" posY="3"/>
+                </item>
+                <item id="E12" posX="11" posY="4" istBelegt="false" istSchwarz="false"/>
+                <item id="F12" posX="11" posY="5" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="3" posX="11" posY="5"/>
+                </item>
+                <item id="G12" posX="11" posY="6" istBelegt="false" istSchwarz="false"/>
+                <item id="H12" posX="11" posY="7" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="4" posX="11" posY="7"/>
+                </item>
+                <item id="I12" posX="11" posY="8" istBelegt="false" istSchwarz="false"/>
+                <item id="J12" posX="11" posY="9" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="5" posX="11" posY="9"/>
+                </item>
+                <item id="K12" posX="11" posY="10" istBelegt="false" istSchwarz="false"/>
+                <item id="L12" posX="11" posY="11" istBelegt="true" istSchwarz="true">
+                    <spielfigur farbe="WEIß" istDame="false" idS="1" idW="6" posX="11" posY="11"/>
+                </item>
+            </brett>
+        </brett>
+    </k2>
+    <amZug>WEIß</amZug>
+</spielBean>

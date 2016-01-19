@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Logik.SpielBean;
+
 /**
  * Servlet implementation class resetServlet
  */
@@ -38,12 +40,14 @@ public class resetServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
+		SpielBean spiel=(SpielBean) session.getServletContext().getAttribute("spiel");
+		
 		String reset = null;
 		session.getServletContext().setAttribute("Xz", reset);
 		session.getServletContext().setAttribute("Yz", reset);
 		session.getServletContext().setAttribute("Xs", reset);
 		session.getServletContext().setAttribute("Ys", reset);
-
+spiel.log("RESET");
 		response.sendRedirect("refreshServlet");
 	}
 

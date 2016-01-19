@@ -25,19 +25,19 @@ public class DatenzugriffXML implements iDatenzugriff, Serializable {
 			JAXBContext jaxbContext = JAXBContext.newInstance(SpielBean.class);
 			Marshaller m = jaxbContext.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			m.marshal(o, System.out);
+		//	m.marshal(o, System.out);
 			fw = new FileWriter(pfad);
 			m.marshal(o, fw);
 
 		} catch (JAXBException e) {
 			e.printStackTrace();
-			System.err.println(e);
+		//	System.err.println(e);
 		}
 		finally{
 			try{
 				fw.close();
 			}catch(Exception e){
-				System.err.println(e);
+		//		System.err.println(e);
 			}
 		}
 	}
@@ -45,13 +45,13 @@ public class DatenzugriffXML implements iDatenzugriff, Serializable {
 	@Override
 	public Object laden(File selectedFile) throws IOException {
 		 try {
-System.out.println("dübdüb");
+//System.out.println("dübdüb");
 				
 				JAXBContext jaxbContext = JAXBContext.newInstance(SpielBean.class);
 				Unmarshaller um = jaxbContext.createUnmarshaller();
 				Object o = (Object) um.unmarshal(selectedFile);
 				SpielBean p = (SpielBean) o;
-				System.out.println(p);
+			//	System.out.println(p);
 				return p;
 				
 

@@ -47,11 +47,12 @@ public class ladenServlet extends HttpServlet {
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		String name = request.getParameter("dateiName");
 
-		String location = "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/WebContent/WebSaves/"; // Hannes
+		// String location =
+		// "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/WebContent/WebSaves/";
+		// // Hannes
 		// String location =
 		// "/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Saves/";//Baris
-		// String location =
-		// "/home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Saves/";//Daniel
+		String location = "/home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Saves/";// Daniel
 
 		File selectedFile = new File(location + name);
 		// System.out.println(spiel.getBrett());
