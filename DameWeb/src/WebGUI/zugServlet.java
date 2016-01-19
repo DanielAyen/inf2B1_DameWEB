@@ -62,7 +62,7 @@ public class zugServlet extends HttpServlet {
 				if (session.getServletContext().getAttribute("Xs") != null && session.getServletContext().getAttribute("Ys") != null) {
 					session.getServletContext().setAttribute("Xz", x);
 					session.getServletContext().setAttribute("Yz", y);
-					gezogen = spiel.ziehen(session.getServletContext().getAttribute("Xs") + "+" + session.getServletContext().getAttribute("Ys"), session.getServletContext().getAttribute("Xz") + "+" + session.getServletContext().getAttribute("Yz"));
+					gezogen = spiel.ziehen(""+session.getServletContext().getAttribute("Xs") + session.getServletContext().getAttribute("Ys"),""+ session.getServletContext().getAttribute("Xz") + session.getServletContext().getAttribute("Yz"));
 				//	System.out.println(session.getServletContext().getAttribute("Xs")+""+""+session.getServletContext().getAttribute("Ys"));
 					
 				//	System.out.println(session.getServletContext().getAttribute("Xz")+""+""+session.getServletContext().getAttribute("Yz"));
