@@ -1,5 +1,7 @@
 package WebGUI;
+
 import Logik.FarbEnum;
+
 import Logik.SpielBean;
 import Logik.Spieler;
 import java.io.IOException;
@@ -9,12 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class NeuServlet
+ */
 @WebServlet("/NeuServlet")
 public class NeuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private SpielBean spiel;
 	private FarbEnum farbeS1 = null;
 	private FarbEnum farbeS2 = null;
+	
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
 	public NeuServlet() {
 		super();
 	}

@@ -23,7 +23,6 @@ public class weiterServletJa extends HttpServlet {
 	 */
 	public weiterServletJa() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -31,7 +30,7 @@ public class weiterServletJa extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		this.doPost(request, response);
 	}
 
 	/**
@@ -42,11 +41,11 @@ public class weiterServletJa extends HttpServlet {
 		HttpSession session = request.getSession();
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 
-	
-
-				spiel.willWeiterZiehen();
-				spiel.setkannWeiterSchlagen();
-				response.sendRedirect("refreshServlet");
+		//Endposition wird Startposition. Man kann nur mit dem Stein weiterspielen
+		spiel.willWeiterZiehen();
+		//Setzt Boolean kannWeiterSchlagen=false;
+		spiel.setkannWeiterSchlagen();
+		response.sendRedirect("refreshServlet");
 	}
 
 }

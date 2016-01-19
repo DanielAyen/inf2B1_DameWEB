@@ -28,15 +28,14 @@ public class refreshServlet extends HttpServlet {
 	 */
 	public refreshServlet() {
 		super();
-
-	}
+}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		this.doPost(request, response);
 	}
 
 	/**
@@ -48,6 +47,7 @@ public class refreshServlet extends HttpServlet {
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		FarbEnum farbeS1 = (FarbEnum) session.getAttribute("farbe");
 		String deineFarbe;
+		
 		if (farbeS1 != null) {
 
 			if (farbeS1 == FarbEnum.SCHWARZ) {
@@ -55,10 +55,8 @@ public class refreshServlet extends HttpServlet {
 			} else {
 				deineFarbe = "Weiß";
 			}
-
 			session.setAttribute("deineFarbe", deineFarbe);
-
-		}
+}
 
 		// Nur eine Abfrage zur Farbe weil noch kein zweiter Spieler existiert
 		if (spiel == null || farbeS1 == null) {

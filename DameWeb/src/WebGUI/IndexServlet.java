@@ -53,9 +53,6 @@ public class IndexServlet extends HttpServlet {
 			// Falls es schon zwei Spieler gibt, wird man auf die Voll.jsp
 			// weitergeleitet
 			response.sendRedirect("Voll.jsp");
-
 		}
-
 	}
-
 }

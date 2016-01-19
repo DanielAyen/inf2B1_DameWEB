@@ -26,8 +26,7 @@ public class BeitretenServlet extends HttpServlet {
 	 */
 	public BeitretenServlet() {
 		super();
-
-	}
+}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -64,17 +63,6 @@ public class BeitretenServlet extends HttpServlet {
 			session.getServletContext().setAttribute("farbeS2", farbeS2);
 			spiel.starten();
 			response.sendRedirect("refreshServlet");
-		
-			
-//			String act = request.getParameter("beitreten");
-//
-//			if (act == null) {
-//				response.sendRedirect("Index.html");
-//
-//			} else if (act.equals("Beitreten")) {
-//				response.sendRedirect("Beitreten.html");// NACH SPIELEN SUCHEN
-//			}
-
 		}
 	}
 }

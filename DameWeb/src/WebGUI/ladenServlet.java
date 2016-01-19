@@ -28,7 +28,6 @@ public class ladenServlet extends HttpServlet {
 	 */
 	public ladenServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -36,7 +35,7 @@ public class ladenServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		this.doPost(request, response);
 	}
 
 	/**
@@ -48,21 +47,19 @@ public class ladenServlet extends HttpServlet {
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		String name = request.getParameter("dateiName");
 
-		String location = "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/WebContent/WebSaves/"; // Hannes 
-		
-		// "/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Saves/"
-		// "/home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Saves/";// Daniel
+		String location = "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/WebContent/WebSaves/"; // Hannes
+		// String location =
+		// "/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Saves/";//Baris
+		// String location =
+		// "/home/informatik/repository_lokal/inf2B1_DameWEB/inf2B1_DameWEB/DameWeb/Saves/";//Daniel
 
 		File selectedFile = new File(location + name);
 		// System.out.println(spiel.getBrett());
 		if (!selectedFile.exists()) {
-
 			response.sendRedirect("Laden.jsp");
 
 		} else {
-
 			if (selectedFile.getName().endsWith(".pdf")) {
-
 				response.sendRedirect("Laden.jsp");
 
 			} else if (selectedFile.getName().endsWith(".csv")) {
@@ -79,30 +76,30 @@ public class ladenServlet extends HttpServlet {
 				if (s1.getIstKi() && s2.getIstKi()) {// ki ki
 
 					session.setAttribute("farbe", s1.getFarbe());
-
 					response.sendRedirect("refreshServlet");
 				}
 				if (s1.getIstKi() && !s2.getIstKi()) {// ki mensch
+
 					session.setAttribute("farbe", s2.getFarbe());
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && s2.getIstKi()) {// mensch ki
+
 					session.setAttribute("farbe", s1.getFarbe());
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
+
 					session.setAttribute("farbe", s1.getFarbe());
 					response.sendRedirect("AufSpielerWartenServlet");
 
 					// geht wenn davor 2menschen gespielt haben
 					// wenn aber 100% sein soll muss man einen löschen dann auf dem warten
 					// servlet sitzen und der andre muss beitreten
-
 				}
 
 				// -------------------für ser und xml:
 				// session.getServletContext.setAttribute("spiel" spiel)
-
 			}
 			if (selectedFile.getName().endsWith(".ser")) {
 				SpielBean save = (SpielBean) spiel.laden(selectedFile);
@@ -120,18 +117,20 @@ public class ladenServlet extends HttpServlet {
 				if (s1.getIstKi() && s2.getIstKi()) {// ki ki
 
 					session.setAttribute("farbe", s1.getFarbe());
-
 					response.sendRedirect("refreshServlet");
 				}
 				if (s1.getIstKi() && !s2.getIstKi()) {// ki mensch
+
 					session.setAttribute("farbe", s2.getFarbe());
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && s2.getIstKi()) {// mensch ki
+
 					session.setAttribute("farbe", s1.getFarbe());
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
+
 					session.setAttribute("farbe", s1.getFarbe());
 					response.sendRedirect("AufSpielerWartenServlet");
 
@@ -142,15 +141,15 @@ public class ladenServlet extends HttpServlet {
 				}
 
 			} else if (selectedFile.getName().endsWith(".xml")) {
+
 				SpielBean save = (SpielBean) spiel.laden(selectedFile);
 				// System.out.println(selectedFile);
 				// System.out.println(selectedFile.getName());
 				// System.out.println(selectedFile.getAbsolutePath());
-		
-				
-					save.getS1().getAlleFiguren().clear();
-					save.getS2().getAlleFiguren().clear();
-				
+
+				save.getS1().getAlleFiguren().clear();
+				save.getS2().getAlleFiguren().clear();
+
 				for (int zeile = 0; zeile <= save.getBrett().getBrettGroesse() - 1; zeile++) {
 					for (int spalte = 0; spalte <= save.getBrett().getBrettGroesse() - 1; spalte++) {
 						if (save.getBrett().getBrettFeldIndex(zeile, spalte).getIstSchwarz()) {
@@ -162,19 +161,17 @@ public class ladenServlet extends HttpServlet {
 								}
 								if (fig.getFarbe() == FarbEnum.WEIß) {
 									save.getS2().getAlleFiguren().add(fig);
-									}
 								}
 							}
 						}
+					}
 				}
-				
-				if (save.getK1() != null){
-					KI_Dame nk1 = new KI_Dame(save.getS1(),save.getBrett());
+				if (save.getK1() != null) {
+					KI_Dame nk1 = new KI_Dame(save.getS1(), save.getBrett());
 					save.setK1(nk1);
 				}
-				
-				if (save.getK2() != null){
-					KI_Dame nk2 = new KI_Dame(save.getS2(),save.getBrett());
+				if (save.getK2() != null) {
+					KI_Dame nk2 = new KI_Dame(save.getS2(), save.getBrett());
 					save.setK2(nk2);
 				}
 
@@ -186,18 +183,20 @@ public class ladenServlet extends HttpServlet {
 				if (s1.getIstKi() && s2.getIstKi()) {// ki ki
 
 					session.setAttribute("farbe", s1.getFarbe());
-
 					response.sendRedirect("refreshServlet");
 				}
 				if (s1.getIstKi() && !s2.getIstKi()) {// ki mensch
+
 					session.setAttribute("farbe", s2.getFarbe());
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && s2.getIstKi()) {// mensch ki
+
 					session.setAttribute("farbe", s1.getFarbe());
 					response.sendRedirect("refreshServlet");
 
 				} else if (!s1.getIstKi() && !s2.getIstKi()) {// mensch mensch
+
 					session.setAttribute("farbe", s1.getFarbe());
 					response.sendRedirect("AufSpielerWartenServlet");
 

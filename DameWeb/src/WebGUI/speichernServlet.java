@@ -25,7 +25,6 @@ public class speichernServlet extends HttpServlet {
 	 */
 	public speichernServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -33,7 +32,7 @@ public class speichernServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		this.doPost(request, response);
 	}
 
 	/**
@@ -46,40 +45,40 @@ public class speichernServlet extends HttpServlet {
 		String name = request.getParameter("dateiName");
 		String auswahl1 = request.getParameter("auswahl1");
 
-		String location="/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/WebContent/WebSaves/";// Hannes
-		//Daniel "/home/informatik/repository_lokal/inf2B1_DameWEB/DameWeb/Saves/"
-		//baris "/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Saves/"
-				
-				
-	//	System.out.println(name);
-		//System.out.println(auswahl1);
+		String location = "/home/informatik/repository_lokal/inf2B1_DameWEBB/DameWeb/WebContent/WebSaves/";// Hannes
+		// String
+		// location="/home/informatik/repository_lokal/inf2B1_DameWEB/DameWeb/Saves/";//Daniel
+		// String
+		// location="/home/informatik/LokalRepo/inf2B1_DameWEB/DameWeb/Saves/";//Baris
+
+		// System.out.println(name);
+		// System.out.println(auswahl1);
 
 		if (name != null && auswahl1 != null) {
 			if ((Pattern.matches("[a-z A-Z 0-9]*", name))) {
-			//	System.out.println("JOP");
-			//	System.out.println(spiel.getBrett());
+				// System.out.println("JOP");
+				// System.out.println(spiel.getBrett());
 
 				if (auswahl1.equals("CSV")) {
 					File selectedFile = new File(location + name + ".csv");
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
 					response.sendRedirect("OK.jsp");
-					
+
 				} else if (auswahl1.equals("SER")) {
 					File selectedFile = new File(location + name + ".ser");
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
 					response.sendRedirect("OK.jsp");
-					
+
 				} else if (auswahl1.equals("PDF")) {
 					File selectedFile = new File(location + name + ".pdf");
 					selectedFile.createNewFile();
 					spiel.Speichern(selectedFile);
-					session.getServletContext().setAttribute("pfad", location+name+".pdf");
-					session.getServletContext().setAttribute("pfad", "WebSaves/"+name+".pdf");
+					session.getServletContext().setAttribute("pfad", location + name + ".pdf");
+					session.getServletContext().setAttribute("pfad", "WebSaves/" + name + ".pdf");
 					response.sendRedirect("PDF.jsp");
-					
-					
+
 				} else if (auswahl1.equals("XML")) {
 					File selectedFile = new File(location + name + ".xml");
 					selectedFile.createNewFile();
@@ -88,18 +87,12 @@ public class speichernServlet extends HttpServlet {
 				} else {
 					response.sendRedirect("Speichern.jsp");
 				}
-
 			} else {
-			//	System.out.println("NOP");
-
+				// System.out.println("NOP");
 				response.sendRedirect("Speichern.jsp");
-
 			}
-
 		} else {
 			response.sendRedirect("Speichern.jsp");
-
 		}
-
 	}
 }

@@ -23,7 +23,6 @@ public class kiServlet extends HttpServlet {
 	 */
 	public kiServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -31,7 +30,7 @@ public class kiServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		this.doPost(request, response);
 	}
 
 	/**
@@ -44,7 +43,6 @@ public class kiServlet extends HttpServlet {
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		
 		spiel.kizieh();
-		
 		response.sendRedirect("refreshServlet");
 	}
 

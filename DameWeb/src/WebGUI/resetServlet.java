@@ -21,7 +21,6 @@ public class resetServlet extends HttpServlet {
 	 */
 	public resetServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -29,8 +28,7 @@ public class resetServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(request, response);
+		this.doPost(request, response);
 	}
 
 	/**
