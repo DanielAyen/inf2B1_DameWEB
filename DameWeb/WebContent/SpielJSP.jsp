@@ -16,8 +16,13 @@
 		SpielBean spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
 		FarbEnum farbe = (FarbEnum) cheatSession.getAttribute("farbe");
 		String deineFarbe = (String) session.getAttribute("deineFarbe");
-	
+		int groesse=12;
 
+		int g=(int) session.getServletContext().getAttribute("groesse");
+		if(g==8||g==10||g==12){
+			groesse=g;
+		}
+		
 		if (deineFarbe != null) {
 			out.println("Du hast die Farbe: " + deineFarbe);
 		}
@@ -29,7 +34,6 @@
 		} else {
 			//out.print(farbeS1);
 			//out.print(farbeS2);
-			out.print("<h1>Spiel</h1>");
 			//System.out.println("JAVA Console Blabla");
 			java.util.Date date = new java.util.Date();
 			int cnt = 0;
@@ -43,7 +47,7 @@
 
 			//HttpSession session=request.getSession();
 
-			String[][] brettAusgabe = new String[12][12];
+			String[][] brettAusgabe = new String[groesse][groesse];
 			brettAusgabe = (String[][]) session.getAttribute("brett");
 			String gewonnen = (String) session.getAttribute("spielergewonnen");
 			if (gewonnen != null) {
@@ -58,8 +62,8 @@
 					// gewonnen(spiel.getGewonnenerSpieler());
 					cnt = 0;
 
-					for (int i = 11; i >= 0; i--) {// zeilefor (int i = 11; i >= 0; i--)(int i = 0; i <12; i++)
-						for (int j = 0; j < 12; j++) {// spalte
+					for (int i = groesse-1; i >= 0; i--) {// zeilefor (int i = 11; i >= 0; i--)(int i = 0; i <12; i++)
+						for (int j = 0; j < groesse; j++) {// spalte
 
 							String test = brettAusgabe[i][j];
 							//System.out.println(test);
@@ -144,7 +148,7 @@
 								cnt++;
 							}
 
-							if (cnt == 12) {
+							if (cnt == groesse) {
 								ausgabe += "</tr><tr>";
 								cnt = 0;
 							}
@@ -159,9 +163,9 @@
 				//System.out.println(session.getAttribute("log"));
 				ausgabe += "</tr>";
 
-				out.println("date : " + date + "");
+				out.println("||Prüf-Datum: " + date + "");
 
-				out.println("<table border=\"1\" align=\"center\" > <tr><td> <form action=\"Speichern.jsp\"><input type=\"submit\" value=\"Speichern\"></form></td><td> <form action=\"Laden.jsp\"><input type=\"submit\" value=\"Laden\"></form></td></table>");
+				out.println("<table border=\"1\" align=\"center\" style=\"vertical-align:bottom\"> <tr><td> <form action=\"Speichern.jsp\"><input type=\"submit\" value=\"Speichern\"></form></td><td> <form action=\"Laden.jsp\"><input type=\"submit\" value=\"Laden\"></form></td></table>");
 
 				out.println("<form action=\"refreshServlet\"><input type=\"submit\" value=\"Refresh\" style=\"position:relative; top:10%; left: 95%;\"></form>");
 				out.println("<form action=\"kiServlet\"><input type=\"submit\" value=\"KI ziehen\" style=\"position:relative; top:10%; left: 95%;\"></form>");

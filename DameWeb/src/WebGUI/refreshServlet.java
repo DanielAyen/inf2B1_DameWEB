@@ -22,7 +22,7 @@ public class refreshServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private SpielBean spiel;
 	private String ausgabe;
-
+private int groesse=12;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -58,11 +58,17 @@ public class refreshServlet extends HttpServlet {
 			session.setAttribute("deineFarbe", deineFarbe);
 }
 
+		int g=(int) session.getServletContext().getAttribute("groesse");
+		if(g==8||g==10||g==12){
+			groesse=g;
+		}
+		
+		
 		// Nur eine Abfrage zur Farbe weil noch kein zweiter Spieler existiert
 		if (spiel == null || farbeS1 == null) {
 			response.sendRedirect("Cheater.jsp");
 		} else {
-			String[][] brettS = new String[12][12];
+			String[][] brettS = new String[groesse][groesse];
 			// String feld = "x,y, Feld f s/w, Figur n/s/d,Figur f s/w/n,aktiv y/n";
 
 			spiel = (SpielBean) session.getServletContext().getAttribute("spiel");
@@ -79,7 +85,7 @@ public class refreshServlet extends HttpServlet {
 						gewonnen = "" + gewspieler.getFarbe();
 						session.setAttribute("spielergewonnen", gewonnen);
 						// gewonnen JSP
-					} else {
+					}
 
 						if (spiel.kannWeiterZiehen()) {
 							
@@ -88,8 +94,8 @@ public class refreshServlet extends HttpServlet {
 						}else{
 
 							int cnt = 0;
-							for (int i = 11; i >= 0; i--) {// zeile
-								for (int j = 0; j <= 12 - 1; j++) {// spalte
+							for (int i = groesse-1; i >= 0; i--) {// zeile
+								for (int j = 0; j <= groesse - 1; j++) {// spalte
 
 									if (spiel.getBrett().getBrettFeldIndex(i, j).getIstSchwarz()) {
 										if (!spiel.getBrett().getBrettFeldIndex(i, j).getIstBelegt()) {
@@ -245,7 +251,7 @@ public class refreshServlet extends HttpServlet {
 										cnt++;
 									}
 
-									if (cnt == 12) {
+									if (cnt == groesse) {
 										// ausgabe += "</tr><tr>";
 										cnt = 0;
 									}
@@ -259,7 +265,7 @@ public class refreshServlet extends HttpServlet {
 							response.sendRedirect("SpielJSP.jsp");
 						}
 						// ausgabe += "</tr>";
-					}
+					
 				} else {
 					// ausgabe += "Fehler!";
 

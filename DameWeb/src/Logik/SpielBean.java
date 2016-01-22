@@ -123,7 +123,7 @@ public class SpielBean implements iBediener, Serializable {
 		
 		// ///////////////////////////////////////////
 		// System.out.println("Bitte gebe die gewuenschte Spielbrett Groesse ein. ( 8 , 10 , 12 )");
-		aufbauen(12);
+		aufbauen(8);
 		 anzeigen();
 	}
 

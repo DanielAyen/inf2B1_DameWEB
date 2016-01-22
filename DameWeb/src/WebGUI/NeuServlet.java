@@ -21,7 +21,7 @@ public class NeuServlet extends HttpServlet {
 	private SpielBean spiel;
 	private FarbEnum farbeS1 = null;
 	private FarbEnum farbeS2 = null;
-	
+	private int groesse=12;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -44,6 +44,12 @@ public class NeuServlet extends HttpServlet {
 		//System.out.println(auswahl1);
 		//System.out.println(auswahl2);
 		//System.out.println(farbe);
+		
+		int g=(int) session.getServletContext().getAttribute("groesse");
+		if(g==8||g==10||g==12){
+			groesse=g;
+		}
+		
 		if (auswahl1 != null && auswahl2 != null && farbe != null) {
 			// Farbe
 			if (farbe.equals("Schwarz")) {
@@ -112,7 +118,7 @@ public class NeuServlet extends HttpServlet {
 					response.sendRedirect("AufSpielerWarten.jsp");
 				}
 				// _________________________________________________________________________________
-				spiel.spielBauen(12);
+				spiel.spielBauen(groesse);
 				
 			}
 			// Wenn Mensch gegen KI oder andersrum, kann direkt gespielt werden

@@ -17,7 +17,7 @@ public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private SpielBean spiel = null;
-
+private int groesse=8;
 	public IndexServlet() {
 		super();
 	}
@@ -33,11 +33,13 @@ public class IndexServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 
 		if (spiel == null) {
+			
 			spiel = new SpielBean();
-			spiel.aufbauen(12); // wird in NeuServlet aufgebaut //bei auskommentieren
+			spiel.aufbauen(groesse); // wird in NeuServlet aufgebaut //bei auskommentieren
 													// fehler
 			// Hier wird das spiel an die Session gehängt (Application Scope)
 			session.getServletContext().setAttribute("spiel", spiel);
+			session.getServletContext().setAttribute("groesse", groesse);
 			response.sendRedirect("Neu.jsp");// Weiterleitung an die Neu.jsp
 
 		} else if (spiel.getSpielerAnzahl() == 1) {
